@@ -3,29 +3,26 @@
  */
 package in.ac.iitmandi.compl.ds.value;
 
+import in.ac.iitmandi.compl.ds.AbstractPayment;
+import in.ac.iitmandi.compl.ds.AbstractTransaction;
 import in.ac.iitmandi.compl.ds.CustomerDetails;
+import in.ac.iitmandi.compl.ds.JSONResult;
+import in.ac.iitmandi.compl.utils.CommonUtils;
 
 /**
  * @author arjun
  *
  */
-public class ValueTransaction {
+public class ValueTransaction extends AbstractTransaction{
 
 	private PaymentInfo paymentInfo;
-	private String TransactionID;
-	private CustomerDetails custDetails;
 	private PaymentInfo feeInfo;
-//	private boolean TransactionStatus;
-//	private double TransactionFee;
-	
-	
 	/**
 	 * 
 	 */
 	public ValueTransaction() {
 		// TODO Auto-generated constructor stub
 	}
-
 
 	/**
 	 * @param transactionID
@@ -36,84 +33,66 @@ public class ValueTransaction {
 	public ValueTransaction(String transactionID, CustomerDetails custDetails, PaymentInfo paymentInfo) {
 		this.TransactionID = transactionID;
 		this.custDetails = custDetails;
-//		this.TransactionStatus = transactionStatus;
-//		this.TransactionFee = transactionFee;
 		this.paymentInfo = paymentInfo;
 		this.feeInfo = new PaymentInfo(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
 	}
-
-
-	/**
-	 * @return the transactionID
-	 */
-	public String getTransactionID() {
-		return TransactionID;
+	
+	@Override
+	public double getTransactionAmount() {
+		return this.getPaymentInfo().getTransactionAmount();
 	}
 
-
-	/**
-	 * @param transactionID the transactionID to set
-	 */
-	public void setTransactionID(String transactionID) {
-		TransactionID = transactionID;
+	@Override
+	public double getCustAcctBalance() {
+		return this.getPaymentInfo().getCustAccountBalance();
 	}
 
-
-	/**
-	 * @return the custDetails
-	 */
-	public CustomerDetails getCustDetails() {
-		return custDetails;
+	@Override
+	public boolean getTransactionStatus() {
+		return this.getPaymentInfo().isTransactionStatus();
 	}
 
-
-	/**
-	 * @param custDetails the custDetails to set
-	 */
-	public void setCustDetails(CustomerDetails custDetails) {
-		this.custDetails = custDetails;
+	@Override
+	public AbstractPayment createNewPaymentObject(double processingFee) {
+		return new PaymentInfo(this.getPaymentInfo().getCustAccountBalance(), this.getPaymentInfo().getTransactionDate(), this.getPaymentInfo().getTransactionTime(), processingFee, this.getPaymentInfo().getTransactionFeeRate(), false); 
 	}
 
+	@Override
+	public void resetFeeInfo(AbstractPayment paymentInfo) {
+		if(paymentInfo instanceof PaymentInfo) {
+			this.setFeeInfo((PaymentInfo)paymentInfo);
+		}
+	}
 
-//	/**
-//	 * @return the transactionStatus
-//	 */
-//	public boolean isTransactionStatus() {
-//		return TransactionStatus;
-//	}
-//
-//
-//	/**
-//	 * @param transactionStatus the transactionStatus to set
-//	 */
-//	public void setTransactionStatus(boolean transactionStatus) {
-//		TransactionStatus = transactionStatus;
-//	}
-//
-//
-//	/**
-//	 * @return the transactionFee
-//	 */
-//	public double getTransactionFee() {
-//		return TransactionFee;
-//	}
-//
-//
-//	/**
-//	 * @param transactionFee the transactionFee to set
-//	 */
-//	public void setTransactionFee(double transactionFee) {
-//		TransactionFee = transactionFee;
-//	}
+	@Override
+	public void updateTransactionStatus(boolean status) {
+		this.setFeeInfo(new PaymentInfo(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
+	}
 
-
+	@Override
+	public AbstractTransaction convertToTransactionObject(JSONResult result) {
+		CustomerDetails cDetails = new CustomerDetails(result.getCustomerID(), result.getCustomerDOB(), result.getCustGender(), result.getCustLocation());
+		PaymentInfo pi = createValuePaymentInfo(result);
+		return new ValueTransaction(result.getTransactionID(), cDetails, pi);
+	}
+	
+	private PaymentInfo createValuePaymentInfo(JSONResult result) {
+		double cAccBalance = 0;
+		if(result.getCustAccountBalance() != null && !result.getCustAccountBalance().isEmpty()) {
+			cAccBalance =  Double.parseDouble(result.getCustAccountBalance());
+		}
+		int paymentDate = CommonUtils.formatDateString(result.getTransactionDate());
+		int paymentTime = result.getTransactionTime();
+		return new PaymentInfo(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
+	}
+	
+	
 	/**
 	 * @return the paymentInfo
 	 */
 	public PaymentInfo getPaymentInfo() {
 		return paymentInfo;
 	}
-
 
 	/**
 	 * @param paymentInfo the paymentInfo to set
@@ -130,12 +109,10 @@ public class ValueTransaction {
 		return feeInfo;
 	}
 
-
 	/**
 	 * @param feeInfo the feeInfo to set
 	 */
 	public void setFeeInfo(PaymentInfo feeInfo) {
 		this.feeInfo = feeInfo;
 	}
-	
 }

@@ -3,11 +3,13 @@
  */
 package in.ac.iitmandi.compl.ds.nonvalue;
 
+import in.ac.iitmandi.compl.ds.AbstractPayment;
+
 /**
  * @author arjun
  *
  */
-public class NonValuePaymentInfo {
+public class NonValuePaymentInfo extends AbstractPayment{
 
 	private final double CustAccountBalance;
 	private final int TransactionDate;

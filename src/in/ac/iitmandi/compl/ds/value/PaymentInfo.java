@@ -3,11 +3,13 @@
  */
 package in.ac.iitmandi.compl.ds.value;
 
+import in.ac.iitmandi.compl.ds.AbstractPayment;
+
 /**
  * @author arjun
  *
  */
-public primitive class PaymentInfo {
+public class PaymentInfo extends AbstractPayment {
 
 	private final double CustAccountBalance;
 	private final int TransactionDate;
@@ -49,6 +51,8 @@ public primitive class PaymentInfo {
 //		TransactionFee = transactionFee;
 	}
 
+	
+	
 	/**
 	 * @return the custAccountBalance
 	 */

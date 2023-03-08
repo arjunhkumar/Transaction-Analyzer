@@ -3,11 +3,13 @@
  */
 package in.ac.iitmandi.compl.ds.value;
 
+import in.ac.iitmandi.compl.ds.AbstractPayment;
+
 /**
  * @author arjun
  *
  */
-public primitive class PaymentInfo3 {
+public class PaymentInfoMeduim extends AbstractPayment{
 
 	private final double CustAccountBalance;
 	private final int TransactionDate;
@@ -29,7 +31,7 @@ public primitive class PaymentInfo3 {
 	/**
 	 * 
 	 */
-	public PaymentInfo3() {
+	public PaymentInfoMeduim() {
 		this.CustAccountBalance = 0d;
 		this.TransactionDate = 0;
 		this.TransactionTime = 0;
@@ -56,7 +58,7 @@ public primitive class PaymentInfo3 {
 	 * @param transactionFeeRate
 	 * @param transactionStatus
 	 */
-	public PaymentInfo3(double custAccountBalance, int transactionDate, int transactionTime, double transactionAmount,
+	public PaymentInfoMeduim(double custAccountBalance, int transactionDate, int transactionTime, double transactionAmount,
 			float transactionFeeRate, boolean transactionStatus) {
 		CustAccountBalance = custAccountBalance;
 		TransactionDate = transactionDate;
@@ -118,16 +120,79 @@ public primitive class PaymentInfo3 {
 		return TransactionStatus;
 	}
 	
-	public PaymentInfo3 genNewPaymentInfo(float feePercent) {
-		return new PaymentInfo3(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, TransactionStatus); 
+	/**
+	 * @return the unusedField1
+	 */
+	public double getUnusedField1() {
+		return unusedField1;
+	}
+
+	/**
+	 * @return the unusedField2
+	 */
+	public double getUnusedField2() {
+		return unusedField2;
+	}
+
+	/**
+	 * @return the unusedField3
+	 */
+	public double getUnusedField3() {
+		return unusedField3;
+	}
+
+	/**
+	 * @return the unusedField4
+	 */
+	public double getUnusedField4() {
+		return unusedField4;
+	}
+
+	/**
+	 * @return the unusedField5
+	 */
+	public double getUnusedField5() {
+		return unusedField5;
+	}
+
+	/**
+	 * @return the unusedField6
+	 */
+	public double getUnusedField6() {
+		return unusedField6;
+	}
+
+	/**
+	 * @return the unusedField7
+	 */
+	public double getUnusedField7() {
+		return unusedField7;
+	}
+
+	/**
+	 * @return the unusedField8
+	 */
+	public double getUnusedField8() {
+		return unusedField8;
+	}
+
+	/**
+	 * @return the unusedField9
+	 */
+	public double getUnusedField9() {
+		return unusedField9;
+	}
+
+	public PaymentInfoMeduim genNewPaymentInfo(float feePercent) {
+		return new PaymentInfoMeduim(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, TransactionStatus); 
 	}
 	
-	public PaymentInfo3 genNewPaymentInfo(boolean status) {
-		return new PaymentInfo3(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, TransactionFeeRate, status); 
+	public PaymentInfoMeduim genNewPaymentInfo(boolean status) {
+		return new PaymentInfoMeduim(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, TransactionFeeRate, status); 
 	}
 	
-	public PaymentInfo3 genNewPaymentInfo(float feePercent, boolean status) {
-		return new PaymentInfo3(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, status); 
+	public PaymentInfoMeduim genNewPaymentInfo(float feePercent, boolean status) {
+		return new PaymentInfoMeduim(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, status); 
 	}
 	
 //	public PaymentInfo genNewPaymentInfo(double fee, boolean status) {

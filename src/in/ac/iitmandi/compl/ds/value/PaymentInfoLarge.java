@@ -3,11 +3,13 @@
  */
 package in.ac.iitmandi.compl.ds.value;
 
+import in.ac.iitmandi.compl.ds.AbstractPayment;
+
 /**
  * @author arjun
  *
  */
-public primitive class PaymentInfo2 {
+public class PaymentInfoLarge extends AbstractPayment{
 
 	private final double CustAccountBalance;
 	private final int TransactionDate;
@@ -39,7 +41,7 @@ public primitive class PaymentInfo2 {
 	/**
 	 * 
 	 */
-	public PaymentInfo2() {
+	public PaymentInfoLarge() {
 		this.CustAccountBalance = 0d;
 		this.TransactionDate = 0;
 		this.TransactionTime = 0;
@@ -76,7 +78,7 @@ public primitive class PaymentInfo2 {
 	 * @param transactionFeeRate
 	 * @param transactionStatus
 	 */
-	public PaymentInfo2(double custAccountBalance, int transactionDate, int transactionTime, double transactionAmount,
+	public PaymentInfoLarge(double custAccountBalance, int transactionDate, int transactionTime, double transactionAmount,
 			float transactionFeeRate, boolean transactionStatus) {
 		CustAccountBalance = custAccountBalance;
 		TransactionDate = transactionDate;
@@ -148,16 +150,149 @@ public primitive class PaymentInfo2 {
 		return TransactionStatus;
 	}
 	
-	public PaymentInfo2 genNewPaymentInfo(float feePercent) {
-		return new PaymentInfo2(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, TransactionStatus); 
+	/**
+	 * @return the unusedField1
+	 */
+	public double getUnusedField1() {
+		return unusedField1;
+	}
+
+	/**
+	 * @return the unusedField2
+	 */
+	public double getUnusedField2() {
+		return unusedField2;
+	}
+
+	/**
+	 * @return the unusedField3
+	 */
+	public double getUnusedField3() {
+		return unusedField3;
+	}
+
+	/**
+	 * @return the unusedField4
+	 */
+	public double getUnusedField4() {
+		return unusedField4;
+	}
+
+	/**
+	 * @return the unusedField5
+	 */
+	public double getUnusedField5() {
+		return unusedField5;
+	}
+
+	/**
+	 * @return the unusedField6
+	 */
+	public double getUnusedField6() {
+		return unusedField6;
+	}
+
+	/**
+	 * @return the unusedField7
+	 */
+	public double getUnusedField7() {
+		return unusedField7;
+	}
+
+	/**
+	 * @return the unusedField8
+	 */
+	public double getUnusedField8() {
+		return unusedField8;
+	}
+
+	/**
+	 * @return the unusedField9
+	 */
+	public double getUnusedField9() {
+		return unusedField9;
+	}
+
+	/**
+	 * @return the unusedField10
+	 */
+	public double getUnusedField10() {
+		return unusedField10;
+	}
+
+	/**
+	 * @return the unusedField11
+	 */
+	public double getUnusedField11() {
+		return unusedField11;
+	}
+
+	/**
+	 * @return the unusedField12
+	 */
+	public double getUnusedField12() {
+		return unusedField12;
+	}
+
+	/**
+	 * @return the unusedField13
+	 */
+	public double getUnusedField13() {
+		return unusedField13;
+	}
+
+	/**
+	 * @return the unusedField14
+	 */
+	public double getUnusedField14() {
+		return unusedField14;
+	}
+
+	/**
+	 * @return the unusedField15
+	 */
+	public double getUnusedField15() {
+		return unusedField15;
+	}
+
+	/**
+	 * @return the unusedField16
+	 */
+	public double getUnusedField16() {
+		return unusedField16;
+	}
+
+	/**
+	 * @return the unusedField17
+	 */
+	public double getUnusedField17() {
+		return unusedField17;
+	}
+
+	/**
+	 * @return the unusedField18
+	 */
+	public double getUnusedField18() {
+		return unusedField18;
+	}
+
+	/**
+	 * @return the unusedField19
+	 */
+	public double getUnusedField19() {
+		return unusedField19;
+	}
+
+	public PaymentInfoLarge genNewPaymentInfo(float feePercent) {
+		return new PaymentInfoLarge(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, TransactionStatus); 
 	}
 	
-	public PaymentInfo2 genNewPaymentInfo(boolean status) {
-		return new PaymentInfo2(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, TransactionFeeRate, status); 
+	public PaymentInfoLarge genNewPaymentInfo(boolean status) {
+		return new PaymentInfoLarge(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, TransactionFeeRate, status); 
 	}
 	
-	public PaymentInfo2 genNewPaymentInfo(float feePercent, boolean status) {
-		return new PaymentInfo2(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, status); 
+	public PaymentInfoLarge genNewPaymentInfo(float feePercent, boolean status) {
+		return new PaymentInfoLarge(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, status); 
 	}
 	
 //	public PaymentInfo genNewPaymentInfo(double fee, boolean status) {

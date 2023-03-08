@@ -3,7 +3,6 @@
  */
 package in.ac.iitmandi.compl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -15,19 +14,18 @@ import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Measurement;
 import org.openjdk.jmh.annotations.Mode;
-import org.openjdk.jmh.annotations.Param;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 
+import in.ac.iitmandi.compl.ds.AbstractTransaction;
 import in.ac.iitmandi.compl.ds.Dataset;
 import in.ac.iitmandi.compl.ds.nonvalue.NonValueTransaction;
-import in.ac.iitmandi.compl.ds.value.IntermediateValueTransaction;
 import in.ac.iitmandi.compl.ds.value.ValueTransaction;
-import in.ac.iitmandi.compl.ds.value.ValueTransaction2;
-import in.ac.iitmandi.compl.ds.value.ValueTransaction3;
+import in.ac.iitmandi.compl.ds.value.ValueTransactionLarge;
+import in.ac.iitmandi.compl.ds.value.ValueTransactionMeduim;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
 /**
@@ -36,13 +34,10 @@ import in.ac.iitmandi.compl.utils.CommonUtils;
  */
 @Fork(value = 2, jvmArgs = {"-Xms4G", "-Xmx12G"})
 @State(Scope.Benchmark)
-public class Harness implements MainInterface {
-
-	public List<NonValueTransaction> nonValueList;
-	public List<ValueTransaction> valueList;
-	public List<ValueTransaction2> valueList2;
-	public List<ValueTransaction3> valueList3;
-	public List<IntermediateValueTransaction> iValueList;
+public class Harness implements MainInterface{
+	
+	public Dataset ds;
+	public List<AbstractTransaction> transactionList;
 	
 	public Harness() {
 		// TODO Auto-generated constructor stub
@@ -55,33 +50,35 @@ public class Harness implements MainInterface {
 
 	@Setup(Level.Invocation)
 	public void setUpBenchmark() {
-//		if(mainObj.validateArgs(args)) {
-		Dataset ds = loadDataSet();
-		convertDataSet(ds);
-		this.valueList = new ArrayList<>();
-		
-//		}
+		this.ds = loadDataSet();
 	}
 
-	@Override
-	public void executeAnalysis(Dataset ds) {
-//		runNonValueAnalysis();
-//		runIValueAnalysis();
-//		runValueAnalysis();
+	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
+	@Warmup(iterations = 2)
+	@Measurement(iterations = 2, timeUnit =  TimeUnit.NANOSECONDS)
+	public void runNonValueAnalysis(Harness mainObj, Blackhole blackhole) {
+		Random randomGen = new Random();
+		NonValueMain nvMainObj = new NonValueMain();
+		this.transactionList = nvMainObj.convertToTransaction(ds, new NonValueTransaction());
+		CommonUtils.ITER_SIZE = 100;
+		double retObj = nvMainObj.processTransactions(this.transactionList, randomGen.nextInt(100));
+		blackhole.consume(retObj);
+		this.transactionList.clear();
 	}
 	
 	@Benchmark
 	@BenchmarkMode(Mode.AverageTime)
 	@Warmup(iterations = 2)
-	@Measurement(iterations = 2, timeUnit =  TimeUnit.MICROSECONDS)
-	public void runNonValueAnalysis(Harness mainObj, Blackhole blackhole) {
+	@Measurement(iterations = 2, timeUnit =  TimeUnit.NANOSECONDS)
+	public void runValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
-		NonValueMain nvMainObj = new NonValueMain();
-//		System.out.println("Args: "+mainObj.nonValueList);
-//		System.out.println("Args1: "+mainObj.valueList);
+		ValueMain vMainObj = new ValueMain();
+		this.transactionList = vMainObj.convertToTransaction(ds, new ValueTransaction());
 		CommonUtils.ITER_SIZE = 100;
-		double retObj = nvMainObj.processTransactions(mainObj.nonValueList, randomGen.nextInt(100));
+		double retObj = vMainObj.processTransactions(this.transactionList, randomGen.nextInt(100));
 		blackhole.consume(retObj);
+		this.transactionList.clear();
 	}
 
 	@Benchmark
@@ -90,48 +87,78 @@ public class Harness implements MainInterface {
 	@Measurement(iterations = 2, timeUnit =  TimeUnit.MICROSECONDS)
 	public void runIValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
-		IntermediateValueMain ivMainObj = new IntermediateValueMain();
+		IntermediateValueMain iMainObj = new IntermediateValueMain();
+		this.transactionList = iMainObj.convertToTransaction(ds, new ValueTransaction());
 		CommonUtils.ITER_SIZE = 100;
-		double retObj = ivMainObj.processTransactions(mainObj.iValueList, randomGen.nextInt(100));
+		double retObj = iMainObj.processTransactions(this.transactionList, randomGen.nextInt(100));
 		blackhole.consume(retObj);
-	}
-	
-	
-	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
-	@Warmup(iterations = 2)
-	@Measurement(iterations = 2, timeUnit =  TimeUnit.MICROSECONDS)
-	public void runValueAnalysis(Harness mainObj, Blackhole blackhole) {
-		Random randomGen = new Random();
-		ValueMain vMainObj = new ValueMain();
-		CommonUtils.ITER_SIZE = 100;
-		double retObj = vMainObj.processTransactions(mainObj.valueList, randomGen.nextInt(100));
-		blackhole.consume(retObj);
+		this.transactionList.clear();
 	}
 	
 	@Benchmark
 	@BenchmarkMode(Mode.AverageTime)
 	@Warmup(iterations = 2)
-	@Measurement(iterations = 2, timeUnit =  TimeUnit.MICROSECONDS)
-	public void runValue2Analysis(Harness mainObj, Blackhole blackhole) {
+	@Measurement(iterations = 2, timeUnit =  TimeUnit.NANOSECONDS)
+	public void runLargeValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
-		ValueMainRunner vMainObj = new ValueMainRunner();
+		ValueMainLarge vMainObj = new ValueMainLarge();
+		this.transactionList = vMainObj.convertToTransaction(ds, new ValueTransactionLarge());
 		CommonUtils.ITER_SIZE = 100;
-		double retObj = vMainObj.processTransactions(mainObj.valueList2, randomGen.nextInt(100));
+		double retObj = vMainObj.processTransactions(this.transactionList, randomGen.nextInt(100));
 		blackhole.consume(retObj);
+		this.transactionList.clear();
 	}
 	
 	@Benchmark
 	@BenchmarkMode(Mode.AverageTime)
 	@Warmup(iterations = 2)
-	@Measurement(iterations = 2, timeUnit =  TimeUnit.MICROSECONDS)
-	public void runValue3Analysis(Harness mainObj, Blackhole blackhole) {
+	@Measurement(iterations = 2, timeUnit =  TimeUnit.NANOSECONDS)
+	public void runMeduimValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
-		ValueMainRunner2 vMainObj = new ValueMainRunner2();
+		ValueMainMeduim vMainObj = new ValueMainMeduim();
+		this.transactionList = vMainObj.convertToTransaction(ds, new ValueTransactionMeduim());
 		CommonUtils.ITER_SIZE = 100;
-		double retObj = vMainObj.processTransactions(mainObj.valueList3, randomGen.nextInt(100));
+		double retObj = vMainObj.processTransactions(this.transactionList, randomGen.nextInt(100));
 		blackhole.consume(retObj);
+		this.transactionList.clear();
 	}
+	
+	
+//	@Benchmark
+//	@BenchmarkMode(Mode.AverageTime)
+//	@Warmup(iterations = 2)
+//	@Measurement(iterations = 2, timeUnit =  TimeUnit.MICROSECONDS)
+//	public void runValueAnalysis(Harness mainObj, Blackhole blackhole) {
+//		Random randomGen = new Random();
+//		ValueMain vMainObj = new ValueMain();
+//		CommonUtils.ITER_SIZE = 100;
+//		double retObj = vMainObj.processTransactions(mainObj.valueList, randomGen.nextInt(100));
+//		blackhole.consume(retObj);
+//	}
+	
+//	@Benchmark
+//	@BenchmarkMode(Mode.AverageTime)
+//	@Warmup(iterations = 2)
+//	@Measurement(iterations = 2, timeUnit =  TimeUnit.MICROSECONDS)
+//	public void runValue2Analysis(Harness mainObj, Blackhole blackhole) {
+//		Random randomGen = new Random();
+//		ValueMainLarge vMainObj = new ValueMainLarge();
+//		CommonUtils.ITER_SIZE = 100;
+//		double retObj = vMainObj.processTransactions(mainObj.valueList2, randomGen.nextInt(100));
+//		blackhole.consume(retObj);
+//	}
+//	
+//	@Benchmark
+//	@BenchmarkMode(Mode.AverageTime)
+//	@Warmup(iterations = 2)
+//	@Measurement(iterations = 2, timeUnit =  TimeUnit.MICROSECONDS)
+//	public void runValue3Analysis(Harness mainObj, Blackhole blackhole) {
+//		Random randomGen = new Random();
+//		ValueMainMeduim vMainObj = new ValueMainMeduim();
+//		CommonUtils.ITER_SIZE = 100;
+//		double retObj = vMainObj.processTransactions(mainObj.valueList3, randomGen.nextInt(100));
+//		blackhole.consume(retObj);
+//	}
 	
 	
 //	@Benchmark
@@ -156,20 +183,27 @@ public class Harness implements MainInterface {
 //		blackhole.consume(retObj);
 //	}
 
-	public void convertDataSet(Dataset ds) {
-		NonValueMain nvMainObj = new NonValueMain();
-		this.nonValueList = nvMainObj.convertToNonValueTransactions(ds);
-		IntermediateValueMain ivMainObj = new IntermediateValueMain();
-		this.iValueList = ivMainObj.convertToValueTransactions(ds);
-		
-		ValueMain vMainObj = new ValueMain();
-		this.valueList = vMainObj.convertToValueTransactions(ds);
-		
-		ValueMainRunner vMainObj2 = new ValueMainRunner();
-		this.valueList2 = vMainObj2.convertToValueTransactions(ds);
-		
-		ValueMainRunner2 vMainObj3 = new ValueMainRunner2();
-		this.valueList3 = vMainObj3.convertToValueTransactions(ds);
+//	public void convertDataSet(Dataset ds) {
+//		NonValueMain nvMainObj = new NonValueMain();
+//		this.transactionList = nvMainObj.convertToTransaction(ds, null);
+//		this.transactionList.clear();
+//		
+//		IntermediateValueMain ivMainObj = new IntermediateValueMain();
+//		this.iValueList = ivMainObj.convertToValueTransactions(ds);
+//		
+//		ValueMain vMainObj = new ValueMain();
+//		this.valueList = vMainObj.convertToValueTransactions(ds);
+//		
+//		ValueMainLarge vMainObj2 = new ValueMainLarge();
+//		this.valueList2 = vMainObj2.convertToValueTransactions(ds);
+//		
+//		ValueMainMeduim vMainObj3 = new ValueMainMeduim();
+//		this.valueList3 = vMainObj3.convertToValueTransactions(ds);
+//	}
+
+	@Override
+	public void executeAnalysis(Dataset ds) {
+		// TODO Auto-generated method stub
 	}
 
 	

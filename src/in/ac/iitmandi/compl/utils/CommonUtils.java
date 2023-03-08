@@ -9,11 +9,11 @@ import in.ac.iitmandi.compl.ds.nonvalue.NonValuePaymentInfo;
 import in.ac.iitmandi.compl.ds.nonvalue.NonValueTransaction;
 import in.ac.iitmandi.compl.ds.value.IntermediateValueTransaction;
 import in.ac.iitmandi.compl.ds.value.PaymentInfo;
-import in.ac.iitmandi.compl.ds.value.PaymentInfo2;
-import in.ac.iitmandi.compl.ds.value.PaymentInfo3;
+import in.ac.iitmandi.compl.ds.value.PaymentInfoLarge;
+import in.ac.iitmandi.compl.ds.value.PaymentInfoMeduim;
 import in.ac.iitmandi.compl.ds.value.ValueTransaction;
-import in.ac.iitmandi.compl.ds.value.ValueTransaction2;
-import in.ac.iitmandi.compl.ds.value.ValueTransaction3;
+import in.ac.iitmandi.compl.ds.value.ValueTransactionLarge;
+import in.ac.iitmandi.compl.ds.value.ValueTransactionMeduim;
 
 /**
  * @author arjun
@@ -40,15 +40,15 @@ public class CommonUtils {
 		PaymentInfo pi = INSTANCE.createPaymentInfo(result);
 		return new ValueTransaction(result.getTransactionID(), cDetails, pi);
 	}
-	public static ValueTransaction2 convertToVT2(JSONResult result) {
+	public static ValueTransactionLarge convertToVT2(JSONResult result) {
 		CustomerDetails cDetails = new CustomerDetails(result.getCustomerID(), result.getCustomerDOB(), result.getCustGender(), result.getCustLocation());
-		PaymentInfo2 pi = INSTANCE.createPaymentInfo2(result);
-		return new ValueTransaction2(result.getTransactionID(), cDetails, pi);
+		PaymentInfoLarge pi = INSTANCE.createPaymentInfo2(result);
+		return new ValueTransactionLarge(result.getTransactionID(), cDetails, pi);
 	}
-	public static ValueTransaction3 convertToVT3(JSONResult result) {
+	public static ValueTransactionMeduim convertToVT3(JSONResult result) {
 		CustomerDetails cDetails = new CustomerDetails(result.getCustomerID(), result.getCustomerDOB(), result.getCustGender(), result.getCustLocation());
-		PaymentInfo3 pi = INSTANCE.createPaymentInfo3(result);
-		return new ValueTransaction3(result.getTransactionID(), cDetails, pi);
+		PaymentInfoMeduim pi = INSTANCE.createPaymentInfo3(result);
+		return new ValueTransactionMeduim(result.getTransactionID(), cDetails, pi);
 	}
 	
 	
@@ -74,24 +74,24 @@ public class CommonUtils {
 		return new PaymentInfo(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
 	}
 	
-	private PaymentInfo2 createPaymentInfo2(JSONResult result) {
+	private PaymentInfoLarge createPaymentInfo2(JSONResult result) {
 		double cAccBalance = 0;
 		if(result.getCustAccountBalance() != null && !result.getCustAccountBalance().isEmpty()) {
 			cAccBalance =  Double.parseDouble(result.getCustAccountBalance());
 		}
 		int paymentDate = formatDateString(result.getTransactionDate());
 		int paymentTime = result.getTransactionTime();
-		return new PaymentInfo2(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
+		return new PaymentInfoLarge(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
 	}
 	
-	private PaymentInfo3 createPaymentInfo3(JSONResult result) {
+	private PaymentInfoMeduim createPaymentInfo3(JSONResult result) {
 		double cAccBalance = 0;
 		if(result.getCustAccountBalance() != null && !result.getCustAccountBalance().isEmpty()) {
 			cAccBalance =  Double.parseDouble(result.getCustAccountBalance());
 		}
 		int paymentDate = formatDateString(result.getTransactionDate());
 		int paymentTime = result.getTransactionTime();
-		return new PaymentInfo3(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
+		return new PaymentInfoMeduim(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
 	}
 	
 	
