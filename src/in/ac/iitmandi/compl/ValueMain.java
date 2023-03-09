@@ -25,6 +25,7 @@ public class ValueMain implements MainInterface{
 		startTime = System.currentTimeMillis();
 		ValueMain mainObj = new ValueMain();
 		if(mainObj.validateArgs(args)) {
+			startTime = System.currentTimeMillis();
 			Dataset ds = mainObj.loadDataSet();
 			mainObj.executeAnalysis(ds);
 			finishTime = System.currentTimeMillis();

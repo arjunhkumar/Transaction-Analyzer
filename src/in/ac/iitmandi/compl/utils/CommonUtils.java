@@ -27,6 +27,12 @@ public class CommonUtils {
 	private static final String PREPENDLOGVAL = "Log : ";
 	public static final CommonUtils INSTANCE = new CommonUtils();
 	
+	public static final Integer NONVALUEBENCH = 1;
+	public static final Integer VALUEBENCH = 2;
+	public static final Integer INTERMEDIATEVALUEBENCH = 3;
+	public static final Integer VALUEBENCHLARGE = 4;
+	public static final Integer VALUEBENCHMEDUIM = 5;
+	
 	public static String generateErrorMsg(String msg) {
 		return PREPENDERRORVAL + msg;
 	}

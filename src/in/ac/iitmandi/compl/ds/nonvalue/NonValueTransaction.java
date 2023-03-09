@@ -74,6 +74,11 @@ public class NonValueTransaction extends AbstractTransaction{
 		return new NonValueTransaction(result.getTransactionID(), cDetails, pi);
 	}
 	
+	@Override
+	public double computeFieldSum(int n_iterations) {
+		return this.getFieldSum(n_iterations);
+	}
+	
 	private NonValuePaymentInfo createNonValuePaymentInfo(JSONResult result) {
 		double cAccBalance = 0;
 		if(result.getCustAccountBalance() != null && !result.getCustAccountBalance().isEmpty()) {
@@ -82,6 +87,18 @@ public class NonValueTransaction extends AbstractTransaction{
 		int paymentDate = CommonUtils.formatDateString(result.getTransactionDate());
 		int paymentTime = result.getTransactionTime();
 		return new NonValuePaymentInfo(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
+	}
+	
+	private double getFieldSum(int iterVal) {
+		double sum = 0;
+		for(int i =0; i<iterVal;i++) {
+			sum += this.getPaymentInfo().getCustAccountBalance();
+			sum += this.getPaymentInfo().getTransactionAmount();
+			sum += this.getPaymentInfo().getTransactionDate();
+			sum += this.getPaymentInfo().getTransactionFeeRate();
+			sum += this.getPaymentInfo().getTransactionTime();
+		}
+		return sum;
 	}
 	
 	/**

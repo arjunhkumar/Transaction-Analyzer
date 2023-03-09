@@ -29,6 +29,7 @@ public abstract class AbstractTransaction {
 
 	public abstract double getTransactionAmount();
 	public abstract double getCustAcctBalance();
+	public abstract double computeFieldSum(int n_iterations);
 	public abstract boolean getTransactionStatus();
 	public abstract AbstractPayment createNewPaymentObject(double processingFee);
 	public abstract void resetFeeInfo(AbstractPayment paymentInfo);

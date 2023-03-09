@@ -79,6 +79,11 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 		return new ValueTransaction(result.getTransactionID(), cDetails, pi);
 	}
 	
+	@Override
+	public double computeFieldSum(int n_iterations) {
+		return this.getFieldSum(n_iterations);
+	}
+	
 	private PaymentInfo createValuePaymentInfo(JSONResult result) {
 		double cAccBalance = 0;
 		if(result.getCustAccountBalance() != null && !result.getCustAccountBalance().isEmpty()) {
@@ -87,6 +92,18 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 		int paymentDate = CommonUtils.formatDateString(result.getTransactionDate());
 		int paymentTime = result.getTransactionTime();
 		return new PaymentInfo(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
+	}
+	
+	private double getFieldSum(int iterVal) {
+		double sum = 0;
+		for(int i =0; i<iterVal;i++) {
+			sum += this.getPaymentInfo().getCustAccountBalance();
+			sum += this.getPaymentInfo().getTransactionAmount();
+			sum += this.getPaymentInfo().getTransactionDate();
+			sum += this.getPaymentInfo().getTransactionFeeRate();
+			sum += this.getPaymentInfo().getTransactionTime();
+		}
+		return sum;
 	}
 	
 	/**

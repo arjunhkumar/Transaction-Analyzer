@@ -77,7 +77,8 @@ public interface MainInterface {
 //		System.out.println(CommonUtils.generateLogMsg("Average processing fee: "+avgProcessingFee));
 		int numberOfCustomers = computeNumberOfCustomers(updateTransactions(workList,divident/CommonUtils.ITER_SIZE));
 //		System.out.println(CommonUtils.generateLogMsg("No. of transactions successfull are: "+numberOfCustomers));
-		blackHole =  avgTransactionAmt + avgProcessingFee +numberOfCustomers;
+		double accessVal = increasePrimitiveAccessOperation(workList,100);
+		blackHole =  avgTransactionAmt + avgProcessingFee +numberOfCustomers+ accessVal;
 		return blackHole;
 	}
 	
@@ -137,5 +138,16 @@ public interface MainInterface {
 		return 0;
 	}
 	
+	default double increasePrimitiveAccessOperation(List<AbstractTransaction> valueList,int randomInt) {
+		if(null != valueList && !valueList.isEmpty()) {
+			double sum = 0;
+			for(AbstractTransaction valueTransaction : valueList) {
+				double transactionAmt = valueTransaction.computeFieldSum(randomInt);
+				sum += transactionAmt;
+			}
+			return sum/valueList.size();
+		}
+		return 0;
+	}
 	
 }
