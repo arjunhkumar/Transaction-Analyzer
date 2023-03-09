@@ -34,8 +34,8 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 	 * @param transactionFee
 	 */
 	public IntermediateValueTransaction(String transactionID, CustomerDetails custDetails, PaymentInfo paymentInfo) {
-		this.TransactionID = transactionID;
-		this.custDetails = custDetails;
+//		this.TransactionID = transactionID;
+//		this.custDetails = custDetails;
 		this.paymentInfo = paymentInfo;
 		this.feeInfo = new NonValuePaymentInfo(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
 	}

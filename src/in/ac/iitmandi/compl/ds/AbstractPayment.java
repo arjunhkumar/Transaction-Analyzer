@@ -9,8 +9,6 @@ package in.ac.iitmandi.compl.ds;
  */
 public abstract class AbstractPayment {
 
-	
-	
 	/**
 	 * 
 	 */

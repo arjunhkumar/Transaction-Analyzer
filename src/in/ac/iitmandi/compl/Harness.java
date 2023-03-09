@@ -12,11 +12,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.Main;
 import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Measurement;
-import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
@@ -31,6 +29,7 @@ import in.ac.iitmandi.compl.ds.value.IntermediateValueTransaction;
 import in.ac.iitmandi.compl.ds.value.ValueTransaction;
 import in.ac.iitmandi.compl.ds.value.ValueTransactionLarge;
 import in.ac.iitmandi.compl.ds.value.ValueTransactionMeduim;
+import in.ac.iitmandi.compl.ds.value.ValueTransactionSmall;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
 /**
@@ -39,9 +38,9 @@ import in.ac.iitmandi.compl.utils.CommonUtils;
  */
 @Fork(value = 2, jvmArgs = {"-Xms4G", "-Xmx12G"})
 @State(Scope.Benchmark)
-@Warmup(iterations = 2, timeUnit =  TimeUnit.NANOSECONDS)
+@Warmup(iterations = 3, timeUnit =  TimeUnit.NANOSECONDS)
 @Measurement(iterations = 2, timeUnit =  TimeUnit.NANOSECONDS)
-@OutputTimeUnit(TimeUnit.MICROSECONDS)
+@OutputTimeUnit(TimeUnit.SECONDS)
 public class Harness implements MainInterface{
 	
 	public Dataset ds;
@@ -66,6 +65,7 @@ public class Harness implements MainInterface{
 		setupIValueBench();
 		setupValueBenchLarge();
 		setupValueBenchMeduim();
+		setupValueBenchSmall();
 	}
 
 	private void setupNonValueBench() {
@@ -111,6 +111,15 @@ public class Harness implements MainInterface{
 			benchmarkSetupMap = new HashMap<>();
 		}
 		benchmarkSetupMap.put(CommonUtils.VALUEBENCHMEDUIM, vMainSetupData);
+	}
+	
+	private void setupValueBenchSmall() {
+		ValueMainSmall vMainObj = new ValueMainSmall();
+		List<AbstractTransaction> vMainSetupData = vMainObj.convertToTransaction(ds, new ValueTransactionSmall());
+		if(this.benchmarkSetupMap == null) {
+			benchmarkSetupMap = new HashMap<>();
+		}
+		benchmarkSetupMap.put(CommonUtils.VALUEBENCHSMALL, vMainSetupData);
 	}
 	
 	@Benchmark
@@ -168,6 +177,16 @@ public class Harness implements MainInterface{
 		this.transactionList.clear();
 	}
 	
+	@Benchmark
+	public void runSmallValueAnalysis(Harness mainObj, Blackhole blackhole) {
+		Random randomGen = new Random();
+		ValueMainSmall vMainObj = new ValueMainSmall();
+		this.transactionList = vMainObj.convertToTransaction(ds, new ValueTransactionSmall());
+		CommonUtils.ITER_SIZE = 100;
+		double retObj = vMainObj.processTransactions(this.transactionList, randomGen.nextInt(100));
+		blackhole.consume(retObj);
+		this.transactionList.clear();
+	}
 	
 	@Benchmark
 	public void runValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
@@ -219,6 +238,15 @@ public class Harness implements MainInterface{
 		this.transactionList.clear();
 	}
 	
+	@Benchmark
+	public void runSmallValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
+		Random randomGen = new Random();
+		ValueMainSmall vMainObj = new ValueMainSmall();
+		CommonUtils.ITER_SIZE = 100;
+		double retObj = vMainObj.processTransactions(this.benchmarkSetupMap.get(CommonUtils.VALUEBENCHSMALL), randomGen.nextInt(100));
+		blackhole.consume(retObj);
+		this.transactionList.clear();
+	}
 	
 //	@Benchmark
 //	@BenchmarkMode(Mode.AverageTime)

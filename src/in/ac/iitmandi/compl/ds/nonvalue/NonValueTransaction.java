@@ -26,8 +26,8 @@ public class NonValueTransaction extends AbstractTransaction{
 	 * @param transactionFee
 	 */
 	public NonValueTransaction(String transactionID, CustomerDetails custDetails, NonValuePaymentInfo paymentInfo) {
-		this.TransactionID = transactionID;
-		this.custDetails = custDetails;
+//		this.TransactionID = transactionID;
+//		this.custDetails = custDetails;
 		this.paymentInfo = paymentInfo;
 		this.feeInfo = new NonValuePaymentInfo(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
 	}

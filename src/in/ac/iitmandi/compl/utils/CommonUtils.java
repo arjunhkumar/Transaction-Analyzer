@@ -32,6 +32,7 @@ public class CommonUtils {
 	public static final Integer INTERMEDIATEVALUEBENCH = 3;
 	public static final Integer VALUEBENCHLARGE = 4;
 	public static final Integer VALUEBENCHMEDUIM = 5;
+	public static final Integer VALUEBENCHSMALL = 6;
 	
 	public static String generateErrorMsg(String msg) {
 		return PREPENDERRORVAL + msg;

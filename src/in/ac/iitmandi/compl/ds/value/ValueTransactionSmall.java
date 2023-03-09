@@ -13,16 +13,18 @@ import in.ac.iitmandi.compl.utils.CommonUtils;
  * @author arjun
  *
  */
-public class ValueTransaction extends AbstractTransaction{
+public class ValueTransactionSmall extends AbstractTransaction {
 
-	private PaymentInfo paymentInfo;
-	private PaymentInfo feeInfo;
+	private PaymentInfoSmall paymentInfo;
+	private PaymentInfoSmall feeInfo;
+	
 	/**
 	 * 
 	 */
-	public ValueTransaction() {
+	public ValueTransactionSmall() {
 		// TODO Auto-generated constructor stub
 	}
+
 
 	/**
 	 * @param transactionID
@@ -30,13 +32,13 @@ public class ValueTransaction extends AbstractTransaction{
 	 * @param transactionStatus
 	 * @param transactionFee
 	 */
-	public ValueTransaction(String transactionID, CustomerDetails custDetails, PaymentInfo paymentInfo) {
+	public ValueTransactionSmall(String transactionID, CustomerDetails custDetails, PaymentInfoSmall paymentInfo) {
 //		this.TransactionID = transactionID;
 //		this.custDetails = custDetails;
 		this.paymentInfo = paymentInfo;
-		this.feeInfo = new PaymentInfo(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
+		this.feeInfo = new PaymentInfoSmall(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
 	}
-	
+
 	@Override
 	public double getTransactionAmount() {
 		return this.getPaymentInfo().getTransactionAmount();
@@ -59,21 +61,21 @@ public class ValueTransaction extends AbstractTransaction{
 
 	@Override
 	public void resetFeeInfo(AbstractPayment paymentInfo) {
-		if(paymentInfo instanceof PaymentInfo) {
-			this.setFeeInfo((PaymentInfo)paymentInfo);
+		if(paymentInfo instanceof PaymentInfoSmall) {
+			this.setFeeInfo((PaymentInfoSmall)paymentInfo);
 		}
 	}
 
 	@Override
 	public void updateTransactionStatus(boolean status) {
-		this.setFeeInfo(new PaymentInfo(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
+		this.setFeeInfo(new PaymentInfoSmall(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
 	}
 
 	@Override
 	public AbstractTransaction convertToTransactionObject(JSONResult result) {
 		CustomerDetails cDetails = new CustomerDetails(result.getCustomerID(), result.getCustomerDOB(), result.getCustGender(), result.getCustLocation());
-		PaymentInfo pi = createValuePaymentInfo(result);
-		return new ValueTransaction(result.getTransactionID(), cDetails, pi);
+		PaymentInfoSmall pi = createValuePaymentInfo(result);
+		return new ValueTransactionSmall(result.getTransactionID(), cDetails, pi);
 	}
 	
 	@Override
@@ -81,14 +83,14 @@ public class ValueTransaction extends AbstractTransaction{
 		return this.getFieldSum(n_iterations);
 	}
 	
-	private PaymentInfo createValuePaymentInfo(JSONResult result) {
+	private PaymentInfoSmall createValuePaymentInfo(JSONResult result) {
 		double cAccBalance = 0;
 		if(result.getCustAccountBalance() != null && !result.getCustAccountBalance().isEmpty()) {
 			cAccBalance =  Double.parseDouble(result.getCustAccountBalance());
 		}
 		int paymentDate = CommonUtils.formatDateString(result.getTransactionDate());
 		int paymentTime = result.getTransactionTime();
-		return new PaymentInfo(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
+		return new PaymentInfoSmall(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
 	}
 	
 	private double getFieldSum(int iterVal) {
@@ -106,14 +108,15 @@ public class ValueTransaction extends AbstractTransaction{
 	/**
 	 * @return the paymentInfo
 	 */
-	public PaymentInfo getPaymentInfo() {
+	public PaymentInfoSmall getPaymentInfo() {
 		return paymentInfo;
 	}
+
 
 	/**
 	 * @param paymentInfo the paymentInfo to set
 	 */
-	public void setPaymentInfo(PaymentInfo paymentInfo) {
+	public void setPaymentInfo(PaymentInfoSmall paymentInfo) {
 		this.paymentInfo = paymentInfo;
 	}
 
@@ -121,15 +124,16 @@ public class ValueTransaction extends AbstractTransaction{
 	/**
 	 * @return the feeInfo
 	 */
-	public PaymentInfo getFeeInfo() {
+	public PaymentInfoSmall getFeeInfo() {
 		return feeInfo;
 	}
+
 
 	/**
 	 * @param feeInfo the feeInfo to set
 	 */
-	public void setFeeInfo(PaymentInfo feeInfo) {
+	public void setFeeInfo(PaymentInfoSmall feeInfo) {
 		this.feeInfo = feeInfo;
 	}
-
+	
 }

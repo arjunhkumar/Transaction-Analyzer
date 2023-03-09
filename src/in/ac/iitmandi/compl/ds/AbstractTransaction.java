@@ -12,8 +12,8 @@ public abstract class AbstractTransaction {
 	/**
 	 * 
 	 */
-	protected String TransactionID;
-	protected CustomerDetails custDetails;
+//	protected String TransactionID;
+//	protected CustomerDetails custDetails;
 	
 	/**
 	 * 
@@ -23,8 +23,8 @@ public abstract class AbstractTransaction {
 	}
 
 	public AbstractTransaction(String transactionID, CustomerDetails custDetails) {
-		TransactionID = transactionID;
-		this.custDetails = custDetails;
+//		TransactionID = transactionID;
+//		this.custDetails = custDetails;
 	}
 
 	public abstract double getTransactionAmount();
@@ -39,29 +39,29 @@ public abstract class AbstractTransaction {
 	/**
 	 * @return the transactionID
 	 */
-	public String getTransactionID() {
-		return TransactionID;
-	}
-
-	/**
-	 * @param transactionID the transactionID to set
-	 */
-	public void setTransactionID(String transactionID) {
-		TransactionID = transactionID;
-	}
-
-	/**
-	 * @return the custDetails
-	 */
-	public CustomerDetails getCustDetails() {
-		return custDetails;
-	}
-
-	/**
-	 * @param custDetails the custDetails to set
-	 */
-	public void setCustDetails(CustomerDetails custDetails) {
-		this.custDetails = custDetails;
-	}
+//	public String getTransactionID() {
+//		return TransactionID;
+//	}
+//
+//	/**
+//	 * @param transactionID the transactionID to set
+//	 */
+//	public void setTransactionID(String transactionID) {
+//		TransactionID = transactionID;
+//	}
+//
+//	/**
+//	 * @return the custDetails
+//	 */
+//	public CustomerDetails getCustDetails() {
+//		return custDetails;
+//	}
+//
+//	/**
+//	 * @param custDetails the custDetails to set
+//	 */
+//	public void setCustDetails(CustomerDetails custDetails) {
+//		this.custDetails = custDetails;
+//	}
 	
 }

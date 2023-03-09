@@ -33,8 +33,8 @@ public class ValueTransactionLarge extends AbstractTransaction {
 	 * @param transactionFee
 	 */
 	public ValueTransactionLarge(String transactionID, CustomerDetails custDetails, PaymentInfoLarge paymentInfo) {
-		this.TransactionID = transactionID;
-		this.custDetails = custDetails;
+//		this.TransactionID = transactionID;
+//		this.custDetails = custDetails;
 		this.paymentInfo = paymentInfo;
 		this.feeInfo = new PaymentInfoLarge(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
 	}

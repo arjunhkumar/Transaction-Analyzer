@@ -33,8 +33,8 @@ public class ValueTransactionMeduim extends AbstractTransaction {
 	 * @param transactionFee
 	 */
 	public ValueTransactionMeduim(String transactionID, CustomerDetails custDetails, PaymentInfoMeduim paymentInfo) {
-		this.TransactionID = transactionID;
-		this.custDetails = custDetails;
+//		this.TransactionID = transactionID;
+//		this.custDetails = custDetails;
 		this.paymentInfo = paymentInfo;
 		this.feeInfo = new PaymentInfoMeduim(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
 	}
@@ -105,38 +105,6 @@ public class ValueTransactionMeduim extends AbstractTransaction {
 		return sum;
 	}
 	
-	/**
-	 * @return the transactionID
-	 */
-	public String getTransactionID() {
-		return TransactionID;
-	}
-
-
-	/**
-	 * @param transactionID the transactionID to set
-	 */
-	public void setTransactionID(String transactionID) {
-		TransactionID = transactionID;
-	}
-
-
-	/**
-	 * @return the custDetails
-	 */
-	public CustomerDetails getCustDetails() {
-		return custDetails;
-	}
-
-
-	/**
-	 * @param custDetails the custDetails to set
-	 */
-	public void setCustDetails(CustomerDetails custDetails) {
-		this.custDetails = custDetails;
-	}
-
-
 	/**
 	 * @return the paymentInfo
 	 */
