@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <name>Perf-Benchmark-For-ValueTypes</name>
   <packaging>jar</packaging>
-  <version>4.3-small-instance</version>
+  <version>4.4-small-instance</version>
   <properties>
     <maven.compiler.target>20</maven.compiler.target>
     <maven.compiler.source>20</maven.compiler.source>

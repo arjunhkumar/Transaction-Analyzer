@@ -9,7 +9,7 @@ import in.ac.iitmandi.compl.ds.AbstractPayment;
  * @author arjun
  *
  */
-public primitive class PaymentInfoLarge extends AbstractPayment{
+public primitive class PaymentInfoXLarge extends AbstractPayment{
 
 	private final double CustAccountBalance;
 	private final int TransactionDate;
@@ -31,13 +31,17 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 	private final double unusedField12;
 	private final double unusedField13;
 	private final double unusedField14;
-
+	private final double unusedField15;
+	private final double unusedField16;
+	private final double unusedField17;
+	private final double unusedField18;
+	private final double unusedField19;
 //	public final double TransactionFee;
 	
 	/**
 	 * 
 	 */
-	public PaymentInfoLarge() {
+	public PaymentInfoXLarge() {
 		this.CustAccountBalance = 0d;
 		this.TransactionDate = 0;
 		this.TransactionTime = 0;
@@ -58,6 +62,11 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 		this.unusedField12 = 9d;
 		this.unusedField13 = 9d;
 		this.unusedField14  = 9d;
+		this.unusedField15 = 9d;
+		this.unusedField16 = 9d;
+		this.unusedField17 = 9d;
+		this.unusedField18 = 9d;
+		this.unusedField19 = 9d;
 //		this.TransactionFee = 0d;
 	}
 
@@ -69,7 +78,7 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 	 * @param transactionFeeRate
 	 * @param transactionStatus
 	 */
-	public PaymentInfoLarge(double custAccountBalance, int transactionDate, int transactionTime, double transactionAmount,
+	public PaymentInfoXLarge(double custAccountBalance, int transactionDate, int transactionTime, double transactionAmount,
 			float transactionFeeRate, boolean transactionStatus) {
 		CustAccountBalance = custAccountBalance;
 		TransactionDate = transactionDate;
@@ -91,6 +100,11 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 		this.unusedField12 = 9d;
 		this.unusedField13 = 9d;
 		this.unusedField14  = 9d;
+		this.unusedField15 = 9d;
+		this.unusedField16 = 9d;
+		this.unusedField17 = 9d;
+		this.unusedField18 = 9d;
+		this.unusedField19 = 9d;
 //		TransactionFee = transactionFee;
 	}
 
@@ -234,6 +248,40 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 		return unusedField14;
 	}
 
+	/**
+	 * @return the unusedField15
+	 */
+	public double getUnusedField15() {
+		return unusedField15;
+	}
+
+	/**
+	 * @return the unusedField16
+	 */
+	public double getUnusedField16() {
+		return unusedField16;
+	}
+
+	/**
+	 * @return the unusedField17
+	 */
+	public double getUnusedField17() {
+		return unusedField17;
+	}
+
+	/**
+	 * @return the unusedField18
+	 */
+	public double getUnusedField18() {
+		return unusedField18;
+	}
+
+	/**
+	 * @return the unusedField19
+	 */
+	public double getUnusedField19() {
+		return unusedField19;
+	}
 
 	public PaymentInfoLarge genNewPaymentInfo(float feePercent) {
 		return new PaymentInfoLarge(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, TransactionStatus); 

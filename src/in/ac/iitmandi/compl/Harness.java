@@ -12,9 +12,11 @@ import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.Main;
 import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Measurement;
+import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
@@ -28,6 +30,7 @@ import in.ac.iitmandi.compl.ds.nonvalue.NonValueTransaction;
 import in.ac.iitmandi.compl.ds.value.IntermediateValueTransaction;
 import in.ac.iitmandi.compl.ds.value.ValueTransaction;
 import in.ac.iitmandi.compl.ds.value.ValueTransactionLarge;
+import in.ac.iitmandi.compl.ds.value.ValueTransactionXLarge;
 import in.ac.iitmandi.compl.ds.value.ValueTransactionMeduim;
 import in.ac.iitmandi.compl.ds.value.ValueTransactionSmall;
 import in.ac.iitmandi.compl.utils.CommonUtils;
@@ -40,7 +43,7 @@ import in.ac.iitmandi.compl.utils.CommonUtils;
 @State(Scope.Benchmark)
 @Warmup(iterations = 3, timeUnit =  TimeUnit.NANOSECONDS)
 @Measurement(iterations = 2, timeUnit =  TimeUnit.NANOSECONDS)
-@OutputTimeUnit(TimeUnit.SECONDS)
+@OutputTimeUnit(TimeUnit.MILLISECONDS)
 public class Harness implements MainInterface{
 	
 	public Dataset ds;
@@ -66,6 +69,7 @@ public class Harness implements MainInterface{
 		setupValueBenchLarge();
 		setupValueBenchMeduim();
 		setupValueBenchSmall();
+		setupValueBenchXLarge();
 	}
 
 	private void setupNonValueBench() {
@@ -95,8 +99,17 @@ public class Harness implements MainInterface{
 		benchmarkSetupMap.put(CommonUtils.INTERMEDIATEVALUEBENCH, vMainSetupData);
 	}
 	
+	private void setupValueBenchXLarge() {
+		ValueMainXLarge vMainObj = new ValueMainXLarge();
+		List<AbstractTransaction> vMainSetupData = vMainObj.convertToTransaction(ds, new ValueTransactionXLarge());
+		if(this.benchmarkSetupMap == null) {
+			benchmarkSetupMap = new HashMap<>();
+		}
+		benchmarkSetupMap.put(CommonUtils.VALUEBENCHXLARGE, vMainSetupData);
+	}
+	
 	private void setupValueBenchLarge() {
-		ValueMainLarge vMainObj = new ValueMainLarge();
+		ValueMainXLarge vMainObj = new ValueMainXLarge();
 		List<AbstractTransaction> vMainSetupData = vMainObj.convertToTransaction(ds, new ValueTransactionLarge());
 		if(this.benchmarkSetupMap == null) {
 			benchmarkSetupMap = new HashMap<>();
@@ -123,6 +136,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
 	public void runNonValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		NonValueMain nvMainObj = new NonValueMain();
@@ -134,6 +148,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
 	public void runValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMain vMainObj = new ValueMain();
@@ -145,6 +160,7 @@ public class Harness implements MainInterface{
 	}
 
 	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
 	public void runIValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		IntermediateValueMain iMainObj = new IntermediateValueMain();
@@ -156,9 +172,22 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
+	public void runXLargeValueAnalysis(Harness mainObj, Blackhole blackhole) {
+		Random randomGen = new Random();
+		ValueMainXLarge vMainObj = new ValueMainXLarge();
+		this.transactionList = vMainObj.convertToTransaction(ds, new ValueTransactionXLarge());
+		CommonUtils.ITER_SIZE = 100;
+		double retObj = vMainObj.processTransactions(this.transactionList, randomGen.nextInt(100));
+		blackhole.consume(retObj);
+		this.transactionList.clear();
+	}
+	
+	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
 	public void runLargeValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
-		ValueMainLarge vMainObj = new ValueMainLarge();
+		ValueMainXLarge vMainObj = new ValueMainXLarge();
 		this.transactionList = vMainObj.convertToTransaction(ds, new ValueTransactionLarge());
 		CommonUtils.ITER_SIZE = 100;
 		double retObj = vMainObj.processTransactions(this.transactionList, randomGen.nextInt(100));
@@ -167,6 +196,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
 	public void runMeduimValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMainMeduim vMainObj = new ValueMainMeduim();
@@ -178,6 +208,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
 	public void runSmallValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMainSmall vMainObj = new ValueMainSmall();
@@ -189,6 +220,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
 	public void runValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMain vMainObj = new ValueMain();
@@ -199,6 +231,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
 	public void runNonValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMain vMainObj = new ValueMain();
@@ -209,6 +242,7 @@ public class Harness implements MainInterface{
 	}
 
 	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
 	public void runIValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		IntermediateValueMain iMainObj = new IntermediateValueMain();
@@ -219,16 +253,30 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
+	public void runXLargeValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
+		Random randomGen = new Random();
+		ValueMainXLarge vMainObj = new ValueMainXLarge();
+		CommonUtils.ITER_SIZE = 100;
+		double retObj = vMainObj.processTransactions(this.benchmarkSetupMap.get(CommonUtils.VALUEBENCHXLARGE), randomGen.nextInt(100));
+		blackhole.consume(retObj);
+		this.transactionList.clear();
+	}
+	
+	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
 	public void runLargeValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
-		ValueMainLarge vMainObj = new ValueMainLarge();
+		ValueMainXLarge vMainObj = new ValueMainXLarge();
 		CommonUtils.ITER_SIZE = 100;
 		double retObj = vMainObj.processTransactions(this.benchmarkSetupMap.get(CommonUtils.VALUEBENCHLARGE), randomGen.nextInt(100));
 		blackhole.consume(retObj);
 		this.transactionList.clear();
 	}
 	
+	
 	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
 	public void runMeduimValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMainMeduim vMainObj = new ValueMainMeduim();
@@ -239,6 +287,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
 	public void runSmallValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMainSmall vMainObj = new ValueMainSmall();

@@ -9,10 +9,10 @@ import in.ac.iitmandi.compl.ds.nonvalue.NonValuePaymentInfo;
 import in.ac.iitmandi.compl.ds.nonvalue.NonValueTransaction;
 import in.ac.iitmandi.compl.ds.value.IntermediateValueTransaction;
 import in.ac.iitmandi.compl.ds.value.PaymentInfo;
-import in.ac.iitmandi.compl.ds.value.PaymentInfoLarge;
 import in.ac.iitmandi.compl.ds.value.PaymentInfoMeduim;
+import in.ac.iitmandi.compl.ds.value.PaymentInfoXLarge;
 import in.ac.iitmandi.compl.ds.value.ValueTransaction;
-import in.ac.iitmandi.compl.ds.value.ValueTransactionLarge;
+import in.ac.iitmandi.compl.ds.value.ValueTransactionXLarge;
 import in.ac.iitmandi.compl.ds.value.ValueTransactionMeduim;
 
 /**
@@ -33,6 +33,7 @@ public class CommonUtils {
 	public static final Integer VALUEBENCHLARGE = 4;
 	public static final Integer VALUEBENCHMEDUIM = 5;
 	public static final Integer VALUEBENCHSMALL = 6;
+	public static final Integer VALUEBENCHXLARGE = 7;
 	
 	public static String generateErrorMsg(String msg) {
 		return PREPENDERRORVAL + msg;
@@ -47,10 +48,10 @@ public class CommonUtils {
 		PaymentInfo pi = INSTANCE.createPaymentInfo(result);
 		return new ValueTransaction(result.getTransactionID(), cDetails, pi);
 	}
-	public static ValueTransactionLarge convertToVT2(JSONResult result) {
+	public static ValueTransactionXLarge convertToVT2(JSONResult result) {
 		CustomerDetails cDetails = new CustomerDetails(result.getCustomerID(), result.getCustomerDOB(), result.getCustGender(), result.getCustLocation());
-		PaymentInfoLarge pi = INSTANCE.createPaymentInfo2(result);
-		return new ValueTransactionLarge(result.getTransactionID(), cDetails, pi);
+		PaymentInfoXLarge pi = INSTANCE.createPaymentInfo2(result);
+		return new ValueTransactionXLarge(result.getTransactionID(), cDetails, pi);
 	}
 	public static ValueTransactionMeduim convertToVT3(JSONResult result) {
 		CustomerDetails cDetails = new CustomerDetails(result.getCustomerID(), result.getCustomerDOB(), result.getCustGender(), result.getCustLocation());
@@ -81,14 +82,14 @@ public class CommonUtils {
 		return new PaymentInfo(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
 	}
 	
-	private PaymentInfoLarge createPaymentInfo2(JSONResult result) {
+	private PaymentInfoXLarge createPaymentInfo2(JSONResult result) {
 		double cAccBalance = 0;
 		if(result.getCustAccountBalance() != null && !result.getCustAccountBalance().isEmpty()) {
 			cAccBalance =  Double.parseDouble(result.getCustAccountBalance());
 		}
 		int paymentDate = formatDateString(result.getTransactionDate());
 		int paymentTime = result.getTransactionTime();
-		return new PaymentInfoLarge(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
+		return new PaymentInfoXLarge(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
 	}
 	
 	private PaymentInfoMeduim createPaymentInfo3(JSONResult result) {

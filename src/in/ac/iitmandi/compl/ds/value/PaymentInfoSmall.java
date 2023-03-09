@@ -9,7 +9,7 @@ import in.ac.iitmandi.compl.ds.AbstractPayment;
  * @author arjun
  *
  */
-public class PaymentInfoSmall extends AbstractPayment {
+public primitive class PaymentInfoSmall extends AbstractPayment {
 
 	private final int CustAccountBalance;
 	private final int TransactionDate;
