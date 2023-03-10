@@ -1,0 +1,990 @@
+# WARNING: JMH lock is ignored by user request, make sure no other JMH instances are running
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 2 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysis
+
+# Run progress: 0.00% complete, ETA 00:20:00
+# Fork: 1 of 2
+# Warmup Iteration   1: 0.009 ops/ms
+# Warmup Iteration   2: 0.013 ops/ms
+# Warmup Iteration   3: 0.014 ops/ms
+Iteration   1: 0.013 ops/ms
+Iteration   2: 0.013 ops/ms
+
+# Run progress: 4.17% complete, ETA 00:33:05
+# Fork: 2 of 2
+# Warmup Iteration   1: 0.009 ops/ms
+# Warmup Iteration   2: 0.013 ops/ms
+# Warmup Iteration   3: 0.014 ops/ms
+Iteration   1: 0.014 ops/ms
+Iteration   2: 0.013 ops/ms
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysis":
+  0.013 ±(99.9%) 0.002 ops/ms [Average]
+  (min, avg, max) = (0.013, 0.013, 0.014), stdev = 0.001
+  CI (99.9%): [0.012, 0.015] (assumes normal distribution)
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 2 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysisWithData
+
+# Run progress: 8.33% complete, ETA 00:27:47
+# Fork: 1 of 2
+# Warmup Iteration   1: 0.022 ops/ms
+# Warmup Iteration   2: 0.030 ops/ms
+# Warmup Iteration   3: 0.029 ops/ms
+Iteration   1: 0.030 ops/ms
+Iteration   2: 0.031 ops/ms
+
+# Run progress: 12.50% complete, ETA 00:24:49
+# Fork: 2 of 2
+# Warmup Iteration   1: 0.021 ops/ms
+# Warmup Iteration   2: 0.034 ops/ms
+# Warmup Iteration   3: 0.033 ops/ms
+Iteration   1: 0.031 ops/ms
+Iteration   2: 0.031 ops/ms
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysisWithData":
+  0.031 ±(99.9%) 0.006 ops/ms [Average]
+  (min, avg, max) = (0.030, 0.031, 0.031), stdev = 0.001
+  CI (99.9%): [0.025, 0.036] (assumes normal distribution)
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 2 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedValueAnalysis
+
+# Run progress: 16.67% complete, ETA 00:22:27
+# Fork: 1 of 2
+# Warmup Iteration   1: 0.005 ops/ms
+# Warmup Iteration   2: 0.005 ops/ms
+# Warmup Iteration   3: 0.005 ops/ms
+Iteration   1: 0.005 ops/ms
+Iteration   2: 0.005 ops/ms
+
+# Run progress: 20.83% complete, ETA 00:21:07
+# Fork: 2 of 2
+# Warmup Iteration   1: 0.005 ops/ms
+# Warmup Iteration   2: 0.005 ops/ms
+# Warmup Iteration   3: 0.005 ops/ms
+Iteration   1: 0.005 ops/ms
+Iteration   2: 0.005 ops/ms
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedValueAnalysis":
+  0.005 ±(99.9%) 0.001 ops/ms [Average]
+  (min, avg, max) = (0.005, 0.005, 0.005), stdev = 0.001
+  CI (99.9%): [0.005, 0.006] (assumes normal distribution)
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 2 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedValueAnalysisWithData
+
+# Run progress: 25.00% complete, ETA 00:19:32
+# Fork: 1 of 2
+# Warmup Iteration   1: 0.010 ops/ms
+# Warmup Iteration   2: 0.011 ops/ms
+# Warmup Iteration   3: 0.011 ops/ms
+Iteration   1: 0.011 ops/ms
+Iteration   2: 0.011 ops/ms
+
+# Run progress: 29.17% complete, ETA 00:18:07
+# Fork: 2 of 2
+# Warmup Iteration   1: 0.010 ops/ms
+# Warmup Iteration   2: 0.011 ops/ms
+# Warmup Iteration   3: 0.011 ops/ms
+Iteration   1: 0.011 ops/ms
+Iteration   2: 0.011 ops/ms
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedValueAnalysisWithData":
+  0.011 ±(99.9%) 0.001 ops/ms [Average]
+  (min, avg, max) = (0.011, 0.011, 0.011), stdev = 0.001
+  CI (99.9%): [0.011, 0.011] (assumes normal distribution)
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 2 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysis
+
+# Run progress: 33.33% complete, ETA 00:16:50
+# Fork: 1 of 2
+# Warmup Iteration   1: 110.922 ms/op
+# Warmup Iteration   2: 80.960 ms/op
+# Warmup Iteration   3: 76.477 ms/op
+Iteration   1: 75.213 ms/op
+Iteration   2: 74.963 ms/op
+
+# Run progress: 37.50% complete, ETA 00:15:37
+# Fork: 2 of 2
+# Warmup Iteration   1: 109.886 ms/op
+# Warmup Iteration   2: 82.536 ms/op
+# Warmup Iteration   3: 74.145 ms/op
+Iteration   1: 71.068 ms/op
+Iteration   2: 69.524 ms/op
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysis":
+  72.692 ±(99.9%) 18.348 ms/op [Average]
+  (min, avg, max) = (69.524, 72.692, 75.213), stdev = 2.839
+  CI (99.9%): [54.344, 91.040] (assumes normal distribution)
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 2 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysisWithData
+
+# Run progress: 41.67% complete, ETA 00:14:27
+# Fork: 1 of 2
+# Warmup Iteration   1: 47.054 ms/op
+# Warmup Iteration   2: 30.130 ms/op
+# Warmup Iteration   3: 31.009 ms/op
+Iteration   1: 28.643 ms/op
+Iteration   2: 28.770 ms/op
+
+# Run progress: 45.83% complete, ETA 00:13:19
+# Fork: 2 of 2
+# Warmup Iteration   1: 48.163 ms/op
+# Warmup Iteration   2: 30.233 ms/op
+# Warmup Iteration   3: 32.372 ms/op
+Iteration   1: 32.596 ms/op
+Iteration   2: 32.882 ms/op
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysisWithData":
+  30.723 ±(99.9%) 15.067 ms/op [Average]
+  (min, avg, max) = (28.643, 30.723, 32.882), stdev = 2.332
+  CI (99.9%): [15.656, 45.790] (assumes normal distribution)
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 2 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedValueAnalysis
+
+# Run progress: 50.00% complete, ETA 00:12:13
+# Fork: 1 of 2
+# Warmup Iteration   1: 218.538 ms/op
+# Warmup Iteration   2: 192.935 ms/op
+# Warmup Iteration   3: 190.335 ms/op
+Iteration   1: 187.664 ms/op
+Iteration   2: 181.854 ms/op
+
+# Run progress: 54.16% complete, ETA 00:11:09
+# Fork: 2 of 2
+# Warmup Iteration   1: 210.296 ms/op
+# Warmup Iteration   2: 198.743 ms/op
+# Warmup Iteration   3: 186.586 ms/op
+Iteration   1: 187.474 ms/op
+Iteration   2: 185.158 ms/op
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedValueAnalysis":
+  185.538 ±(99.9%) 17.491 ms/op [Average]
+  (min, avg, max) = (181.854, 185.538, 187.664), stdev = 2.707
+  CI (99.9%): [168.047, 203.028] (assumes normal distribution)
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 2 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedValueAnalysisWithData
+
+# Run progress: 58.33% complete, ETA 00:10:06
+# Fork: 1 of 2
+# Warmup Iteration   1: 100.576 ms/op
+# Warmup Iteration   2: 87.758 ms/op
+# Warmup Iteration   3: 88.244 ms/op
+Iteration   1: 87.813 ms/op
+Iteration   2: 85.070 ms/op
+
+# Run progress: 62.50% complete, ETA 00:09:04
+# Fork: 2 of 2
+# Warmup Iteration   1: 104.090 ms/op
+# Warmup Iteration   2: 88.487 ms/op
+# Warmup Iteration   3: 91.048 ms/op
+Iteration   1: 87.008 ms/op
+Iteration   2: 85.094 ms/op
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedValueAnalysisWithData":
+  86.246 ±(99.9%) 8.943 ms/op [Average]
+  (min, avg, max) = (85.070, 86.246, 87.813), stdev = 1.384
+  CI (99.9%): [77.303, 95.190] (assumes normal distribution)
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 2 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Sampling time
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysis
+
+# Run progress: 66.66% complete, ETA 00:08:01
+# Fork: 1 of 2
+# Warmup Iteration   1: 108.771 ±(99.9%) 58.554 ms/op
+# Warmup Iteration   2: 81.295 ±(99.9%) 13.153 ms/op
+# Warmup Iteration   3: 77.295 ±(99.9%) 13.368 ms/op
+Iteration   1: 73.468 ±(99.9%) 10.314 ms/op
+                 runBoxedNonValueAnalysis·p0.00:   64.684 ms/op
+                 runBoxedNonValueAnalysis·p0.50:   70.386 ms/op
+                 runBoxedNonValueAnalysis·p0.90:   82.523 ms/op
+                 runBoxedNonValueAnalysis·p0.95:   123.155 ms/op
+                 runBoxedNonValueAnalysis·p0.99:   123.470 ms/op
+                 runBoxedNonValueAnalysis·p0.999:  123.470 ms/op
+                 runBoxedNonValueAnalysis·p0.9999: 123.470 ms/op
+                 runBoxedNonValueAnalysis·p1.00:   123.470 ms/op
+
+Iteration   2: 73.806 ±(99.9%) 11.766 ms/op
+                 runBoxedNonValueAnalysis·p0.00:   65.012 ms/op
+                 runBoxedNonValueAnalysis·p0.50:   70.124 ms/op
+                 runBoxedNonValueAnalysis·p0.90:   82.235 ms/op
+                 runBoxedNonValueAnalysis·p0.95:   130.993 ms/op
+                 runBoxedNonValueAnalysis·p0.99:   132.252 ms/op
+                 runBoxedNonValueAnalysis·p0.999:  132.252 ms/op
+                 runBoxedNonValueAnalysis·p0.9999: 132.252 ms/op
+                 runBoxedNonValueAnalysis·p1.00:   132.252 ms/op
+
+
+# Run progress: 70.83% complete, ETA 00:07:00
+# Fork: 2 of 2
+# Warmup Iteration   1: 108.069 ±(99.9%) 55.408 ms/op
+# Warmup Iteration   2: 74.990 ±(99.9%) 7.089 ms/op
+# Warmup Iteration   3: 74.543 ±(99.9%) 10.442 ms/op
+Iteration   1: 77.187 ±(99.9%) 9.335 ms/op
+                 runBoxedNonValueAnalysis·p0.00:   69.337 ms/op
+                 runBoxedNonValueAnalysis·p0.50:   74.056 ms/op
+                 runBoxedNonValueAnalysis·p0.90:   80.950 ms/op
+                 runBoxedNonValueAnalysis·p0.95:   124.315 ms/op
+                 runBoxedNonValueAnalysis·p0.99:   125.436 ms/op
+                 runBoxedNonValueAnalysis·p0.999:  125.436 ms/op
+                 runBoxedNonValueAnalysis·p0.9999: 125.436 ms/op
+                 runBoxedNonValueAnalysis·p1.00:   125.436 ms/op
+
+Iteration   2: 77.272 ±(99.9%) 10.695 ms/op
+                 runBoxedNonValueAnalysis·p0.00:   69.075 ms/op
+                 runBoxedNonValueAnalysis·p0.50:   73.728 ms/op
+                 runBoxedNonValueAnalysis·p0.90:   80.006 ms/op
+                 runBoxedNonValueAnalysis·p0.95:   131.603 ms/op
+                 runBoxedNonValueAnalysis·p0.99:   135.791 ms/op
+                 runBoxedNonValueAnalysis·p0.999:  135.791 ms/op
+                 runBoxedNonValueAnalysis·p0.9999: 135.791 ms/op
+                 runBoxedNonValueAnalysis·p1.00:   135.791 ms/op
+
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysis":
+  N = 110
+  mean =     75.466 ±(99.9%) 4.791 ms/op
+
+  Histogram, ms/op:
+    [ 60.000,  65.000) = 2 
+    [ 65.000,  70.000) = 26 
+    [ 70.000,  75.000) = 70 
+    [ 75.000,  80.000) = 4 
+    [ 80.000,  85.000) = 0 
+    [ 85.000,  90.000) = 0 
+    [ 90.000,  95.000) = 0 
+    [ 95.000, 100.000) = 0 
+    [100.000, 105.000) = 0 
+    [105.000, 110.000) = 0 
+    [110.000, 115.000) = 0 
+    [115.000, 120.000) = 0 
+    [120.000, 125.000) = 3 
+    [125.000, 130.000) = 3 
+    [130.000, 135.000) = 1 
+
+  Percentiles, ms/op:
+      p(0.0000) =     64.684 ms/op
+     p(50.0000) =     71.238 ms/op
+     p(90.0000) =     75.825 ms/op
+     p(95.0000) =    124.355 ms/op
+     p(99.0000) =    135.401 ms/op
+     p(99.9000) =    135.791 ms/op
+     p(99.9900) =    135.791 ms/op
+     p(99.9990) =    135.791 ms/op
+     p(99.9999) =    135.791 ms/op
+    p(100.0000) =    135.791 ms/op
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 2 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Sampling time
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysisWithData
+
+# Run progress: 75.00% complete, ETA 00:05:59
+# Fork: 1 of 2
+# Warmup Iteration   1: 48.715 ±(99.9%) 50.746 ms/op
+# Warmup Iteration   2: 32.014 ±(99.9%) 6.241 ms/op
+# Warmup Iteration   3: 29.466 ±(99.9%) 6.548 ms/op
+Iteration   1: 28.969 ±(99.9%) 0.281 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.00:   28.312 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.50:   28.934 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.90:   29.386 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.95:   29.924 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.99:   30.933 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.999:  30.933 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.9999: 30.933 ms/op
+                 runBoxedNonValueAnalysisWithData·p1.00:   30.933 ms/op
+
+Iteration   2: 28.571 ±(99.9%) 0.559 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.00:   24.019 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.50:   28.738 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.90:   29.078 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.95:   29.360 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.99:   29.360 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.999:  29.360 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.9999: 29.360 ms/op
+                 runBoxedNonValueAnalysisWithData·p1.00:   29.360 ms/op
+
+
+# Run progress: 79.16% complete, ETA 00:04:59
+# Fork: 2 of 2
+# Warmup Iteration   1: 50.064 ±(99.9%) 46.151 ms/op
+# Warmup Iteration   2: 30.375 ±(99.9%) 1.218 ms/op
+# Warmup Iteration   3: 31.641 ±(99.9%) 6.321 ms/op
+Iteration   1: 29.631 ±(99.9%) 0.515 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.00:   26.542 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.50:   29.721 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.90:   30.048 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.95:   30.920 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.99:   31.785 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.999:  31.785 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.9999: 31.785 ms/op
+                 runBoxedNonValueAnalysisWithData·p1.00:   31.785 ms/op
+
+Iteration   2: 29.141 ±(99.9%) 0.558 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.00:   25.035 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.50:   29.360 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.90:   29.707 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.95:   29.825 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.99:   29.983 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.999:  29.983 ms/op
+                 runBoxedNonValueAnalysisWithData·p0.9999: 29.983 ms/op
+                 runBoxedNonValueAnalysisWithData·p1.00:   29.983 ms/op
+
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysisWithData":
+  N = 127
+  mean =     29.064 ±(99.9%) 0.251 ms/op
+
+  Histogram, ms/op:
+    [24.000, 24.500) = 1 
+    [24.500, 25.000) = 0 
+    [25.000, 25.500) = 1 
+    [25.500, 26.000) = 0 
+    [26.000, 26.500) = 0 
+    [26.500, 27.000) = 1 
+    [27.000, 27.500) = 1 
+    [27.500, 28.000) = 0 
+    [28.000, 28.500) = 7 
+    [28.500, 29.000) = 50 
+    [29.000, 29.500) = 36 
+    [29.500, 30.000) = 24 
+    [30.000, 30.500) = 4 
+    [30.500, 31.000) = 1 
+    [31.000, 31.500) = 0 
+
+  Percentiles, ms/op:
+      p(0.0000) =     24.019 ms/op
+     p(50.0000) =     29.098 ms/op
+     p(90.0000) =     29.858 ms/op
+     p(95.0000) =     30.002 ms/op
+     p(99.0000) =     31.546 ms/op
+     p(99.9000) =     31.785 ms/op
+     p(99.9900) =     31.785 ms/op
+     p(99.9990) =     31.785 ms/op
+     p(99.9999) =     31.785 ms/op
+    p(100.0000) =     31.785 ms/op
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 2 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Sampling time
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedValueAnalysis
+
+# Run progress: 83.33% complete, ETA 00:03:58
+# Fork: 1 of 2
+# Warmup Iteration   1: 205.113 ±(99.9%) 73.994 ms/op
+# Warmup Iteration   2: 199.242 ±(99.9%) 22.788 ms/op
+# Warmup Iteration   3: 193.125 ±(99.9%) 17.129 ms/op
+Iteration   1: 191.460 ±(99.9%) 16.841 ms/op
+                 runBoxedValueAnalysis·p0.00:   177.471 ms/op
+                 runBoxedValueAnalysis·p0.50:   182.977 ms/op
+                 runBoxedValueAnalysis·p0.90:   235.720 ms/op
+                 runBoxedValueAnalysis·p0.95:   241.553 ms/op
+                 runBoxedValueAnalysis·p0.99:   242.221 ms/op
+                 runBoxedValueAnalysis·p0.999:  242.221 ms/op
+                 runBoxedValueAnalysis·p0.9999: 242.221 ms/op
+                 runBoxedValueAnalysis·p1.00:   242.221 ms/op
+
+Iteration   2: 195.597 ±(99.9%) 19.765 ms/op
+                 runBoxedValueAnalysis·p0.00:   177.996 ms/op
+                 runBoxedValueAnalysis·p0.50:   182.977 ms/op
+                 runBoxedValueAnalysis·p0.90:   238.970 ms/op
+                 runBoxedValueAnalysis·p0.95:   245.288 ms/op
+                 runBoxedValueAnalysis·p0.99:   245.891 ms/op
+                 runBoxedValueAnalysis·p0.999:  245.891 ms/op
+                 runBoxedValueAnalysis·p0.9999: 245.891 ms/op
+                 runBoxedValueAnalysis·p1.00:   245.891 ms/op
+
+
+# Run progress: 87.50% complete, ETA 00:02:58
+# Fork: 2 of 2
+# Warmup Iteration   1: 205.667 ±(99.9%) 66.369 ms/op
+# Warmup Iteration   2: 197.984 ±(99.9%) 18.505 ms/op
+# Warmup Iteration   3: 193.849 ±(99.9%) 17.485 ms/op
+Iteration   1: 190.641 ±(99.9%) 17.743 ms/op
+                 runBoxedValueAnalysis·p0.00:   177.734 ms/op
+                 runBoxedValueAnalysis·p0.50:   182.977 ms/op
+                 runBoxedValueAnalysis·p0.90:   235.930 ms/op
+                 runBoxedValueAnalysis·p0.95:   248.958 ms/op
+                 runBoxedValueAnalysis·p0.99:   250.348 ms/op
+                 runBoxedValueAnalysis·p0.999:  250.348 ms/op
+                 runBoxedValueAnalysis·p0.9999: 250.348 ms/op
+                 runBoxedValueAnalysis·p1.00:   250.348 ms/op
+
+Iteration   2: 190.142 ±(99.9%) 17.374 ms/op
+                 runBoxedValueAnalysis·p0.00:   177.996 ms/op
+                 runBoxedValueAnalysis·p0.50:   181.928 ms/op
+                 runBoxedValueAnalysis·p0.90:   239.600 ms/op
+                 runBoxedValueAnalysis·p0.95:   243.322 ms/op
+                 runBoxedValueAnalysis·p0.99:   243.532 ms/op
+                 runBoxedValueAnalysis·p0.999:  243.532 ms/op
+                 runBoxedValueAnalysis·p0.9999: 243.532 ms/op
+                 runBoxedValueAnalysis·p1.00:   243.532 ms/op
+
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedValueAnalysis":
+  N = 85
+  mean =    191.954 ±(99.9%) 7.859 ms/op
+
+  Histogram, ms/op:
+    [170.000, 175.000) = 0 
+    [175.000, 180.000) = 13 
+    [180.000, 185.000) = 52 
+    [185.000, 190.000) = 4 
+    [190.000, 195.000) = 1 
+    [195.000, 200.000) = 0 
+    [200.000, 205.000) = 0 
+    [205.000, 210.000) = 0 
+    [210.000, 215.000) = 0 
+    [215.000, 220.000) = 0 
+    [220.000, 225.000) = 1 
+    [225.000, 230.000) = 1 
+    [230.000, 235.000) = 4 
+    [235.000, 240.000) = 4 
+    [240.000, 245.000) = 3 
+    [245.000, 250.000) = 1 
+    [250.000, 255.000) = 1 
+
+  Percentiles, ms/op:
+      p(0.0000) =    177.471 ms/op
+     p(50.0000) =    182.977 ms/op
+     p(90.0000) =    235.825 ms/op
+     p(95.0000) =    241.985 ms/op
+     p(99.0000) =    250.348 ms/op
+     p(99.9000) =    250.348 ms/op
+     p(99.9900) =    250.348 ms/op
+     p(99.9990) =    250.348 ms/op
+     p(99.9999) =    250.348 ms/op
+    p(100.0000) =    250.348 ms/op
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 2 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Sampling time
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedValueAnalysisWithData
+
+# Run progress: 91.66% complete, ETA 00:01:59
+# Fork: 1 of 2
+# Warmup Iteration   1: 104.619 ±(99.9%) 55.945 ms/op
+# Warmup Iteration   2: 94.251 ±(99.9%) 11.011 ms/op
+# Warmup Iteration   3: 89.169 ±(99.9%) 3.292 ms/op
+Iteration   1: 90.324 ±(99.9%) 9.801 ms/op
+                 runBoxedValueAnalysisWithData·p0.00:   75.366 ms/op
+                 runBoxedValueAnalysisWithData·p0.50:   87.556 ms/op
+                 runBoxedValueAnalysisWithData·p0.90:   104.202 ms/op
+                 runBoxedValueAnalysisWithData·p0.95:   134.067 ms/op
+                 runBoxedValueAnalysisWithData·p0.99:   136.315 ms/op
+                 runBoxedValueAnalysisWithData·p0.999:  136.315 ms/op
+                 runBoxedValueAnalysisWithData·p0.9999: 136.315 ms/op
+                 runBoxedValueAnalysisWithData·p1.00:   136.315 ms/op
+
+Iteration   2: 87.226 ±(99.9%) 7.871 ms/op
+                 runBoxedValueAnalysisWithData·p0.00:   75.235 ms/op
+                 runBoxedValueAnalysisWithData·p0.50:   86.245 ms/op
+                 runBoxedValueAnalysisWithData·p0.90:   89.234 ms/op
+                 runBoxedValueAnalysisWithData·p0.95:   120.010 ms/op
+                 runBoxedValueAnalysisWithData·p0.99:   139.198 ms/op
+                 runBoxedValueAnalysisWithData·p0.999:  139.198 ms/op
+                 runBoxedValueAnalysisWithData·p0.9999: 139.198 ms/op
+                 runBoxedValueAnalysisWithData·p1.00:   139.198 ms/op
+
+
+# Run progress: 95.83% complete, ETA 00:00:59
+# Fork: 2 of 2
+# Warmup Iteration   1: 91.576 ±(99.9%) 59.719 ms/op
+# Warmup Iteration   2: 90.309 ±(99.9%) 10.606 ms/op
+# Warmup Iteration   3: 89.037 ±(99.9%) 7.173 ms/op
+Iteration   1: 91.333 ±(99.9%) 9.823 ms/op
+                 runBoxedValueAnalysisWithData·p0.00:   77.464 ms/op
+                 runBoxedValueAnalysisWithData·p0.50:   88.343 ms/op
+                 runBoxedValueAnalysisWithData·p0.90:   100.821 ms/op
+                 runBoxedValueAnalysisWithData·p0.95:   137.888 ms/op
+                 runBoxedValueAnalysisWithData·p0.99:   138.412 ms/op
+                 runBoxedValueAnalysisWithData·p0.999:  138.412 ms/op
+                 runBoxedValueAnalysisWithData·p0.9999: 138.412 ms/op
+                 runBoxedValueAnalysisWithData·p1.00:   138.412 ms/op
+
+Iteration   2: 86.265 ±(99.9%) 2.903 ms/op
+                 runBoxedValueAnalysisWithData·p0.00:   76.415 ms/op
+                 runBoxedValueAnalysisWithData·p0.50:   87.818 ms/op
+                 runBoxedValueAnalysisWithData·p0.90:   88.605 ms/op
+                 runBoxedValueAnalysisWithData·p0.95:   90.178 ms/op
+                 runBoxedValueAnalysisWithData·p0.99:   91.226 ms/op
+                 runBoxedValueAnalysisWithData·p0.999:  91.226 ms/op
+                 runBoxedValueAnalysisWithData·p0.9999: 91.226 ms/op
+                 runBoxedValueAnalysisWithData·p1.00:   91.226 ms/op
+
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedValueAnalysisWithData":
+  N = 107
+  mean =     88.772 ±(99.9%) 3.693 ms/op
+
+  Histogram, ms/op:
+    [ 70.000,  75.000) = 0 
+    [ 75.000,  80.000) = 13 
+    [ 80.000,  85.000) = 4 
+    [ 85.000,  90.000) = 77 
+    [ 90.000,  95.000) = 8 
+    [ 95.000, 100.000) = 0 
+    [100.000, 105.000) = 0 
+    [105.000, 110.000) = 0 
+    [110.000, 115.000) = 0 
+    [115.000, 120.000) = 0 
+    [120.000, 125.000) = 0 
+    [125.000, 130.000) = 1 
+    [130.000, 135.000) = 0 
+
+  Percentiles, ms/op:
+      p(0.0000) =     75.235 ms/op
+     p(50.0000) =     87.818 ms/op
+     p(90.0000) =     91.226 ms/op
+     p(95.0000) =    115.212 ms/op
+     p(99.0000) =    139.136 ms/op
+     p(99.9000) =    139.198 ms/op
+     p(99.9900) =    139.198 ms/op
+     p(99.9990) =    139.198 ms/op
+     p(99.9999) =    139.198 ms/op
+    p(100.0000) =    139.198 ms/op
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, single-shot each
+# Measurement: 2 iterations, single-shot each
+# Timeout: 10 min per iteration
+# Threads: 1 thread
+# Benchmark mode: Single shot invocation time
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysis
+
+# Run progress: 100.00% complete, ETA 00:00:00
+# Fork: 1 of 2
+# Warmup Iteration   1: 414.237 ms/op
+# Warmup Iteration   2: 114.436 ms/op
+# Warmup Iteration   3: 111.758 ms/op
+Iteration   1: 103.184 ms/op
+Iteration   2: 135.393 ms/op
+
+# Run progress: 100.00% complete, ETA 00:00:00
+# Fork: 2 of 2
+# Warmup Iteration   1: 422.642 ms/op
+# Warmup Iteration   2: 119.344 ms/op
+# Warmup Iteration   3: 125.445 ms/op
+Iteration   1: 87.142 ms/op
+Iteration   2: 138.347 ms/op
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysis":
+  N = 4
+  mean =    116.016 ±(99.9%) 161.444 ms/op
+
+  Histogram, ms/op:
+    [ 80.000,  85.000) = 0 
+    [ 85.000,  90.000) = 1 
+    [ 90.000,  95.000) = 0 
+    [ 95.000, 100.000) = 0 
+    [100.000, 105.000) = 1 
+    [105.000, 110.000) = 0 
+    [110.000, 115.000) = 0 
+    [115.000, 120.000) = 0 
+    [120.000, 125.000) = 0 
+    [125.000, 130.000) = 0 
+    [130.000, 135.000) = 0 
+
+  Percentiles, ms/op:
+      p(0.0000) =     87.142 ms/op
+     p(50.0000) =    119.288 ms/op
+     p(90.0000) =    138.347 ms/op
+     p(95.0000) =    138.347 ms/op
+     p(99.0000) =    138.347 ms/op
+     p(99.9000) =    138.347 ms/op
+     p(99.9900) =    138.347 ms/op
+     p(99.9990) =    138.347 ms/op
+     p(99.9999) =    138.347 ms/op
+    p(100.0000) =    138.347 ms/op
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, single-shot each
+# Measurement: 2 iterations, single-shot each
+# Timeout: 10 min per iteration
+# Threads: 1 thread
+# Benchmark mode: Single shot invocation time
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysisWithData
+
+# Run progress: 100.00% complete, ETA 00:00:00
+# Fork: 1 of 2
+# Warmup Iteration   1: 340.355 ms/op
+# Warmup Iteration   2: 56.997 ms/op
+# Warmup Iteration   3: 51.672 ms/op
+Iteration   1: 52.754 ms/op
+Iteration   2: 33.725 ms/op
+
+# Run progress: 100.00% complete, ETA 00:00:00
+# Fork: 2 of 2
+# Warmup Iteration   1: 347.848 ms/op
+# Warmup Iteration   2: 49.597 ms/op
+# Warmup Iteration   3: 52.940 ms/op
+Iteration   1: 34.637 ms/op
+Iteration   2: 32.798 ms/op
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedNonValueAnalysisWithData":
+  N = 4
+  mean =     38.479 ±(99.9%) 61.688 ms/op
+
+  Histogram, ms/op:
+    [30.000, 32.500) = 0 
+    [32.500, 35.000) = 3 
+    [35.000, 37.500) = 0 
+    [37.500, 40.000) = 0 
+    [40.000, 42.500) = 0 
+    [42.500, 45.000) = 0 
+    [45.000, 47.500) = 0 
+    [47.500, 50.000) = 0 
+    [50.000, 52.500) = 0 
+    [52.500, 55.000) = 1 
+    [55.000, 57.500) = 0 
+
+  Percentiles, ms/op:
+      p(0.0000) =     32.798 ms/op
+     p(50.0000) =     34.181 ms/op
+     p(90.0000) =     52.754 ms/op
+     p(95.0000) =     52.754 ms/op
+     p(99.0000) =     52.754 ms/op
+     p(99.9000) =     52.754 ms/op
+     p(99.9900) =     52.754 ms/op
+     p(99.9990) =     52.754 ms/op
+     p(99.9999) =     52.754 ms/op
+    p(100.0000) =     52.754 ms/op
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, single-shot each
+# Measurement: 2 iterations, single-shot each
+# Timeout: 10 min per iteration
+# Threads: 1 thread
+# Benchmark mode: Single shot invocation time
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedValueAnalysis
+
+# Run progress: 100.00% complete, ETA 00:00:00
+# Fork: 1 of 2
+# Warmup Iteration   1: 495.123 ms/op
+# Warmup Iteration   2: 250.239 ms/op
+# Warmup Iteration   3: 254.842 ms/op
+Iteration   1: 172.097 ms/op
+Iteration   2: 168.276 ms/op
+
+# Run progress: 100.00% complete, ETA 00:00:00
+# Fork: 2 of 2
+# Warmup Iteration   1: 529.351 ms/op
+# Warmup Iteration   2: 214.204 ms/op
+# Warmup Iteration   3: 246.150 ms/op
+Iteration   1: 170.488 ms/op
+Iteration   2: 163.601 ms/op
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedValueAnalysis":
+  N = 4
+  mean =    168.616 ±(99.9%) 23.855 ms/op
+
+  Histogram, ms/op:
+    [163.000, 164.000) = 1 
+    [164.000, 165.000) = 0 
+    [165.000, 166.000) = 0 
+    [166.000, 167.000) = 0 
+    [167.000, 168.000) = 0 
+    [168.000, 169.000) = 1 
+    [169.000, 170.000) = 0 
+    [170.000, 171.000) = 1 
+    [171.000, 172.000) = 0 
+
+  Percentiles, ms/op:
+      p(0.0000) =    163.601 ms/op
+     p(50.0000) =    169.382 ms/op
+     p(90.0000) =    172.097 ms/op
+     p(95.0000) =    172.097 ms/op
+     p(99.0000) =    172.097 ms/op
+     p(99.9000) =    172.097 ms/op
+     p(99.9900) =    172.097 ms/op
+     p(99.9990) =    172.097 ms/op
+     p(99.9999) =    172.097 ms/op
+    p(100.0000) =    172.097 ms/op
+
+
+# JMH version: 1.36
+# VM version: JDK 21-internal, Eclipse OpenJ9 VM, master-f14707ff6
+# *** WARNING: This VM is not supported by JMH. The produced benchmark data can be completely wrong.
+# VM invoker: /home/arjun/OpenJ9/builds/jdk/bin/java
+# VM options: -Xms4G -Xmx12G
+# Blackhole mode: full + dont-inline hint (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, single-shot each
+# Measurement: 2 iterations, single-shot each
+# Timeout: 10 min per iteration
+# Threads: 1 thread
+# Benchmark mode: Single shot invocation time
+# Benchmark: in.ac.iitmandi.compl.Harness.runBoxedValueAnalysisWithData
+
+# Run progress: 100.00% complete, ETA 00:00:00
+# Fork: 1 of 2
+# Warmup Iteration   1: 419.010 ms/op
+# Warmup Iteration   2: 114.521 ms/op
+# Warmup Iteration   3: 116.572 ms/op
+Iteration   1: 150.159 ms/op
+Iteration   2: 74.992 ms/op
+
+# Run progress: 100.00% complete, ETA 00:00:00
+# Fork: 2 of 2
+# Warmup Iteration   1: 408.653 ms/op
+# Warmup Iteration   2: 115.151 ms/op
+# Warmup Iteration   3: 116.283 ms/op
+Iteration   1: 131.161 ms/op
+Iteration   2: 78.821 ms/op
+
+
+Result "in.ac.iitmandi.compl.Harness.runBoxedValueAnalysisWithData":
+  N = 4
+  mean =    108.783 ±(99.9%) 243.287 ms/op
+
+  Histogram, ms/op:
+    [ 70.000,  75.000) = 1 
+    [ 75.000,  80.000) = 1 
+    [ 80.000,  85.000) = 0 
+    [ 85.000,  90.000) = 0 
+    [ 90.000,  95.000) = 0 
+    [ 95.000, 100.000) = 0 
+    [100.000, 105.000) = 0 
+    [105.000, 110.000) = 0 
+    [110.000, 115.000) = 0 
+    [115.000, 120.000) = 0 
+    [120.000, 125.000) = 0 
+    [125.000, 130.000) = 0 
+    [130.000, 135.000) = 1 
+    [135.000, 140.000) = 0 
+    [140.000, 145.000) = 0 
+    [145.000, 150.000) = 0 
+    [150.000, 155.000) = 1 
+
+  Percentiles, ms/op:
+      p(0.0000) =     74.992 ms/op
+     p(50.0000) =    104.991 ms/op
+     p(90.0000) =    150.159 ms/op
+     p(95.0000) =    150.159 ms/op
+     p(99.0000) =    150.159 ms/op
+     p(99.9000) =    150.159 ms/op
+     p(99.9900) =    150.159 ms/op
+     p(99.9990) =    150.159 ms/op
+     p(99.9999) =    150.159 ms/op
+    p(100.0000) =    150.159 ms/op
+
+
+# Run complete. Total time: 00:25:05
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                                                                            Mode  Cnt    Score     Error   Units
+Harness.runBoxedNonValueAnalysis                                                    thrpt    4    0.013 ±   0.002  ops/ms
+Harness.runBoxedNonValueAnalysisWithData                                            thrpt    4    0.031 ±   0.006  ops/ms
+Harness.runBoxedValueAnalysis                                                       thrpt    4    0.005 ±   0.001  ops/ms
+Harness.runBoxedValueAnalysisWithData                                               thrpt    4    0.011 ±   0.001  ops/ms
+Harness.runBoxedNonValueAnalysis                                                     avgt    4   72.692 ±  18.348   ms/op
+Harness.runBoxedNonValueAnalysisWithData                                             avgt    4   30.723 ±  15.067   ms/op
+Harness.runBoxedValueAnalysis                                                        avgt    4  185.538 ±  17.491   ms/op
+Harness.runBoxedValueAnalysisWithData                                                avgt    4   86.246 ±   8.943   ms/op
+Harness.runBoxedNonValueAnalysis                                                   sample  110   75.466 ±   4.791   ms/op
+Harness.runBoxedNonValueAnalysis:runBoxedNonValueAnalysis·p0.00                    sample        64.684             ms/op
+Harness.runBoxedNonValueAnalysis:runBoxedNonValueAnalysis·p0.50                    sample        71.238             ms/op
+Harness.runBoxedNonValueAnalysis:runBoxedNonValueAnalysis·p0.90                    sample        75.825             ms/op
+Harness.runBoxedNonValueAnalysis:runBoxedNonValueAnalysis·p0.95                    sample       124.355             ms/op
+Harness.runBoxedNonValueAnalysis:runBoxedNonValueAnalysis·p0.99                    sample       135.401             ms/op
+Harness.runBoxedNonValueAnalysis:runBoxedNonValueAnalysis·p0.999                   sample       135.791             ms/op
+Harness.runBoxedNonValueAnalysis:runBoxedNonValueAnalysis·p0.9999                  sample       135.791             ms/op
+Harness.runBoxedNonValueAnalysis:runBoxedNonValueAnalysis·p1.00                    sample       135.791             ms/op
+Harness.runBoxedNonValueAnalysisWithData                                           sample  127   29.064 ±   0.251   ms/op
+Harness.runBoxedNonValueAnalysisWithData:runBoxedNonValueAnalysisWithData·p0.00    sample        24.019             ms/op
+Harness.runBoxedNonValueAnalysisWithData:runBoxedNonValueAnalysisWithData·p0.50    sample        29.098             ms/op
+Harness.runBoxedNonValueAnalysisWithData:runBoxedNonValueAnalysisWithData·p0.90    sample        29.858             ms/op
+Harness.runBoxedNonValueAnalysisWithData:runBoxedNonValueAnalysisWithData·p0.95    sample        30.002             ms/op
+Harness.runBoxedNonValueAnalysisWithData:runBoxedNonValueAnalysisWithData·p0.99    sample        31.546             ms/op
+Harness.runBoxedNonValueAnalysisWithData:runBoxedNonValueAnalysisWithData·p0.999   sample        31.785             ms/op
+Harness.runBoxedNonValueAnalysisWithData:runBoxedNonValueAnalysisWithData·p0.9999  sample        31.785             ms/op
+Harness.runBoxedNonValueAnalysisWithData:runBoxedNonValueAnalysisWithData·p1.00    sample        31.785             ms/op
+Harness.runBoxedValueAnalysis                                                      sample   85  191.954 ±   7.859   ms/op
+Harness.runBoxedValueAnalysis:runBoxedValueAnalysis·p0.00                          sample       177.471             ms/op
+Harness.runBoxedValueAnalysis:runBoxedValueAnalysis·p0.50                          sample       182.977             ms/op
+Harness.runBoxedValueAnalysis:runBoxedValueAnalysis·p0.90                          sample       235.825             ms/op
+Harness.runBoxedValueAnalysis:runBoxedValueAnalysis·p0.95                          sample       241.985             ms/op
+Harness.runBoxedValueAnalysis:runBoxedValueAnalysis·p0.99                          sample       250.348             ms/op
+Harness.runBoxedValueAnalysis:runBoxedValueAnalysis·p0.999                         sample       250.348             ms/op
+Harness.runBoxedValueAnalysis:runBoxedValueAnalysis·p0.9999                        sample       250.348             ms/op
+Harness.runBoxedValueAnalysis:runBoxedValueAnalysis·p1.00                          sample       250.348             ms/op
+Harness.runBoxedValueAnalysisWithData                                              sample  107   88.772 ±   3.693   ms/op
+Harness.runBoxedValueAnalysisWithData:runBoxedValueAnalysisWithData·p0.00          sample        75.235             ms/op
+Harness.runBoxedValueAnalysisWithData:runBoxedValueAnalysisWithData·p0.50          sample        87.818             ms/op
+Harness.runBoxedValueAnalysisWithData:runBoxedValueAnalysisWithData·p0.90          sample        91.226             ms/op
+Harness.runBoxedValueAnalysisWithData:runBoxedValueAnalysisWithData·p0.95          sample       115.212             ms/op
+Harness.runBoxedValueAnalysisWithData:runBoxedValueAnalysisWithData·p0.99          sample       139.136             ms/op
+Harness.runBoxedValueAnalysisWithData:runBoxedValueAnalysisWithData·p0.999         sample       139.198             ms/op
+Harness.runBoxedValueAnalysisWithData:runBoxedValueAnalysisWithData·p0.9999        sample       139.198             ms/op
+Harness.runBoxedValueAnalysisWithData:runBoxedValueAnalysisWithData·p1.00          sample       139.198             ms/op
+Harness.runBoxedNonValueAnalysis                                                       ss    4  116.016 ± 161.444   ms/op
+Harness.runBoxedNonValueAnalysisWithData                                               ss    4   38.479 ±  61.688   ms/op
+Harness.runBoxedValueAnalysis                                                          ss    4  168.616 ±  23.855   ms/op
+Harness.runBoxedValueAnalysisWithData                                                  ss    4  108.783 ± 243.287   ms/op

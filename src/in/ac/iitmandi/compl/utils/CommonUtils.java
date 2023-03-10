@@ -34,6 +34,8 @@ public class CommonUtils {
 	public static final Integer VALUEBENCHMEDUIM = 5;
 	public static final Integer VALUEBENCHSMALL = 6;
 	public static final Integer VALUEBENCHXLARGE = 7;
+	public static final Integer VALUEBENCHBOXED = 8;
+	public static final Integer NONVALUEBENCHBOXED = 9;
 	
 	public static String generateErrorMsg(String msg) {
 		return PREPENDERRORVAL + msg;
