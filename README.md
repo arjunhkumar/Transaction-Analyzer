@@ -1,5 +1,5 @@
 # Transaction-Analyzer
-Microbenchmark using JMH that analyzes transactions and performs various operations.
+Microbenchmark using JMH that analyzes transactions and performs various operations. The parameter of Inlining depth is considered in this branch.
 
 Building
 --------
