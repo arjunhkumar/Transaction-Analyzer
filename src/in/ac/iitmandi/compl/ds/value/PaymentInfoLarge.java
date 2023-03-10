@@ -25,12 +25,12 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 	private final double unusedField6;
 	private final double unusedField7;
 	private final double unusedField8;
-	private final double unusedField9;
-	private final double unusedField10;
-	private final double unusedField11;
-	private final double unusedField12;
-	private final double unusedField13;
-	private final double unusedField14;
+//	private final double unusedField9;
+//	private final double unusedField10;
+//	private final double unusedField11;
+//	private final double unusedField12;
+//	private final double unusedField13;
+//	private final double unusedField14;
 
 //	public final double TransactionFee;
 	
@@ -52,12 +52,12 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 		this.unusedField6 = 9d;
 		this.unusedField7 = 9d;
 		this.unusedField8 = 9d;
-		this.unusedField9 = 9d;
-		this.unusedField10 = 9d;
-		this.unusedField11 = 9d;
-		this.unusedField12 = 9d;
-		this.unusedField13 = 9d;
-		this.unusedField14  = 9d;
+//		this.unusedField9 = 9d;
+//		this.unusedField10 = 9d;
+//		this.unusedField11 = 9d;
+//		this.unusedField12 = 9d;
+//		this.unusedField13 = 9d;
+//		this.unusedField14  = 9d;
 //		this.TransactionFee = 0d;
 	}
 
@@ -85,12 +85,12 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 		this.unusedField6 = 9d;
 		this.unusedField7 = 9d;
 		this.unusedField8 = 9d;
-		this.unusedField9 = 9d;
-		this.unusedField10 = 9d;
-		this.unusedField11 = 9d;
-		this.unusedField12 = 9d;
-		this.unusedField13 = 9d;
-		this.unusedField14  = 9d;
+//		this.unusedField9 = 9d;
+//		this.unusedField10 = 9d;
+//		this.unusedField11 = 9d;
+//		this.unusedField12 = 9d;
+//		this.unusedField13 = 9d;
+//		this.unusedField14  = 9d;
 //		TransactionFee = transactionFee;
 	}
 
@@ -192,47 +192,47 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 		return unusedField8;
 	}
 
-	/**
-	 * @return the unusedField9
-	 */
-	public double getUnusedField9() {
-		return unusedField9;
-	}
-
-	/**
-	 * @return the unusedField10
-	 */
-	public double getUnusedField10() {
-		return unusedField10;
-	}
-
-	/**
-	 * @return the unusedField11
-	 */
-	public double getUnusedField11() {
-		return unusedField11;
-	}
-
-	/**
-	 * @return the unusedField12
-	 */
-	public double getUnusedField12() {
-		return unusedField12;
-	}
-
-	/**
-	 * @return the unusedField13
-	 */
-	public double getUnusedField13() {
-		return unusedField13;
-	}
-
-	/**
-	 * @return the unusedField14
-	 */
-	public double getUnusedField14() {
-		return unusedField14;
-	}
+//	/**
+//	 * @return the unusedField9
+//	 */
+//	public double getUnusedField9() {
+//		return unusedField9;
+//	}
+//
+//	/**
+//	 * @return the unusedField10
+//	 */
+//	public double getUnusedField10() {
+//		return unusedField10;
+//	}
+//
+//	/**
+//	 * @return the unusedField11
+//	 */
+//	public double getUnusedField11() {
+//		return unusedField11;
+//	}
+//
+//	/**
+//	 * @return the unusedField12
+//	 */
+//	public double getUnusedField12() {
+//		return unusedField12;
+//	}
+//
+//	/**
+//	 * @return the unusedField13
+//	 */
+//	public double getUnusedField13() {
+//		return unusedField13;
+//	}
+//
+//	/**
+//	 * @return the unusedField14
+//	 */
+//	public double getUnusedField14() {
+//		return unusedField14;
+//	}
 
 
 	public PaymentInfoLarge genNewPaymentInfo(float feePercent) {

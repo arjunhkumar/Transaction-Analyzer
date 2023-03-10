@@ -21,11 +21,11 @@ public primitive class PaymentInfoMeduim extends AbstractPayment{
 	private final double unusedField2;
 	private final double unusedField3;
 	private final double unusedField4;
-	private final double unusedField5;
-	private final double unusedField6;
-	private final double unusedField7;
-	private final double unusedField8;
-	private final double unusedField9;
+//	private final double unusedField5;
+//	private final double unusedField6;
+//	private final double unusedField7;
+//	private final double unusedField8;
+//	private final double unusedField9;
 //	public final double TransactionFee;
 	
 	/**
@@ -42,11 +42,11 @@ public primitive class PaymentInfoMeduim extends AbstractPayment{
 		this.unusedField2 = 9d;
 		this.unusedField3 = 9d;
 		this.unusedField4  = 9d;
-		this.unusedField5 = 9d;
-		this.unusedField6 = 9d;
-		this.unusedField7 = 9d;
-		this.unusedField8 = 9d;
-		this.unusedField9 = 9d;
+//		this.unusedField5 = 9d;
+//		this.unusedField6 = 9d;
+//		this.unusedField7 = 9d;
+//		this.unusedField8 = 9d;
+//		this.unusedField9 = 9d;
 //		this.TransactionFee = 0d;
 	}
 
@@ -70,11 +70,11 @@ public primitive class PaymentInfoMeduim extends AbstractPayment{
 		this.unusedField2 = 9d;
 		this.unusedField3 = 9d;
 		this.unusedField4  = 9d;
-		this.unusedField5 = 9d;
-		this.unusedField6 = 9d;
-		this.unusedField7 = 9d;
-		this.unusedField8 = 9d;
-		this.unusedField9 = 9d;
+//		this.unusedField5 = 9d;
+//		this.unusedField6 = 9d;
+//		this.unusedField7 = 9d;
+//		this.unusedField8 = 9d;
+//		this.unusedField9 = 9d;
 //		TransactionFee = transactionFee;
 	}
 
@@ -148,40 +148,40 @@ public primitive class PaymentInfoMeduim extends AbstractPayment{
 		return unusedField4;
 	}
 
-	/**
-	 * @return the unusedField5
-	 */
-	public double getUnusedField5() {
-		return unusedField5;
-	}
-
-	/**
-	 * @return the unusedField6
-	 */
-	public double getUnusedField6() {
-		return unusedField6;
-	}
-
-	/**
-	 * @return the unusedField7
-	 */
-	public double getUnusedField7() {
-		return unusedField7;
-	}
-
-	/**
-	 * @return the unusedField8
-	 */
-	public double getUnusedField8() {
-		return unusedField8;
-	}
-
-	/**
-	 * @return the unusedField9
-	 */
-	public double getUnusedField9() {
-		return unusedField9;
-	}
+//	/**
+//	 * @return the unusedField5
+//	 */
+//	public double getUnusedField5() {
+//		return unusedField5;
+//	}
+//
+//	/**
+//	 * @return the unusedField6
+//	 */
+//	public double getUnusedField6() {
+//		return unusedField6;
+//	}
+//
+//	/**
+//	 * @return the unusedField7
+//	 */
+//	public double getUnusedField7() {
+//		return unusedField7;
+//	}
+//
+//	/**
+//	 * @return the unusedField8
+//	 */
+//	public double getUnusedField8() {
+//		return unusedField8;
+//	}
+//
+//	/**
+//	 * @return the unusedField9
+//	 */
+//	public double getUnusedField9() {
+//		return unusedField9;
+//	}
 
 	public PaymentInfoMeduim genNewPaymentInfo(float feePercent) {
 		return new PaymentInfoMeduim(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, TransactionStatus); 

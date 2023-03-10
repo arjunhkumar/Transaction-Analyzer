@@ -136,7 +136,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runNonValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		NonValueMain nvMainObj = new NonValueMain();
@@ -148,7 +148,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMain vMainObj = new ValueMain();
@@ -160,7 +160,7 @@ public class Harness implements MainInterface{
 	}
 
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runIValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		IntermediateValueMain iMainObj = new IntermediateValueMain();
@@ -172,7 +172,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runXLargeValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMainXLarge vMainObj = new ValueMainXLarge();
@@ -184,7 +184,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runLargeValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMainXLarge vMainObj = new ValueMainXLarge();
@@ -196,7 +196,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runMeduimValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMainMeduim vMainObj = new ValueMainMeduim();
@@ -208,7 +208,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runSmallValueAnalysis(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMainSmall vMainObj = new ValueMainSmall();
@@ -220,7 +220,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMain vMainObj = new ValueMain();
@@ -231,7 +231,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runNonValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMain vMainObj = new ValueMain();
@@ -242,7 +242,7 @@ public class Harness implements MainInterface{
 	}
 
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runIValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		IntermediateValueMain iMainObj = new IntermediateValueMain();
@@ -253,7 +253,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runXLargeValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMainXLarge vMainObj = new ValueMainXLarge();
@@ -264,7 +264,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runLargeValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMainXLarge vMainObj = new ValueMainXLarge();
@@ -276,7 +276,7 @@ public class Harness implements MainInterface{
 	
 	
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runMeduimValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMainMeduim vMainObj = new ValueMainMeduim();
@@ -287,7 +287,7 @@ public class Harness implements MainInterface{
 	}
 	
 	@Benchmark
-	@BenchmarkMode(Mode.AverageTime)
+	@BenchmarkMode(Mode.All)
 	public void runSmallValueAnalysisWithData(Harness mainObj, Blackhole blackhole) {
 		Random randomGen = new Random();
 		ValueMainSmall vMainObj = new ValueMainSmall();
@@ -298,7 +298,7 @@ public class Harness implements MainInterface{
 	}
 	
 //	@Benchmark
-//	@BenchmarkMode(Mode.AverageTime)
+//	@BenchmarkMode(Mode.All)
 //	@Warmup(iterations = 2)
 //	@Measurement(iterations = 2, timeUnit =  TimeUnit.MICROSECONDS)
 //	public void runValueAnalysis(Harness mainObj, Blackhole blackhole) {
@@ -310,7 +310,7 @@ public class Harness implements MainInterface{
 //	}
 	
 //	@Benchmark
-//	@BenchmarkMode(Mode.AverageTime)
+//	@BenchmarkMode(Mode.All)
 //	@Warmup(iterations = 2)
 //	@Measurement(iterations = 2, timeUnit =  TimeUnit.MICROSECONDS)
 //	public void runValue2Analysis(Harness mainObj, Blackhole blackhole) {
@@ -322,7 +322,7 @@ public class Harness implements MainInterface{
 //	}
 //	
 //	@Benchmark
-//	@BenchmarkMode(Mode.AverageTime)
+//	@BenchmarkMode(Mode.All)
 //	@Warmup(iterations = 2)
 //	@Measurement(iterations = 2, timeUnit =  TimeUnit.MICROSECONDS)
 //	public void runValue3Analysis(Harness mainObj, Blackhole blackhole) {
@@ -335,7 +335,7 @@ public class Harness implements MainInterface{
 	
 	
 //	@Benchmark
-//	@BenchmarkMode(Mode.AverageTime)
+//	@BenchmarkMode(Mode.All)
 //	@Warmup(iterations = 10)
 //	@Measurement(iterations = 10, timeUnit =  TimeUnit.MILLISECONDS)
 //	public void runIValueAnalysis(Blackhole blackhole) {
@@ -346,7 +346,7 @@ public class Harness implements MainInterface{
 //	}
 //	
 //	@Benchmark
-//	@BenchmarkMode(Mode.AverageTime)
+//	@BenchmarkMode(Mode.All)
 //	@Warmup(iterations = 10)
 //	@Measurement(iterations = 10, timeUnit =  TimeUnit.MILLISECONDS)
 //	public void runValueAnalysis(Blackhole blackhole) {

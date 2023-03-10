@@ -29,13 +29,13 @@ public primitive class PaymentInfoXLarge extends AbstractPayment{
 	private final double unusedField10;
 	private final double unusedField11;
 	private final double unusedField12;
-	private final double unusedField13;
-	private final double unusedField14;
-	private final double unusedField15;
-	private final double unusedField16;
-	private final double unusedField17;
-	private final double unusedField18;
-	private final double unusedField19;
+//	private final double unusedField13;
+//	private final double unusedField14;
+//	private final double unusedField15;
+//	private final double unusedField16;
+//	private final double unusedField17;
+//	private final double unusedField18;
+//	private final double unusedField19;
 //	public final double TransactionFee;
 	
 	/**
@@ -60,13 +60,13 @@ public primitive class PaymentInfoXLarge extends AbstractPayment{
 		this.unusedField10 = 9d;
 		this.unusedField11 = 9d;
 		this.unusedField12 = 9d;
-		this.unusedField13 = 9d;
-		this.unusedField14  = 9d;
-		this.unusedField15 = 9d;
-		this.unusedField16 = 9d;
-		this.unusedField17 = 9d;
-		this.unusedField18 = 9d;
-		this.unusedField19 = 9d;
+//		this.unusedField13 = 9d;
+//		this.unusedField14  = 9d;
+//		this.unusedField15 = 9d;
+//		this.unusedField16 = 9d;
+//		this.unusedField17 = 9d;
+//		this.unusedField18 = 9d;
+//		this.unusedField19 = 9d;
 //		this.TransactionFee = 0d;
 	}
 
@@ -98,13 +98,13 @@ public primitive class PaymentInfoXLarge extends AbstractPayment{
 		this.unusedField10 = 9d;
 		this.unusedField11 = 9d;
 		this.unusedField12 = 9d;
-		this.unusedField13 = 9d;
-		this.unusedField14  = 9d;
-		this.unusedField15 = 9d;
-		this.unusedField16 = 9d;
-		this.unusedField17 = 9d;
-		this.unusedField18 = 9d;
-		this.unusedField19 = 9d;
+//		this.unusedField13 = 9d;
+//		this.unusedField14  = 9d;
+//		this.unusedField15 = 9d;
+//		this.unusedField16 = 9d;
+//		this.unusedField17 = 9d;
+//		this.unusedField18 = 9d;
+//		this.unusedField19 = 9d;
 //		TransactionFee = transactionFee;
 	}
 
@@ -234,54 +234,54 @@ public primitive class PaymentInfoXLarge extends AbstractPayment{
 		return unusedField12;
 	}
 
-	/**
-	 * @return the unusedField13
-	 */
-	public double getUnusedField13() {
-		return unusedField13;
-	}
-
-	/**
-	 * @return the unusedField14
-	 */
-	public double getUnusedField14() {
-		return unusedField14;
-	}
-
-	/**
-	 * @return the unusedField15
-	 */
-	public double getUnusedField15() {
-		return unusedField15;
-	}
-
-	/**
-	 * @return the unusedField16
-	 */
-	public double getUnusedField16() {
-		return unusedField16;
-	}
-
-	/**
-	 * @return the unusedField17
-	 */
-	public double getUnusedField17() {
-		return unusedField17;
-	}
-
-	/**
-	 * @return the unusedField18
-	 */
-	public double getUnusedField18() {
-		return unusedField18;
-	}
-
-	/**
-	 * @return the unusedField19
-	 */
-	public double getUnusedField19() {
-		return unusedField19;
-	}
+//	/**
+//	 * @return the unusedField13
+//	 */
+//	public double getUnusedField13() {
+//		return unusedField13;
+//	}
+//
+//	/**
+//	 * @return the unusedField14
+//	 */
+//	public double getUnusedField14() {
+//		return unusedField14;
+//	}
+//
+//	/**
+//	 * @return the unusedField15
+//	 */
+//	public double getUnusedField15() {
+//		return unusedField15;
+//	}
+//
+//	/**
+//	 * @return the unusedField16
+//	 */
+//	public double getUnusedField16() {
+//		return unusedField16;
+//	}
+//
+//	/**
+//	 * @return the unusedField17
+//	 */
+//	public double getUnusedField17() {
+//		return unusedField17;
+//	}
+//
+//	/**
+//	 * @return the unusedField18
+//	 */
+//	public double getUnusedField18() {
+//		return unusedField18;
+//	}
+//
+//	/**
+//	 * @return the unusedField19
+//	 */
+//	public double getUnusedField19() {
+//		return unusedField19;
+//	}
 
 	public PaymentInfoLarge genNewPaymentInfo(float feePercent) {
 		return new PaymentInfoLarge(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, TransactionStatus); 
