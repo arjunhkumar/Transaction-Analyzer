@@ -71,7 +71,7 @@ public interface MainInterface {
 	default double processTransactions(List<AbstractTransaction> valueList, int divident) {
 		double blackHole;
 		double avgTransactionAmt = computeAverageTransactionAmount(valueList)/divident;
-		System.out.println(CommonUtils.generateLogMsg("Average Transaction Amount: "+avgTransactionAmt));
+//		System.out.println(CommonUtils.generateLogMsg("Average Transaction Amount: "+avgTransactionAmt));
 		List<AbstractTransaction> workList = new ArrayList<>(valueList);
 		double avgProcessingFee = computeAverageProcessingFee(workList,divident/CommonUtils.ITER_SIZE);
 //		System.out.println(CommonUtils.generateLogMsg("Average processing fee: "+avgProcessingFee));
