@@ -69,3 +69,5 @@ perf stat -r 10 -e cycles,instructions,cache-misses,cache-references -d -d -d $S
 
 echo "Finished ValueFieldContainerTestMeduim 10000"
 
+
+# perf stat -e cycles,instructions,cache-misses,cache-references -d -d -d $SANITY_JDK/java -Xverify:none -Xjit:count=1,disableAsyncCompilation,optlevel=hot -cp transaction-analyzer-5.2-Inlining-Depth.jar:lib/* in.ac.iitmandi.compl.NonValueMainBoxed 10 | tee nonValueFieldContainerTest100.log 2>&1
