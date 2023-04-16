@@ -96,11 +96,12 @@ public class ValueTransactionLarge extends AbstractTransaction {
 	private double getFieldSum(int iterVal) {
 		double sum = 0;
 		for(int i =0; i<iterVal;i++) {
-			sum += this.getPaymentInfo().getCustAccountBalance();
-			sum += this.getPaymentInfo().getTransactionAmount();
-			sum += this.getPaymentInfo().getTransactionDate();
-			sum += this.getPaymentInfo().getTransactionFeeRate();
-			sum += this.getPaymentInfo().getTransactionTime();
+			PaymentInfoLarge currentPaymentInfo = this.getPaymentInfo();
+			sum += currentPaymentInfo.getCustAccountBalance();
+			sum += currentPaymentInfo.getTransactionAmount();
+			sum += currentPaymentInfo.getTransactionDate();
+			sum += currentPaymentInfo.getTransactionFeeRate();
+			sum += currentPaymentInfo.getTransactionTime();
 		}
 		return sum;
 	}

@@ -3,12 +3,10 @@
  */
 package in.ac.iitmandi.compl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import in.ac.iitmandi.compl.ds.AbstractTransaction;
 import in.ac.iitmandi.compl.ds.Dataset;
-import in.ac.iitmandi.compl.ds.JSONResult;
 import in.ac.iitmandi.compl.ds.value.IntermediateValueTransaction;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
@@ -37,8 +35,8 @@ public class IntermediateValueMain implements MainInterface{
 	public void executeAnalysis(Dataset ds) {
 		long startTime;
 		long finishTime;
-		startTime = System.currentTimeMillis();
 		List<AbstractTransaction> valueList = convertToTransaction(ds, new IntermediateValueTransaction());
+		startTime = System.currentTimeMillis();
 		double sum =0;
 		for(int i = 1; i<=CommonUtils.ITER_SIZE; i++) {
 			sum += processTransactions(valueList,i);
@@ -48,16 +46,16 @@ public class IntermediateValueMain implements MainInterface{
 		System.out.println(CommonUtils.generateLogMsg(String.format("Analysis execution took %d ms", finishTime - startTime)));
 	}
 
-	List<IntermediateValueTransaction> convertToValueTransactions(Dataset ds) {
-		List<IntermediateValueTransaction> transactionList = null;
-		if(null != ds && null != ds.getResults() && ds.getResults().length > 0) {
-			transactionList = new ArrayList<>();
-			for (JSONResult transactionData : ds.getResults()) {
-				IntermediateValueTransaction valueTransaction = CommonUtils.convertToIVT(transactionData);
-				transactionList.add(valueTransaction);
-			}
-		}
-		return transactionList;
-	}
+//	List<IntermediateValueTransaction> convertToValueTransactions(Dataset ds) {
+//		List<IntermediateValueTransaction> transactionList = null;
+//		if(null != ds && null != ds.getResults() && ds.getResults().length > 0) {
+//			transactionList = new ArrayList<>();
+//			for (JSONResult transactionData : ds.getResults()) {
+//				IntermediateValueTransaction valueTransaction = CommonUtils.convertToIVT(transactionData);
+//				transactionList.add(valueTransaction);
+//			}
+//		}
+//		return transactionList;
+//	}
 
 }

@@ -92,14 +92,50 @@ public class ValueTransaction extends AbstractTransaction{
 	}
 	
 	private double getFieldSum(int iterVal) {
+//		long startTime;
+//		long finishTime;
+//		long i1 = 0;
+//		long i2 = 0;
+//		long i3 = 0;
+//		long i4 = 0;
+//		long i5 = 0;
+//		long i6 = 0;
+//		startTime = System.nanoTime();
 		double sum = 0;
 		for(int i =0; i<iterVal;i++) {
+//			PaymentInfo currentPaymentInfo = this.getPaymentInfo();
+//			i1 = System.nanoTime();
 			sum += this.getPaymentInfo().getCustAccountBalance();
+//			i2 = System.nanoTime();
 			sum += this.getPaymentInfo().getTransactionAmount();
+//			i3 = System.nanoTime();
 			sum += this.getPaymentInfo().getTransactionDate();
+//			i4 = System.nanoTime();
 			sum += this.getPaymentInfo().getTransactionFeeRate();
+//			i5 = System.nanoTime();
 			sum += this.getPaymentInfo().getTransactionTime();
+//			i6 = System.nanoTime();
 		}
+//		finishTime = System.nanoTime();
+//		computeAverageTime(finishTime - startTime);
+//		System.out.println(CommonUtils.generateLogMsg(
+//				 String.format("I0 "
+//						+ "%d ms", i2 - i1)));
+//		System.out.println(CommonUtils.generateLogMsg(
+//				String.format("I1 "
+//						+ "%d ms", i3 - i2)));
+//		System.out.println(CommonUtils.generateLogMsg(
+//				String.format("I2 "
+//						+ "%d ms", i4 - i3)));
+//		System.out.println(CommonUtils.generateLogMsg(
+//				String.format("I3 "
+//						+ "%d ms", i5 - i4)));
+//		System.out.println(CommonUtils.generateLogMsg(
+//				String.format("I4 "
+//						+ "%d ms", i6 - i5)));
+//		System.out.println(CommonUtils.generateLogMsg(
+//				String.format("Field sum computation took "
+//						+ "%d ns", finishTime - startTime)));
 		return sum;
 	}
 	

@@ -35,8 +35,8 @@ public class ValueMainXLarge implements MainInterface{
 	public void executeAnalysis(Dataset ds) {
 		long startTime;
 		long finishTime;
-		startTime = System.currentTimeMillis();
 		List<AbstractTransaction> valueList = convertToTransaction(ds, new ValueTransactionXLarge());
+		startTime = System.currentTimeMillis();
 		double sum =0;
 		for(int i = 1; i<=CommonUtils.ITER_SIZE; i++) {
 			sum += processTransactions(valueList,i);

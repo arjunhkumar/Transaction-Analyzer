@@ -3,6 +3,8 @@
  */
 package in.ac.iitmandi.compl.ds;
 
+import in.ac.iitmandi.compl.utils.CommonUtils;
+
 /**
  * @author arjun
  *
@@ -23,7 +25,7 @@ public abstract class AbstractTransaction {
 	}
 
 	public AbstractTransaction(String transactionID, CustomerDetails custDetails) {
-		TransactionID = transactionID;
+		this.TransactionID = transactionID;
 		this.custDetails = custDetails;
 	}
 
@@ -36,6 +38,9 @@ public abstract class AbstractTransaction {
 	public abstract void updateTransactionStatus(boolean status);
 	public abstract AbstractTransaction convertToTransactionObject(JSONResult resultData);
 	
+	protected void computeAverageTime(long iterTime) {
+		CommonUtils.averageTime+=iterTime;
+	}
 	/**
 	 * @return the transactionID
 	 */
