@@ -77,24 +77,32 @@ public interface MainInterface {
 //		System.out.println(CommonUtils.generateLogMsg("Average processing fee: "+avgProcessingFee));
 		int numberOfCustomers = computeNumberOfCustomers(updateTransactions(workList,divident/CommonUtils.ITER_SIZE));
 //		System.out.println(CommonUtils.generateLogMsg("No. of transactions successfull are: "+numberOfCustomers));
-		double accessVal = increasePrimitiveAccessOperation(workList,50);
-		blackHole =  avgTransactionAmt + avgProcessingFee +numberOfCustomers+ accessVal;
+//		double accessVal = increasePrimitiveAccessOperation(workList,50);
+		blackHole =  avgTransactionAmt + avgProcessingFee +numberOfCustomers;
 		return blackHole;
 	}
 	
 	default double computeAverageTransactionAmount(List<AbstractTransaction> valueList) {
+		long startTime;
+		long finishTime;
+		startTime = System.currentTimeMillis();
 		if(null != valueList && !valueList.isEmpty()) {
 			double sum = 0;
 			for(AbstractTransaction valueTransaction : valueList) {
 				double transactionAmt = valueTransaction.getTransactionAmount();
 				sum += transactionAmt;
 			}
+			finishTime = System.currentTimeMillis();
+			System.out.println(CommonUtils.generateLogMsg(String.format("Compute-Average-Transaction-Amount took %d ms", finishTime - startTime)));
 			return sum/valueList.size();
 		}
 		return 0;
 	}
 	
 	default double computeAverageProcessingFee(List<AbstractTransaction> valueList, float rate) {
+		long startTime;
+		long finishTime;
+		startTime = System.currentTimeMillis();
 		if(null != valueList && !valueList.isEmpty()) {
 			double sum = 0;
 			for(AbstractTransaction valueTransaction : valueList) {
@@ -102,12 +110,17 @@ public interface MainInterface {
 				double processingFee = transactionAmt*rate;
 				sum+=processingFee;
 			}
+			finishTime = System.currentTimeMillis();
+			System.out.println(CommonUtils.generateLogMsg(String.format("Compute-Average-Processing-Fee took %d ms", finishTime - startTime)));
 			return sum/valueList.size();
 		}
 		return 0;
 	}
 	
 	default List<AbstractTransaction> updateTransactions(List<AbstractTransaction> workList, int rate) {
+		long startTime;
+		long finishTime;
+		startTime = System.currentTimeMillis();
 		if(null != workList && !workList.isEmpty()) {
 			for(AbstractTransaction valueTransaction : workList) {
 				double transactionAmt = valueTransaction.getTransactionAmount();
@@ -122,10 +135,15 @@ public interface MainInterface {
 				}
 			}
 		}
+		finishTime = System.currentTimeMillis();
+		System.out.println(CommonUtils.generateLogMsg(String.format("Compute-Average-Transaction-Amount took %d ms", finishTime - startTime)));
 		return workList;
 	}
 
 	default int computeNumberOfCustomers(List<AbstractTransaction> updateTransactions) {
+		long startTime;
+		long finishTime;
+		startTime = System.currentTimeMillis();
 		if(null != updateTransactions && !updateTransactions.isEmpty()) {
 			int noOfCustomers = 0;
 			for(AbstractTransaction valueTransaction : updateTransactions) {
@@ -135,19 +153,21 @@ public interface MainInterface {
 			}
 			return noOfCustomers;
 		}
+		finishTime = System.currentTimeMillis();
+		System.out.println(CommonUtils.generateLogMsg(String.format("Compute-No-Of-Customers took %d ms", finishTime - startTime)));
 		return 0;
 	}
 	
-	default double increasePrimitiveAccessOperation(List<AbstractTransaction> valueList,int randomInt) {
-		if(null != valueList && !valueList.isEmpty()) {
-			double sum = 0;
-			for(AbstractTransaction valueTransaction : valueList) {
-				double transactionAmt = valueTransaction.computeFieldSum(randomInt);
-				sum += transactionAmt;
-			}
-			return sum/valueList.size();
-		}
-		return 0;
-	}
+//	default double increasePrimitiveAccessOperation(List<AbstractTransaction> valueList,int randomInt) {
+//		if(null != valueList && !valueList.isEmpty()) {
+//			double sum = 0;
+//			for(AbstractTransaction valueTransaction : valueList) {
+//				double transactionAmt = valueTransaction.computeFieldSum(randomInt);
+//				sum += transactionAmt;
+//			}
+//			return sum/valueList.size();
+//		}
+//		return 0;
+//	}
 	
 }

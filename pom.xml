@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <name>Perf-Benchmark-For-ValueTypes</name>
   <packaging>jar</packaging>
-  <version>5.2-Inlining-Depth</version>
+  <version>5.3-Inlining-Depth</version>
   <properties>
     <maven.compiler.target>20</maven.compiler.target>
     <maven.compiler.source>20</maven.compiler.source>
@@ -37,7 +37,7 @@
                     <configuration>
                     <verbose>true</verbose>
                     <fork>true</fork>
-                   <executable>/home/arjun/WD/J9/Containers/openj9_valuetypes_sanity_v2/build/linux-x86_64-server-release/images/jdk/bin/javac</executable>
+                   <executable>/home/arjun/WD/J9/Containers/openj9_valuetypes_merged_sanity/build/linux-x86_64-server-release/images/jdk/bin/javac</executable>
 <!--                     <executable>/home/arjun/Working_Directory/Softwares/Utilities/OpenJDK/openjdk-14/jdk-14/bin/javac</executable> -->
                     <maven.compiler.source>20</maven.compiler.source>
                     <maven.compiler.target>20</maven.compiler.target>

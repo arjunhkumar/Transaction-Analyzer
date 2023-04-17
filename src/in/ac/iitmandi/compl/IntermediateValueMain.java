@@ -3,12 +3,10 @@
  */
 package in.ac.iitmandi.compl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import in.ac.iitmandi.compl.ds.AbstractTransaction;
 import in.ac.iitmandi.compl.ds.Dataset;
-import in.ac.iitmandi.compl.ds.JSONResult;
 import in.ac.iitmandi.compl.ds.value.IntermediateValueTransaction;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
@@ -48,16 +46,5 @@ public class IntermediateValueMain implements MainInterface{
 		System.out.println(CommonUtils.generateLogMsg(String.format("Analysis execution took %d ms", finishTime - startTime)));
 	}
 
-	List<IntermediateValueTransaction> convertToValueTransactions(Dataset ds) {
-		List<IntermediateValueTransaction> transactionList = null;
-		if(null != ds && null != ds.getResults() && ds.getResults().length > 0) {
-			transactionList = new ArrayList<>();
-			for (JSONResult transactionData : ds.getResults()) {
-				IntermediateValueTransaction valueTransaction = CommonUtils.convertToIVT(transactionData);
-				transactionList.add(valueTransaction);
-			}
-		}
-		return transactionList;
-	}
 
 }
