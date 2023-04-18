@@ -59,14 +59,25 @@ public class ValueTransactionBox extends AbstractTransaction{
 
 	@Override
 	public void resetFeeInfo(AbstractPayment paymentInfo) {
+		long startTime;
+		long finishTime;
+		startTime = System.nanoTime();
 		if(paymentInfo instanceof PaymentInfoBoxBox) {
 			this.setFeeInfo((PaymentInfoBoxBox)paymentInfo);
 		}
+		finishTime = System.nanoTime();
+		System.out.println(CommonUtils.generateLogMsg(String.format("3.2. Reset-Fee-Info status took %d ns", finishTime - startTime)));
 	}
 
 	@Override
 	public void updateTransactionStatus(boolean status) {
+		long startTime;
+		long finishTime;
+		startTime = System.nanoTime();
 		this.setFeeInfo(new PaymentInfoBoxBox(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
+		finishTime = System.nanoTime();
+		System.out.println(CommonUtils.generateLogMsg(String.format("3.1.Update-Transaction status took %d ns", finishTime - startTime)));
+		
 	}
 
 	@Override

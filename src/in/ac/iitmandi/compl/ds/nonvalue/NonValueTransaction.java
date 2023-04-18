@@ -64,7 +64,13 @@ public class NonValueTransaction extends AbstractTransaction{
 
 	@Override
 	public void updateTransactionStatus(boolean status) {
+		long startTime;
+		long finishTime;
+		startTime = System.currentTimeMillis();
 		this.setFeeInfo(new NonValuePaymentInfo(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
+		finishTime = System.currentTimeMillis();
+		System.out.println(CommonUtils.generateLogMsg(String.format("3.1.Update-Transaction status took %d ms", finishTime - startTime)));
+		
 	}
 	
 	@Override
