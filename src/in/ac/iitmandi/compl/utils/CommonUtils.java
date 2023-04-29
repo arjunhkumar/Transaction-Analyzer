@@ -16,6 +16,8 @@ public class CommonUtils {
 	private static final String PREPENDLOGVAL = "Log : ";
 	public static final CommonUtils INSTANCE = new CommonUtils();
 	
+	public static boolean debugMode = true;
+	
 	public static final Integer NONVALUEBENCH = 1;
 	public static final Integer VALUEBENCH = 2;
 	public static final Integer INTERMEDIATEVALUEBENCH = 3;
@@ -122,6 +124,12 @@ public class CommonUtils {
 			return Integer.parseInt(formattedString);
 		}
 		return 0;
+	}
+	
+	public static void printLog(String msg) {
+		if(debugMode) {
+			System.out.println(CommonUtils.generateLogMsg(msg));
+		}
 	}
 
 }

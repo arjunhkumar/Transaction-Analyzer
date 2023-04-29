@@ -66,7 +66,8 @@ public class ValueTransaction extends AbstractTransaction{
 
 	@Override
 	public void updateTransactionStatus(boolean status) {
-		this.setFeeInfo(new PaymentInfo(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
+		PaymentInfo pInfo = new PaymentInfo(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status);
+		this.setFeeInfo(pInfo);
 	}
 
 	@Override

@@ -64,7 +64,8 @@ public class NonValueTransaction extends AbstractTransaction{
 
 	@Override
 	public void updateTransactionStatus(boolean status) {
-		this.setFeeInfo(new NonValuePaymentInfo(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
+		NonValuePaymentInfo pInfo = new NonValuePaymentInfo(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status);
+		this.setFeeInfo(pInfo);
 	}
 	
 	@Override
@@ -90,15 +91,15 @@ public class NonValueTransaction extends AbstractTransaction{
 	}
 	
 	private double getFieldSum(int iterVal) {
-		long startTime;
-		long finishTime;
+//		long startTime;
+//		long finishTime;
 //		long i1 = 0;
 //		long i2 = 0;
 //		long i3 = 0;
 //		long i4 = 0;
 //		long i5 = 0;
 //		long i6 = 0;
-		startTime = System.nanoTime();
+//		startTime = System.nanoTime();
 		double sum = 0;
 		for(int i =0; i<iterVal;i++) {
 //			i1 = System.nanoTime();
@@ -113,8 +114,8 @@ public class NonValueTransaction extends AbstractTransaction{
 			sum += this.getPaymentInfo().getTransactionTime();
 //			i6 = System.nanoTime();
 		}
-		finishTime = System.nanoTime();
-		computeAverageTime(finishTime - startTime);
+//		finishTime = System.nanoTime();
+//		computeAverageTime(finishTime - startTime);
 //		System.out.println(CommonUtils.generateLogMsg(
 //				String.format("I0 "
 //						+ "%d ms", i2 - i1)));
@@ -130,9 +131,9 @@ public class NonValueTransaction extends AbstractTransaction{
 //		System.out.println(CommonUtils.generateLogMsg(
 //				String.format("I0 "
 //						+ "%d ms", i6 - i5)));
-		System.out.println(CommonUtils.generateLogMsg(
-				String.format("Field sum computation took "
-						+ "%d ns", finishTime - startTime)));
+//		System.out.println(CommonUtils.generateLogMsg(
+//				String.format("Field sum computation took "
+//						+ "%d ns", finishTime - startTime)));
 		return sum;
 	}
 	

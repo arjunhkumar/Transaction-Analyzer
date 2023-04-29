@@ -64,9 +64,9 @@ public interface MainInterface {
 			}
 		}
 		finishTime = System.currentTimeMillis();
-		System.out.println(CommonUtils.generateLogMsg(
+		CommonUtils.printLog(
 				String.format("Dataset conversion took "
-						+ "%d ms", finishTime - startTime)));
+						+ "%d ms", finishTime - startTime));
 		return transactionList;
 	}
 	
@@ -82,26 +82,26 @@ public interface MainInterface {
 		int numberOfCustomers = computeNumberOfCustomers(updateTransactions(valueList,divident/CommonUtils.ITER_SIZE));
 //		numberOfCustomers += computeNumberOfCustomers(updateTransactions(valueList,(divident*2)/CommonUtils.ITER_SIZE));
 //		System.out.println(CommonUtils.generateLogMsg("No. of transactions successfull are: "+numberOfCustomers));
-//		double accessVal = increasePrimitiveAccessOperation(valueList,10000);
+//		double accessVal = increasePrimitiveAccessOperation(valueList,1000);
 		blackHole =  avgTransactionAmt + avgProcessingFee + numberOfCustomers;
 //		blackHole = accessVal;
 		return blackHole;
 	}
 	
 	default double computeAverageTransactionAmount(List<AbstractTransaction> valueList) {
-//		long startTime;
-//		long finishTime;
-//		startTime = System.currentTimeMillis();
+		long startTime;
+		long finishTime;
+		startTime = System.currentTimeMillis();
 		if(null != valueList && !valueList.isEmpty()) {
 			double sum = 0;
 			for(AbstractTransaction valueTransaction : valueList) {
 				double transactionAmt = valueTransaction.getTransactionAmount();
 				sum += transactionAmt;
 			}
-//			finishTime = System.currentTimeMillis();
-//			System.out.println(CommonUtils.generateLogMsg(
-//					String.format("Average Transaction Amount computation took "
-//							+ "%d ms", finishTime - startTime)));
+			finishTime = System.currentTimeMillis();
+			CommonUtils.printLog(
+					String.format("Average Transaction Amount computation took "
+							+ "%d ms", finishTime - startTime));
 			return sum/valueList.size();
 		}
 		
@@ -109,9 +109,9 @@ public interface MainInterface {
 	}
 	
 	default double computeAverageProcessingFee(List<AbstractTransaction> valueList, float rate) {
-//		long startTime;
-//		long finishTime;
-//		startTime = System.currentTimeMillis();
+		long startTime;
+		long finishTime;
+		startTime = System.currentTimeMillis();
 		if(null != valueList && !valueList.isEmpty()) {
 			double sum = 0;
 			for(AbstractTransaction valueTransaction : valueList) {
@@ -119,23 +119,24 @@ public interface MainInterface {
 				double processingFee = transactionAmt*rate;
 				sum+=processingFee;
 			}
-//			finishTime = System.currentTimeMillis();
-//			System.out.println(CommonUtils.generateLogMsg(
-//					String.format("Average Processing Fee computation took "
-//							+ "%d ms", finishTime - startTime)));
+			finishTime = System.currentTimeMillis();
+			CommonUtils.printLog(
+					String.format("Average Processing Fee computation took "
+							+ "%d ms", finishTime - startTime));
 			return sum/valueList.size();
 		}
 		return 0;
 	}
 	
 	default List<AbstractTransaction> updateTransactions(List<AbstractTransaction> workList, int rate) {
-//		long startTime;
-//		long finishTime;
+		long startTime;
+		long finishTime;
 //		long i0 = 0;
 //		long i1 = 0;
 //		long i2 = 0;
 //		long i3 = 0;
-//		startTime = System.currentTimeMillis();
+		startTime = System.currentTimeMillis();
+//		int count = 0;
 		if(null != workList && !workList.isEmpty()) {
 			for(AbstractTransaction valueTransaction : workList) {
 //				i0 = System.currentTimeMillis();
@@ -145,16 +146,16 @@ public interface MainInterface {
 //				PaymentInfo pInfo = new PaymentInfo(valueTransaction.getPaymentInfo().getCustAccountBalance(),valueTransaction.getPaymentInfo().getTransactionDate(),valueTransaction.getPaymentInfo().getTransactionTime(),processingFee,valueTransaction.getPaymentInfo().getTransactionFeeRate(),false);
 //				valueTransaction.setFeeInfo(pInfo);
 				valueTransaction.resetFeeInfo(valueTransaction.createNewPaymentObject(processingFee));
-//				i2 = System.currentTimeMillis();
+////				i2 = System.currentTimeMillis();
 				if(valueTransaction.getCustAcctBalance() >= processingFee) {
-//					PaymentInfo updatedPInfo = new PaymentInfo(valueTransaction.getPaymentInfo().getCustAccountBalance(),valueTransaction.getPaymentInfo().getTransactionDate(),valueTransaction.getPaymentInfo().getTransactionTime(),processingFee,valueTransaction.getPaymentInfo().getTransactionFeeRate(),true);
-//					valueTransaction.setFeeInfo(updatedPInfo);
+//					count++;
 					valueTransaction.updateTransactionStatus(true);
 				}
 //				i3 = System.currentTimeMillis();
 			}
 		}
-//		finishTime = System.currentTimeMillis();
+//		System.out.println("Value Transactions count:"+count);
+		finishTime = System.currentTimeMillis();
 //		System.out.println(CommonUtils.generateLogMsg(
 //				String.format("I1 took "
 //						+ "%d ms", i1 - i0)));
@@ -164,16 +165,16 @@ public interface MainInterface {
 //		System.out.println(CommonUtils.generateLogMsg(
 //				String.format("I3 took "
 //						+ "%d ms", i3 - i2)));
-//		System.out.println(CommonUtils.generateLogMsg(
-//				String.format("Updating transactions took "
-//						+ "%d ms", finishTime - startTime)));
+		CommonUtils.printLog(
+				String.format("Updating transactions took "
+						+ "%d ms", finishTime - startTime));
 		return workList;
 	}
 
 	default int computeNumberOfCustomers(List<AbstractTransaction> updateTransactions) {
-//		long startTime;
-//		long finishTime;
-//		startTime = System.currentTimeMillis();
+		long startTime;
+		long finishTime;
+		startTime = System.currentTimeMillis();
 		if(null != updateTransactions && !updateTransactions.isEmpty()) {
 			int noOfCustomers = 0;
 			for(AbstractTransaction valueTransaction : updateTransactions) {
@@ -181,10 +182,10 @@ public interface MainInterface {
 					noOfCustomers++;
 				}
 			}
-//			finishTime = System.currentTimeMillis();
-//			System.out.println(CommonUtils.generateLogMsg(
-//					String.format("Customer computation took "
-//							+ "%d ms", finishTime - startTime)));
+			finishTime = System.currentTimeMillis();
+			CommonUtils.printLog(
+					String.format("Customer computation took "
+							+ "%d ms", finishTime - startTime));
 			return noOfCustomers;
 		}
 		return 0;
@@ -207,10 +208,9 @@ public interface MainInterface {
 			finishTime = System.currentTimeMillis();
 //			System.out.println(CommonUtils.generateLogMsg(
 //					String.format("Field sum computation at parent took "
-//							+ "%d ms", i2 - i1)));
-			System.out.println(CommonUtils.generateLogMsg(
+			CommonUtils.printLog(
 					String.format("Primitive access operation took "
-							+ "%d ms", finishTime - startTime)));
+							+ "%d ms", finishTime - startTime));
 			return sum/valueList.size();
 		}
 		return 0;
