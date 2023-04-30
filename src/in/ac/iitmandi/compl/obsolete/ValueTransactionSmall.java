@@ -5,7 +5,6 @@ package in.ac.iitmandi.compl.obsolete;
 
 import in.ac.iitmandi.compl.ds.CustomerDetails;
 import in.ac.iitmandi.compl.ds.JSONResult;
-import in.ac.iitmandi.compl.ds.value.PaymentInfo;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
 /**
@@ -55,7 +54,7 @@ public class ValueTransactionSmall extends AbstractTransaction {
 
 	@Override
 	public AbstractPayment createNewPaymentObject(double processingFee) {
-		return new PaymentInfo(this.getPaymentInfo().getCustAccountBalance(), this.getPaymentInfo().getTransactionDate(), this.getPaymentInfo().getTransactionTime(), processingFee, this.getPaymentInfo().getTransactionFeeRate(), false); 
+		return new PaymentInfoSmall(this.getPaymentInfo().getCustAccountBalance(), this.getPaymentInfo().getTransactionDate(), this.getPaymentInfo().getTransactionTime(), processingFee, this.getPaymentInfo().getTransactionFeeRate(), false); 
 	}
 
 	@Override

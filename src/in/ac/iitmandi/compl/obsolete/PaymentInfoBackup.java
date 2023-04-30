@@ -1,13 +1,13 @@
 /**
  * 
  */
-package in.ac.iitmandi.compl.ds.value;
+package in.ac.iitmandi.compl.obsolete;
 
 /**
  * @author arjun
  *
  */
-public class PaymentInfoBackup {
+public class PaymentInfoBackup extends AbstractPayment {
 
 	private final double CustAccountBalance;
 	private final int TransactionDate;

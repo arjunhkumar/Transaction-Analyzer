@@ -5,7 +5,6 @@ package in.ac.iitmandi.compl.obsolete;
 
 import in.ac.iitmandi.compl.ds.CustomerDetails;
 import in.ac.iitmandi.compl.ds.JSONResult;
-import in.ac.iitmandi.compl.ds.value.PaymentInfo;
 import in.ac.iitmandi.compl.ds.value.ValueTransaction;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
@@ -56,7 +55,7 @@ public class ValueTransactionXLarge extends AbstractTransaction {
 
 	@Override
 	public AbstractPayment createNewPaymentObject(double processingFee) {
-		return new PaymentInfo(this.getPaymentInfo().getCustAccountBalance(), this.getPaymentInfo().getTransactionDate(), this.getPaymentInfo().getTransactionTime(), processingFee, this.getPaymentInfo().getTransactionFeeRate(), false); 
+		return new PaymentInfoXLarge(this.getPaymentInfo().getCustAccountBalance(), this.getPaymentInfo().getTransactionDate(), this.getPaymentInfo().getTransactionTime(), processingFee, this.getPaymentInfo().getTransactionFeeRate(), false); 
 	}
 
 	@Override
@@ -74,8 +73,8 @@ public class ValueTransactionXLarge extends AbstractTransaction {
 	@Override
 	public AbstractTransaction convertToTransactionObject(JSONResult result) {
 		CustomerDetails cDetails = new CustomerDetails(result.getCustomerID(), result.getCustomerDOB(), result.getCustGender(), result.getCustLocation());
-		PaymentInfo pi = createValuePaymentInfo(result);
-		return new ValueTransaction(result.getTransactionID(), cDetails, pi);
+		PaymentInfoXLarge pi = createValuePaymentInfo(result);
+		return new ValueTransactionXLarge(result.getTransactionID(), cDetails, pi);
 	}
 	
 	@Override
@@ -83,14 +82,14 @@ public class ValueTransactionXLarge extends AbstractTransaction {
 		return this.getFieldSum(n_iterations);
 	}
 	
-	private PaymentInfo createValuePaymentInfo(JSONResult result) {
+	private PaymentInfoXLarge createValuePaymentInfo(JSONResult result) {
 		double cAccBalance = 0;
 		if(result.getCustAccountBalance() != null && !result.getCustAccountBalance().isEmpty()) {
 			cAccBalance =  Double.parseDouble(result.getCustAccountBalance());
 		}
 		int paymentDate = CommonUtils.formatDateString(result.getTransactionDate());
 		int paymentTime = result.getTransactionTime();
-		return new PaymentInfo(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
+		return new PaymentInfoXLarge(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
 	}
 	
 	private double getFieldSum(int iterVal) {

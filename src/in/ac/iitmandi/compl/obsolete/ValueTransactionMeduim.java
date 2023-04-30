@@ -55,7 +55,7 @@ public class ValueTransactionMeduim extends AbstractTransaction {
 
 	@Override
 	public AbstractPayment createNewPaymentObject(double processingFee) {
-		return new PaymentInfo(this.getPaymentInfo().getCustAccountBalance(), this.getPaymentInfo().getTransactionDate(), this.getPaymentInfo().getTransactionTime(), processingFee, this.getPaymentInfo().getTransactionFeeRate(), false); 
+		return new PaymentInfoMeduim(this.getPaymentInfo().getCustAccountBalance(), this.getPaymentInfo().getTransactionDate(), this.getPaymentInfo().getTransactionTime(), processingFee, this.getPaymentInfo().getTransactionFeeRate(), false); 
 	}
 
 	@Override

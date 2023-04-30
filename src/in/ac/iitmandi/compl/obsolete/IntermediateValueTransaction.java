@@ -6,8 +6,6 @@ package in.ac.iitmandi.compl.obsolete;
 import in.ac.iitmandi.compl.ds.CustomerDetails;
 import in.ac.iitmandi.compl.ds.JSONResult;
 import in.ac.iitmandi.compl.ds.nonvalue.NonValuePaymentInfo;
-import in.ac.iitmandi.compl.ds.value.PaymentInfo;
-import in.ac.iitmandi.compl.ds.value.ValueTransaction;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
 /**
@@ -16,7 +14,7 @@ import in.ac.iitmandi.compl.utils.CommonUtils;
  */
 public class IntermediateValueTransaction extends AbstractTransaction{
 
-	private PaymentInfo paymentInfo;
+	private PaymentInfoBackup paymentInfo;
 	private NonValuePaymentInfo feeInfo;
 	
 	/**
@@ -33,7 +31,7 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 	 * @param transactionStatus
 	 * @param transactionFee
 	 */
-	public IntermediateValueTransaction(String transactionID, CustomerDetails custDetails, PaymentInfo paymentInfo) {
+	public IntermediateValueTransaction(String transactionID, CustomerDetails custDetails, PaymentInfoBackup paymentInfo) {
 //		this.TransactionID = transactionID;
 //		this.custDetails = custDetails;
 		this.paymentInfo = paymentInfo;
@@ -57,7 +55,7 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 
 	@Override
 	public AbstractPayment createNewPaymentObject(double processingFee) {
-		return new PaymentInfo(this.getPaymentInfo().getCustAccountBalance(), this.getPaymentInfo().getTransactionDate(), this.getPaymentInfo().getTransactionTime(), processingFee, this.getPaymentInfo().getTransactionFeeRate(), false); 
+		return new PaymentInfoBackup(this.getPaymentInfo().getCustAccountBalance(), this.getPaymentInfo().getTransactionDate(), this.getPaymentInfo().getTransactionTime(), processingFee, this.getPaymentInfo().getTransactionFeeRate(), false); 
 	}
 
 	@Override
@@ -69,14 +67,14 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 
 	@Override
 	public void updateTransactionStatus(boolean status) {
-		this.resetFeeInfo(new PaymentInfo(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
+		this.resetFeeInfo(new PaymentInfoBackup(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
 	}
 
 	@Override
 	public AbstractTransaction convertToTransactionObject(JSONResult result) {
 		CustomerDetails cDetails = new CustomerDetails(result.getCustomerID(), result.getCustomerDOB(), result.getCustGender(), result.getCustLocation());
-		PaymentInfo pi = createValuePaymentInfo(result);
-		return new ValueTransaction(result.getTransactionID(), cDetails, pi);
+		PaymentInfoBackup pi = createValuePaymentInfo(result);
+		return new IntermediateValueTransaction(result.getTransactionID(), cDetails, pi);
 	}
 	
 	@Override
@@ -84,20 +82,20 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 		return this.getFieldSum(n_iterations);
 	}
 	
-	private PaymentInfo createValuePaymentInfo(JSONResult result) {
+	private PaymentInfoBackup createValuePaymentInfo(JSONResult result) {
 		double cAccBalance = 0;
 		if(result.getCustAccountBalance() != null && !result.getCustAccountBalance().isEmpty()) {
 			cAccBalance =  Double.parseDouble(result.getCustAccountBalance());
 		}
 		int paymentDate = CommonUtils.formatDateString(result.getTransactionDate());
 		int paymentTime = result.getTransactionTime();
-		return new PaymentInfo(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
+		return new PaymentInfoBackup(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
 	}
 	
 	private double getFieldSum(int iterVal) {
 		double sum = 0;
 		for(int i =0; i<iterVal;i++) {
-			PaymentInfo currentPaymentInfo = this.getPaymentInfo();
+			PaymentInfoBackup currentPaymentInfo = this.getPaymentInfo();
 			sum += currentPaymentInfo.getCustAccountBalance();
 			sum += currentPaymentInfo.getTransactionAmount();
 			sum += currentPaymentInfo.getTransactionDate();
@@ -110,7 +108,7 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 	/**
 	 * @return the paymentInfo
 	 */
-	public PaymentInfo getPaymentInfo() {
+	public PaymentInfoBackup getPaymentInfo() {
 		return paymentInfo;
 	}
 
@@ -118,7 +116,7 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 	/**
 	 * @param paymentInfo the paymentInfo to set
 	 */
-	public void setPaymentInfo(PaymentInfo paymentInfo) {
+	public void setPaymentInfo(PaymentInfoBackup paymentInfo) {
 		this.paymentInfo = paymentInfo;
 	}
 
