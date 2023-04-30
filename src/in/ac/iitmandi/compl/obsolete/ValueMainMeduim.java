@@ -1,20 +1,18 @@
 /**
  * 
  */
-package in.ac.iitmandi.compl;
+package in.ac.iitmandi.compl.obsolete;
 
 import java.util.List;
 
-import in.ac.iitmandi.compl.ds.AbstractTransaction;
 import in.ac.iitmandi.compl.ds.Dataset;
-import in.ac.iitmandi.compl.ds.value.IntermediateValueTransaction;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
 /**
  * @author arjun
  *
  */
-public class IntermediateValueMain implements MainInterface{
+public class ValueMainMeduim implements MainInterface{
 
 	/**
 	 * @param args
@@ -23,7 +21,7 @@ public class IntermediateValueMain implements MainInterface{
 		long startTime;
 		long finishTime;
 		startTime = System.currentTimeMillis();
-		IntermediateValueMain mainObj = new IntermediateValueMain();
+		ValueMainMeduim mainObj = new ValueMainMeduim();
 		if(mainObj.validateArgs(args)) {
 			Dataset ds = mainObj.loadDataSet();
 			mainObj.executeAnalysis(ds);
@@ -35,7 +33,7 @@ public class IntermediateValueMain implements MainInterface{
 	public void executeAnalysis(Dataset ds) {
 		long startTime;
 		long finishTime;
-		List<AbstractTransaction> valueList = convertToTransaction(ds, new IntermediateValueTransaction());
+		List<AbstractTransaction> valueList = convertToTransaction(ds, new ValueTransactionMeduim());
 		startTime = System.currentTimeMillis();
 		double sum =0;
 		for(int i = 1; i<=CommonUtils.ITER_SIZE; i++) {
@@ -45,17 +43,5 @@ public class IntermediateValueMain implements MainInterface{
 		finishTime = System.currentTimeMillis();
 		System.out.println(CommonUtils.generateLogMsg(String.format("Analysis execution took %d ms", finishTime - startTime)));
 	}
-
-//	List<IntermediateValueTransaction> convertToValueTransactions(Dataset ds) {
-//		List<IntermediateValueTransaction> transactionList = null;
-//		if(null != ds && null != ds.getResults() && ds.getResults().length > 0) {
-//			transactionList = new ArrayList<>();
-//			for (JSONResult transactionData : ds.getResults()) {
-//				IntermediateValueTransaction valueTransaction = CommonUtils.convertToIVT(transactionData);
-//				transactionList.add(valueTransaction);
-//			}
-//		}
-//		return transactionList;
-//	}
 
 }

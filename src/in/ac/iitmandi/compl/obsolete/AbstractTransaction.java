@@ -1,8 +1,10 @@
 /**
  * 
  */
-package in.ac.iitmandi.compl.ds;
+package in.ac.iitmandi.compl.obsolete;
 
+import in.ac.iitmandi.compl.ds.CustomerDetails;
+import in.ac.iitmandi.compl.ds.JSONResult;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
 /**

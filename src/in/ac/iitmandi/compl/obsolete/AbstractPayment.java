@@ -1,7 +1,7 @@
 /**
  * 
  */
-package in.ac.iitmandi.compl.ds;
+package in.ac.iitmandi.compl.obsolete;
 
 /**
  * @author arjun

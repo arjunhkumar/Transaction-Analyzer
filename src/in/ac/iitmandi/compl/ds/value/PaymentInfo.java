@@ -3,17 +3,13 @@
  */
 package in.ac.iitmandi.compl.ds.value;
 
-import in.ac.iitmandi.compl.ds.AbstractPayment;
-
 /**
  * @author arjun
  *
  */
-public primitive class PaymentInfo extends AbstractPayment {
+public class PaymentInfo {
 
 	private final double CustAccountBalance;
-	private final int TransactionDate;
-	private final int TransactionTime;
 	private final double TransactionAmount;
 	private final float TransactionFeeRate;
 	private final boolean TransactionStatus;
@@ -24,8 +20,6 @@ public primitive class PaymentInfo extends AbstractPayment {
 	 */
 	public PaymentInfo() {
 		this.CustAccountBalance = 0d;
-		this.TransactionDate = 0;
-		this.TransactionTime = 0;
 		this.TransactionAmount = 0d;
 		this.TransactionFeeRate = 0f;
 		this.TransactionStatus = false;
@@ -40,15 +34,12 @@ public primitive class PaymentInfo extends AbstractPayment {
 	 * @param transactionFeeRate
 	 * @param transactionStatus
 	 */
-	public PaymentInfo(double custAccountBalance, int transactionDate, int transactionTime, double transactionAmount,
-			float transactionFeeRate, boolean transactionStatus) {
+	public PaymentInfo(double custAccountBalance, double transactionAmount, float transactionFeeRate, 
+			boolean transactionStatus) {
 		CustAccountBalance = custAccountBalance;
-		TransactionDate = transactionDate;
-		TransactionTime = transactionTime;
 		TransactionAmount = transactionAmount;
 		TransactionFeeRate = transactionFeeRate;
 		TransactionStatus = transactionStatus;
-//		TransactionFee = transactionFee;
 	}
 
 	
@@ -58,20 +49,6 @@ public primitive class PaymentInfo extends AbstractPayment {
 	 */
 	public double getCustAccountBalance() {
 		return CustAccountBalance;
-	}
-
-	/**
-	 * @return the transactionDate
-	 */
-	public int getTransactionDate() {
-		return TransactionDate;
-	}
-
-	/**
-	 * @return the transactionTime
-	 */
-	public int getTransactionTime() {
-		return TransactionTime;
 	}
 
 	/**
@@ -96,19 +73,14 @@ public primitive class PaymentInfo extends AbstractPayment {
 	}
 	
 	public PaymentInfo genNewPaymentInfo(float feePercent) {
-		return new PaymentInfo(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, TransactionStatus); 
+		return new PaymentInfo(CustAccountBalance, TransactionAmount, feePercent, TransactionStatus); 
 	}
 	
 	public PaymentInfo genNewPaymentInfo(boolean status) {
-		return new PaymentInfo(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, TransactionFeeRate, status); 
+		return new PaymentInfo(CustAccountBalance, TransactionAmount, TransactionFeeRate, status); 
 	}
 	
 	public PaymentInfo genNewPaymentInfo(float feePercent, boolean status) {
-		return new PaymentInfo(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, status); 
+		return new PaymentInfo(CustAccountBalance, TransactionAmount, feePercent, status); 
 	}
-	
-//	public PaymentInfo genNewPaymentInfo(double fee, boolean status) {
-//		return new PaymentInfo(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, TransactionFeeRate, status,fee); 
-//	}
-	
 }

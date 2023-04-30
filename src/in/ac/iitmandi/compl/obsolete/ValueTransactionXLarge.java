@@ -1,27 +1,27 @@
 /**
  * 
  */
-package in.ac.iitmandi.compl.ds.value;
+package in.ac.iitmandi.compl.obsolete;
 
-import in.ac.iitmandi.compl.ds.AbstractPayment;
-import in.ac.iitmandi.compl.ds.AbstractTransaction;
 import in.ac.iitmandi.compl.ds.CustomerDetails;
 import in.ac.iitmandi.compl.ds.JSONResult;
+import in.ac.iitmandi.compl.ds.value.PaymentInfo;
+import in.ac.iitmandi.compl.ds.value.ValueTransaction;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
 /**
  * @author arjun
  *
  */
-public class ValueTransactionMeduim extends AbstractTransaction {
+public class ValueTransactionXLarge extends AbstractTransaction {
 
-	private PaymentInfoMeduim paymentInfo;
-	private PaymentInfoMeduim feeInfo;
+	private PaymentInfoXLarge paymentInfo;
+	private PaymentInfoXLarge feeInfo;
 	
 	/**
 	 * 
 	 */
-	public ValueTransactionMeduim() {
+	public ValueTransactionXLarge() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -32,11 +32,11 @@ public class ValueTransactionMeduim extends AbstractTransaction {
 	 * @param transactionStatus
 	 * @param transactionFee
 	 */
-	public ValueTransactionMeduim(String transactionID, CustomerDetails custDetails, PaymentInfoMeduim paymentInfo) {
+	public ValueTransactionXLarge(String transactionID, CustomerDetails custDetails, PaymentInfoXLarge paymentInfo) {
 //		this.TransactionID = transactionID;
 //		this.custDetails = custDetails;
 		this.paymentInfo = paymentInfo;
-		this.feeInfo = new PaymentInfoMeduim(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
+		this.feeInfo = new PaymentInfoXLarge(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
 	}
 
 	@Override
@@ -61,21 +61,21 @@ public class ValueTransactionMeduim extends AbstractTransaction {
 
 	@Override
 	public void resetFeeInfo(AbstractPayment paymentInfo) {
-		if(paymentInfo instanceof PaymentInfoMeduim) {
-			this.setFeeInfo((PaymentInfoMeduim)paymentInfo);
+		if(paymentInfo instanceof PaymentInfoXLarge) {
+			this.setFeeInfo((PaymentInfoXLarge)paymentInfo);
 		}
 	}
 
 	@Override
 	public void updateTransactionStatus(boolean status) {
-		this.setFeeInfo(new PaymentInfoMeduim(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
+		this.setFeeInfo(new PaymentInfoXLarge(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
 	}
 
 	@Override
 	public AbstractTransaction convertToTransactionObject(JSONResult result) {
 		CustomerDetails cDetails = new CustomerDetails(result.getCustomerID(), result.getCustomerDOB(), result.getCustGender(), result.getCustLocation());
-		PaymentInfoMeduim pi = createValuePaymentInfo(result);
-		return new ValueTransactionMeduim(result.getTransactionID(), cDetails, pi);
+		PaymentInfo pi = createValuePaymentInfo(result);
+		return new ValueTransaction(result.getTransactionID(), cDetails, pi);
 	}
 	
 	@Override
@@ -83,20 +83,20 @@ public class ValueTransactionMeduim extends AbstractTransaction {
 		return this.getFieldSum(n_iterations);
 	}
 	
-	private PaymentInfoMeduim createValuePaymentInfo(JSONResult result) {
+	private PaymentInfo createValuePaymentInfo(JSONResult result) {
 		double cAccBalance = 0;
 		if(result.getCustAccountBalance() != null && !result.getCustAccountBalance().isEmpty()) {
 			cAccBalance =  Double.parseDouble(result.getCustAccountBalance());
 		}
 		int paymentDate = CommonUtils.formatDateString(result.getTransactionDate());
 		int paymentTime = result.getTransactionTime();
-		return new PaymentInfoMeduim(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
+		return new PaymentInfo(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
 	}
 	
 	private double getFieldSum(int iterVal) {
 		double sum = 0;
 		for(int i =0; i<iterVal;i++) {
-			PaymentInfoMeduim currentPaymentInfo = this.getPaymentInfo();
+			PaymentInfoXLarge currentPaymentInfo = this.getPaymentInfo();
 			sum += currentPaymentInfo.getCustAccountBalance();
 			sum += currentPaymentInfo.getTransactionAmount();
 			sum += currentPaymentInfo.getTransactionDate();
@@ -109,31 +109,28 @@ public class ValueTransactionMeduim extends AbstractTransaction {
 	/**
 	 * @return the paymentInfo
 	 */
-	public PaymentInfoMeduim getPaymentInfo() {
+	public PaymentInfoXLarge getPaymentInfo() {
 		return paymentInfo;
 	}
-
 
 	/**
 	 * @param paymentInfo the paymentInfo to set
 	 */
-	public void setPaymentInfo(PaymentInfoMeduim paymentInfo) {
+	public void setPaymentInfo(PaymentInfoXLarge paymentInfo) {
 		this.paymentInfo = paymentInfo;
 	}
-
 
 	/**
 	 * @return the feeInfo
 	 */
-	public PaymentInfoMeduim getFeeInfo() {
+	public PaymentInfoXLarge getFeeInfo() {
 		return feeInfo;
 	}
-
 
 	/**
 	 * @param feeInfo the feeInfo to set
 	 */
-	public void setFeeInfo(PaymentInfoMeduim feeInfo) {
+	public void setFeeInfo(PaymentInfoXLarge feeInfo) {
 		this.feeInfo = feeInfo;
 	}
 	

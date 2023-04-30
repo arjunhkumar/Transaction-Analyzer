@@ -1,9 +1,7 @@
 /**
  * 
  */
-package in.ac.iitmandi.compl.ds.value;
-
-import in.ac.iitmandi.compl.ds.AbstractPayment;
+package in.ac.iitmandi.compl.obsolete;
 
 /**
  * @author arjun

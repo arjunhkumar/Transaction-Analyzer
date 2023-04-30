@@ -1,15 +1,13 @@
 /**
  * 
  */
-package in.ac.iitmandi.compl.ds.value;
-
-import in.ac.iitmandi.compl.ds.AbstractPayment;
+package in.ac.iitmandi.compl.obsolete;
 
 /**
  * @author arjun
  *
  */
-public primitive class PaymentInfoLarge extends AbstractPayment{
+public primitive class PaymentInfoMeduim extends AbstractPayment{
 
 	private final double CustAccountBalance;
 	private final int TransactionDate;
@@ -21,23 +19,17 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 	private final double unusedField2;
 	private final double unusedField3;
 	private final double unusedField4;
-	private final double unusedField5;
-	private final double unusedField6;
-	private final double unusedField7;
-	private final double unusedField8;
+//	private final double unusedField5;
+//	private final double unusedField6;
+//	private final double unusedField7;
+//	private final double unusedField8;
 //	private final double unusedField9;
-//	private final double unusedField10;
-//	private final double unusedField11;
-//	private final double unusedField12;
-//	private final double unusedField13;
-//	private final double unusedField14;
-
 //	public final double TransactionFee;
 	
 	/**
 	 * 
 	 */
-	public PaymentInfoLarge() {
+	public PaymentInfoMeduim() {
 		this.CustAccountBalance = 0d;
 		this.TransactionDate = 0;
 		this.TransactionTime = 0;
@@ -48,16 +40,11 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 		this.unusedField2 = 9d;
 		this.unusedField3 = 9d;
 		this.unusedField4  = 9d;
-		this.unusedField5 = 9d;
-		this.unusedField6 = 9d;
-		this.unusedField7 = 9d;
-		this.unusedField8 = 9d;
+//		this.unusedField5 = 9d;
+//		this.unusedField6 = 9d;
+//		this.unusedField7 = 9d;
+//		this.unusedField8 = 9d;
 //		this.unusedField9 = 9d;
-//		this.unusedField10 = 9d;
-//		this.unusedField11 = 9d;
-//		this.unusedField12 = 9d;
-//		this.unusedField13 = 9d;
-//		this.unusedField14  = 9d;
 //		this.TransactionFee = 0d;
 	}
 
@@ -69,7 +56,7 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 	 * @param transactionFeeRate
 	 * @param transactionStatus
 	 */
-	public PaymentInfoLarge(double custAccountBalance, int transactionDate, int transactionTime, double transactionAmount,
+	public PaymentInfoMeduim(double custAccountBalance, int transactionDate, int transactionTime, double transactionAmount,
 			float transactionFeeRate, boolean transactionStatus) {
 		CustAccountBalance = custAccountBalance;
 		TransactionDate = transactionDate;
@@ -81,16 +68,11 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 		this.unusedField2 = 9d;
 		this.unusedField3 = 9d;
 		this.unusedField4  = 9d;
-		this.unusedField5 = 9d;
-		this.unusedField6 = 9d;
-		this.unusedField7 = 9d;
-		this.unusedField8 = 9d;
+//		this.unusedField5 = 9d;
+//		this.unusedField6 = 9d;
+//		this.unusedField7 = 9d;
+//		this.unusedField8 = 9d;
 //		this.unusedField9 = 9d;
-//		this.unusedField10 = 9d;
-//		this.unusedField11 = 9d;
-//		this.unusedField12 = 9d;
-//		this.unusedField13 = 9d;
-//		this.unusedField14  = 9d;
 //		TransactionFee = transactionFee;
 	}
 
@@ -164,87 +146,51 @@ public primitive class PaymentInfoLarge extends AbstractPayment{
 		return unusedField4;
 	}
 
-	/**
-	 * @return the unusedField5
-	 */
-	public double getUnusedField5() {
-		return unusedField5;
-	}
-
-	/**
-	 * @return the unusedField6
-	 */
-	public double getUnusedField6() {
-		return unusedField6;
-	}
-
-	/**
-	 * @return the unusedField7
-	 */
-	public double getUnusedField7() {
-		return unusedField7;
-	}
-
-	/**
-	 * @return the unusedField8
-	 */
-	public double getUnusedField8() {
-		return unusedField8;
-	}
-
+//	/**
+//	 * @return the unusedField5
+//	 */
+//	public double getUnusedField5() {
+//		return unusedField5;
+//	}
+//
+//	/**
+//	 * @return the unusedField6
+//	 */
+//	public double getUnusedField6() {
+//		return unusedField6;
+//	}
+//
+//	/**
+//	 * @return the unusedField7
+//	 */
+//	public double getUnusedField7() {
+//		return unusedField7;
+//	}
+//
+//	/**
+//	 * @return the unusedField8
+//	 */
+//	public double getUnusedField8() {
+//		return unusedField8;
+//	}
+//
 //	/**
 //	 * @return the unusedField9
 //	 */
 //	public double getUnusedField9() {
 //		return unusedField9;
 //	}
-//
-//	/**
-//	 * @return the unusedField10
-//	 */
-//	public double getUnusedField10() {
-//		return unusedField10;
-//	}
-//
-//	/**
-//	 * @return the unusedField11
-//	 */
-//	public double getUnusedField11() {
-//		return unusedField11;
-//	}
-//
-//	/**
-//	 * @return the unusedField12
-//	 */
-//	public double getUnusedField12() {
-//		return unusedField12;
-//	}
-//
-//	/**
-//	 * @return the unusedField13
-//	 */
-//	public double getUnusedField13() {
-//		return unusedField13;
-//	}
-//
-//	/**
-//	 * @return the unusedField14
-//	 */
-//	public double getUnusedField14() {
-//		return unusedField14;
-//	}
 
-
-	public PaymentInfoLarge genNewPaymentInfo(float feePercent) {
-		return new PaymentInfoLarge(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, TransactionStatus); 
+	public PaymentInfoMeduim genNewPaymentInfo(float feePercent) {
+		return new PaymentInfoMeduim(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, TransactionStatus); 
 	}
 	
-	public PaymentInfoLarge genNewPaymentInfo(boolean status) {
-		return new PaymentInfoLarge(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, TransactionFeeRate, status); 
+	public PaymentInfoMeduim genNewPaymentInfo(boolean status) {
+		return new PaymentInfoMeduim(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, TransactionFeeRate, status); 
 	}
 	
-	public PaymentInfoLarge genNewPaymentInfo(float feePercent, boolean status) {
-		return new PaymentInfoLarge(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, status); 
+	public PaymentInfoMeduim genNewPaymentInfo(float feePercent, boolean status) {
+		return new PaymentInfoMeduim(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, status); 
 	}
 	
 //	public PaymentInfo genNewPaymentInfo(double fee, boolean status) {

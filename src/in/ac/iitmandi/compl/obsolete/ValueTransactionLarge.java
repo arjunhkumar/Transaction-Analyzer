@@ -1,27 +1,27 @@
 /**
  * 
  */
-package in.ac.iitmandi.compl.ds.value;
+package in.ac.iitmandi.compl.obsolete;
 
-import in.ac.iitmandi.compl.ds.AbstractPayment;
-import in.ac.iitmandi.compl.ds.AbstractTransaction;
 import in.ac.iitmandi.compl.ds.CustomerDetails;
 import in.ac.iitmandi.compl.ds.JSONResult;
+import in.ac.iitmandi.compl.ds.value.PaymentInfo;
+import in.ac.iitmandi.compl.ds.value.ValueTransaction;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
 /**
  * @author arjun
  *
  */
-public class ValueTransactionSmall extends AbstractTransaction {
+public class ValueTransactionLarge extends AbstractTransaction {
 
-	private PaymentInfoSmall paymentInfo;
-	private PaymentInfoSmall feeInfo;
+	private PaymentInfoLarge paymentInfo;
+	private PaymentInfoLarge feeInfo;
 	
 	/**
 	 * 
 	 */
-	public ValueTransactionSmall() {
+	public ValueTransactionLarge() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -32,11 +32,11 @@ public class ValueTransactionSmall extends AbstractTransaction {
 	 * @param transactionStatus
 	 * @param transactionFee
 	 */
-	public ValueTransactionSmall(String transactionID, CustomerDetails custDetails, PaymentInfoSmall paymentInfo) {
+	public ValueTransactionLarge(String transactionID, CustomerDetails custDetails, PaymentInfoLarge paymentInfo) {
 //		this.TransactionID = transactionID;
 //		this.custDetails = custDetails;
 		this.paymentInfo = paymentInfo;
-		this.feeInfo = new PaymentInfoSmall(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
+		this.feeInfo = new PaymentInfoLarge(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
 	}
 
 	@Override
@@ -61,21 +61,21 @@ public class ValueTransactionSmall extends AbstractTransaction {
 
 	@Override
 	public void resetFeeInfo(AbstractPayment paymentInfo) {
-		if(paymentInfo instanceof PaymentInfoSmall) {
-			this.setFeeInfo((PaymentInfoSmall)paymentInfo);
+		if(paymentInfo instanceof PaymentInfoLarge) {
+			this.setFeeInfo((PaymentInfoLarge)paymentInfo);
 		}
 	}
 
 	@Override
 	public void updateTransactionStatus(boolean status) {
-		this.setFeeInfo(new PaymentInfoSmall(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
+		this.setFeeInfo(new PaymentInfoLarge(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
 	}
 
 	@Override
 	public AbstractTransaction convertToTransactionObject(JSONResult result) {
 		CustomerDetails cDetails = new CustomerDetails(result.getCustomerID(), result.getCustomerDOB(), result.getCustGender(), result.getCustLocation());
-		PaymentInfoSmall pi = createValuePaymentInfo(result);
-		return new ValueTransactionSmall(result.getTransactionID(), cDetails, pi);
+		PaymentInfo pi = createValuePaymentInfo(result);
+		return new ValueTransaction(result.getTransactionID(), cDetails, pi);
 	}
 	
 	@Override
@@ -83,20 +83,20 @@ public class ValueTransactionSmall extends AbstractTransaction {
 		return this.getFieldSum(n_iterations);
 	}
 	
-	private PaymentInfoSmall createValuePaymentInfo(JSONResult result) {
+	private PaymentInfo createValuePaymentInfo(JSONResult result) {
 		double cAccBalance = 0;
 		if(result.getCustAccountBalance() != null && !result.getCustAccountBalance().isEmpty()) {
 			cAccBalance =  Double.parseDouble(result.getCustAccountBalance());
 		}
 		int paymentDate = CommonUtils.formatDateString(result.getTransactionDate());
 		int paymentTime = result.getTransactionTime();
-		return new PaymentInfoSmall(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
+		return new PaymentInfo(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
 	}
 	
 	private double getFieldSum(int iterVal) {
 		double sum = 0;
 		for(int i =0; i<iterVal;i++) {
-			PaymentInfoSmall currentPaymentInfo = this.getPaymentInfo();
+			PaymentInfoLarge currentPaymentInfo = this.getPaymentInfo();
 			sum += currentPaymentInfo.getCustAccountBalance();
 			sum += currentPaymentInfo.getTransactionAmount();
 			sum += currentPaymentInfo.getTransactionDate();
@@ -109,31 +109,28 @@ public class ValueTransactionSmall extends AbstractTransaction {
 	/**
 	 * @return the paymentInfo
 	 */
-	public PaymentInfoSmall getPaymentInfo() {
+	public PaymentInfoLarge getPaymentInfo() {
 		return paymentInfo;
 	}
-
 
 	/**
 	 * @param paymentInfo the paymentInfo to set
 	 */
-	public void setPaymentInfo(PaymentInfoSmall paymentInfo) {
+	public void setPaymentInfo(PaymentInfoLarge paymentInfo) {
 		this.paymentInfo = paymentInfo;
 	}
-
 
 	/**
 	 * @return the feeInfo
 	 */
-	public PaymentInfoSmall getFeeInfo() {
+	public PaymentInfoLarge getFeeInfo() {
 		return feeInfo;
 	}
-
 
 	/**
 	 * @param feeInfo the feeInfo to set
 	 */
-	public void setFeeInfo(PaymentInfoSmall feeInfo) {
+	public void setFeeInfo(PaymentInfoLarge feeInfo) {
 		this.feeInfo = feeInfo;
 	}
 	

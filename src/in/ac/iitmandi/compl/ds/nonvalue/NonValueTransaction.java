@@ -3,10 +3,10 @@
  */
 package in.ac.iitmandi.compl.ds.nonvalue;
 
-import in.ac.iitmandi.compl.ds.AbstractPayment;
-import in.ac.iitmandi.compl.ds.AbstractTransaction;
 import in.ac.iitmandi.compl.ds.CustomerDetails;
 import in.ac.iitmandi.compl.ds.JSONResult;
+import in.ac.iitmandi.compl.obsolete.AbstractPayment;
+import in.ac.iitmandi.compl.obsolete.AbstractTransaction;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
 /**

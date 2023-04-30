@@ -1,27 +1,28 @@
 /**
  * 
  */
-package in.ac.iitmandi.compl.ds.value;
+package in.ac.iitmandi.compl.obsolete;
 
-import in.ac.iitmandi.compl.ds.AbstractPayment;
-import in.ac.iitmandi.compl.ds.AbstractTransaction;
 import in.ac.iitmandi.compl.ds.CustomerDetails;
 import in.ac.iitmandi.compl.ds.JSONResult;
+import in.ac.iitmandi.compl.ds.nonvalue.NonValuePaymentInfo;
+import in.ac.iitmandi.compl.ds.value.PaymentInfo;
+import in.ac.iitmandi.compl.ds.value.ValueTransaction;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
 /**
  * @author arjun
  *
  */
-public class ValueTransactionXLarge extends AbstractTransaction {
+public class IntermediateValueTransaction extends AbstractTransaction{
 
-	private PaymentInfoXLarge paymentInfo;
-	private PaymentInfoXLarge feeInfo;
+	private PaymentInfo paymentInfo;
+	private NonValuePaymentInfo feeInfo;
 	
 	/**
 	 * 
 	 */
-	public ValueTransactionXLarge() {
+	public IntermediateValueTransaction() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -32,11 +33,11 @@ public class ValueTransactionXLarge extends AbstractTransaction {
 	 * @param transactionStatus
 	 * @param transactionFee
 	 */
-	public ValueTransactionXLarge(String transactionID, CustomerDetails custDetails, PaymentInfoXLarge paymentInfo) {
+	public IntermediateValueTransaction(String transactionID, CustomerDetails custDetails, PaymentInfo paymentInfo) {
 //		this.TransactionID = transactionID;
 //		this.custDetails = custDetails;
 		this.paymentInfo = paymentInfo;
-		this.feeInfo = new PaymentInfoXLarge(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
+		this.feeInfo = new NonValuePaymentInfo(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
 	}
 
 	@Override
@@ -61,14 +62,14 @@ public class ValueTransactionXLarge extends AbstractTransaction {
 
 	@Override
 	public void resetFeeInfo(AbstractPayment paymentInfo) {
-		if(paymentInfo instanceof PaymentInfoXLarge) {
-			this.setFeeInfo((PaymentInfoXLarge)paymentInfo);
+		if(paymentInfo instanceof NonValuePaymentInfo) {
+			this.setFeeInfo((NonValuePaymentInfo)paymentInfo);
 		}
 	}
 
 	@Override
 	public void updateTransactionStatus(boolean status) {
-		this.setFeeInfo(new PaymentInfoXLarge(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
+		this.resetFeeInfo(new PaymentInfo(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
 	}
 
 	@Override
@@ -96,7 +97,7 @@ public class ValueTransactionXLarge extends AbstractTransaction {
 	private double getFieldSum(int iterVal) {
 		double sum = 0;
 		for(int i =0; i<iterVal;i++) {
-			PaymentInfoXLarge currentPaymentInfo = this.getPaymentInfo();
+			PaymentInfo currentPaymentInfo = this.getPaymentInfo();
 			sum += currentPaymentInfo.getCustAccountBalance();
 			sum += currentPaymentInfo.getTransactionAmount();
 			sum += currentPaymentInfo.getTransactionDate();
@@ -109,28 +110,31 @@ public class ValueTransactionXLarge extends AbstractTransaction {
 	/**
 	 * @return the paymentInfo
 	 */
-	public PaymentInfoXLarge getPaymentInfo() {
+	public PaymentInfo getPaymentInfo() {
 		return paymentInfo;
 	}
+
 
 	/**
 	 * @param paymentInfo the paymentInfo to set
 	 */
-	public void setPaymentInfo(PaymentInfoXLarge paymentInfo) {
+	public void setPaymentInfo(PaymentInfo paymentInfo) {
 		this.paymentInfo = paymentInfo;
 	}
+
 
 	/**
 	 * @return the feeInfo
 	 */
-	public PaymentInfoXLarge getFeeInfo() {
+	public NonValuePaymentInfo getFeeInfo() {
 		return feeInfo;
 	}
+
 
 	/**
 	 * @param feeInfo the feeInfo to set
 	 */
-	public void setFeeInfo(PaymentInfoXLarge feeInfo) {
+	public void setFeeInfo(NonValuePaymentInfo feeInfo) {
 		this.feeInfo = feeInfo;
 	}
 	

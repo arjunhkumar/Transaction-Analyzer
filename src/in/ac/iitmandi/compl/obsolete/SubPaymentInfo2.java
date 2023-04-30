@@ -1,4 +1,4 @@
-package in.ac.iitmandi.compl.ds.value;
+package in.ac.iitmandi.compl.obsolete;
 
 public primitive class SubPaymentInfo2 {
 

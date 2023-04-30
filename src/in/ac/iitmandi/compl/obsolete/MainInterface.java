@@ -1,7 +1,7 @@
 /**
  * 
  */
-package in.ac.iitmandi.compl;
+package in.ac.iitmandi.compl.obsolete;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,7 +10,6 @@ import java.util.List;
 
 import com.google.gson.Gson;
 
-import in.ac.iitmandi.compl.ds.AbstractTransaction;
 import in.ac.iitmandi.compl.ds.Dataset;
 import in.ac.iitmandi.compl.ds.JSONResult;
 import in.ac.iitmandi.compl.utils.CommonUtils;
@@ -22,7 +21,7 @@ import in.ac.iitmandi.compl.utils.CommonUtils;
 public interface MainInterface {
 
 	default boolean validateArgs(String[] args) {
-		if(! (args.length == 1)) {
+		if(! (args.length == 1 || args.length == 2)) {
 			System.out.println(CommonUtils.generateErrorMsg("No. of arguments is incorrect."));
 			System.out.println(CommonUtils.generateErrorMsg("Exiting without executing."));
 			return false;
@@ -30,6 +29,12 @@ public interface MainInterface {
 		String iterSize = args[0];
 		int iterVal = Integer.parseInt(iterSize);
 		CommonUtils.ITER_SIZE = iterVal;
+		if(args.length == 2) {
+			String debugMode = args[1];
+			if("true".equalsIgnoreCase(debugMode)) {
+				CommonUtils.debugMode = true;
+			}
+		}
 		return true;
 	}
 	

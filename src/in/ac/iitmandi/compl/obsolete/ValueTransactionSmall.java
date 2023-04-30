@@ -1,28 +1,26 @@
 /**
  * 
  */
-package in.ac.iitmandi.compl.ds.value;
+package in.ac.iitmandi.compl.obsolete;
 
-import in.ac.iitmandi.compl.ds.AbstractPayment;
-import in.ac.iitmandi.compl.ds.AbstractTransaction;
 import in.ac.iitmandi.compl.ds.CustomerDetails;
 import in.ac.iitmandi.compl.ds.JSONResult;
-import in.ac.iitmandi.compl.ds.nonvalue.NonValuePaymentInfo;
+import in.ac.iitmandi.compl.ds.value.PaymentInfo;
 import in.ac.iitmandi.compl.utils.CommonUtils;
 
 /**
  * @author arjun
  *
  */
-public class IntermediateValueTransaction extends AbstractTransaction{
+public class ValueTransactionSmall extends AbstractTransaction {
 
-	private PaymentInfo paymentInfo;
-	private NonValuePaymentInfo feeInfo;
+	private PaymentInfoSmall paymentInfo;
+	private PaymentInfoSmall feeInfo;
 	
 	/**
 	 * 
 	 */
-	public IntermediateValueTransaction() {
+	public ValueTransactionSmall() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -33,11 +31,11 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 	 * @param transactionStatus
 	 * @param transactionFee
 	 */
-	public IntermediateValueTransaction(String transactionID, CustomerDetails custDetails, PaymentInfo paymentInfo) {
+	public ValueTransactionSmall(String transactionID, CustomerDetails custDetails, PaymentInfoSmall paymentInfo) {
 //		this.TransactionID = transactionID;
 //		this.custDetails = custDetails;
 		this.paymentInfo = paymentInfo;
-		this.feeInfo = new NonValuePaymentInfo(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
+		this.feeInfo = new PaymentInfoSmall(paymentInfo.getCustAccountBalance(),paymentInfo.getTransactionDate(),paymentInfo.getTransactionTime(),0,paymentInfo.getTransactionFeeRate(),false);
 	}
 
 	@Override
@@ -62,21 +60,21 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 
 	@Override
 	public void resetFeeInfo(AbstractPayment paymentInfo) {
-		if(paymentInfo instanceof NonValuePaymentInfo) {
-			this.setFeeInfo((NonValuePaymentInfo)paymentInfo);
+		if(paymentInfo instanceof PaymentInfoSmall) {
+			this.setFeeInfo((PaymentInfoSmall)paymentInfo);
 		}
 	}
 
 	@Override
 	public void updateTransactionStatus(boolean status) {
-		this.resetFeeInfo(new PaymentInfo(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
+		this.setFeeInfo(new PaymentInfoSmall(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionDate(), this.getFeeInfo().getTransactionTime(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status));
 	}
 
 	@Override
 	public AbstractTransaction convertToTransactionObject(JSONResult result) {
 		CustomerDetails cDetails = new CustomerDetails(result.getCustomerID(), result.getCustomerDOB(), result.getCustGender(), result.getCustLocation());
-		PaymentInfo pi = createValuePaymentInfo(result);
-		return new ValueTransaction(result.getTransactionID(), cDetails, pi);
+		PaymentInfoSmall pi = createValuePaymentInfo(result);
+		return new ValueTransactionSmall(result.getTransactionID(), cDetails, pi);
 	}
 	
 	@Override
@@ -84,20 +82,20 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 		return this.getFieldSum(n_iterations);
 	}
 	
-	private PaymentInfo createValuePaymentInfo(JSONResult result) {
+	private PaymentInfoSmall createValuePaymentInfo(JSONResult result) {
 		double cAccBalance = 0;
 		if(result.getCustAccountBalance() != null && !result.getCustAccountBalance().isEmpty()) {
 			cAccBalance =  Double.parseDouble(result.getCustAccountBalance());
 		}
 		int paymentDate = CommonUtils.formatDateString(result.getTransactionDate());
 		int paymentTime = result.getTransactionTime();
-		return new PaymentInfo(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
+		return new PaymentInfoSmall(cAccBalance, paymentDate, paymentTime, result.getTransactionAmount(), 0, false);
 	}
 	
 	private double getFieldSum(int iterVal) {
 		double sum = 0;
 		for(int i =0; i<iterVal;i++) {
-			PaymentInfo currentPaymentInfo = this.getPaymentInfo();
+			PaymentInfoSmall currentPaymentInfo = this.getPaymentInfo();
 			sum += currentPaymentInfo.getCustAccountBalance();
 			sum += currentPaymentInfo.getTransactionAmount();
 			sum += currentPaymentInfo.getTransactionDate();
@@ -110,7 +108,7 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 	/**
 	 * @return the paymentInfo
 	 */
-	public PaymentInfo getPaymentInfo() {
+	public PaymentInfoSmall getPaymentInfo() {
 		return paymentInfo;
 	}
 
@@ -118,7 +116,7 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 	/**
 	 * @param paymentInfo the paymentInfo to set
 	 */
-	public void setPaymentInfo(PaymentInfo paymentInfo) {
+	public void setPaymentInfo(PaymentInfoSmall paymentInfo) {
 		this.paymentInfo = paymentInfo;
 	}
 
@@ -126,7 +124,7 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 	/**
 	 * @return the feeInfo
 	 */
-	public NonValuePaymentInfo getFeeInfo() {
+	public PaymentInfoSmall getFeeInfo() {
 		return feeInfo;
 	}
 
@@ -134,7 +132,7 @@ public class IntermediateValueTransaction extends AbstractTransaction{
 	/**
 	 * @param feeInfo the feeInfo to set
 	 */
-	public void setFeeInfo(NonValuePaymentInfo feeInfo) {
+	public void setFeeInfo(PaymentInfoSmall feeInfo) {
 		this.feeInfo = feeInfo;
 	}
 	
