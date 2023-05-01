@@ -14,7 +14,7 @@ public class ValueTransaction {
 
 	private String transactionID;
 	private CustomerDetails custDetails;
-	private PaymentInfo paymentInfo;
+	private TransactionInfo paymentInfo;
 	private PaymentInfo feeInfo;
 	/**
 	 * 
@@ -22,7 +22,7 @@ public class ValueTransaction {
 	public ValueTransaction() {
 		this.transactionID = "";
 		this.custDetails = new CustomerDetails();
-		this.paymentInfo = new PaymentInfo();
+		this.paymentInfo = new TransactionInfo();
 		this.feeInfo = new PaymentInfo();
 	}
 
@@ -32,11 +32,11 @@ public class ValueTransaction {
 	 * @param transactionStatus
 	 * @param transactionFee
 	 */
-	public ValueTransaction(String transactionID, CustomerDetails custDetails, PaymentInfo paymentInfo) {
+	public ValueTransaction(String transactionID, CustomerDetails custDetails, TransactionInfo transInfo, PaymentInfo payInfo) {
 		this.transactionID = transactionID;
 		this.custDetails = custDetails;
-		this.paymentInfo = paymentInfo;
-		this.feeInfo = new PaymentInfo(paymentInfo.getCustAccountBalance(),0,paymentInfo.getTransactionFeeRate(),false);
+		this.paymentInfo = transInfo;
+		this.feeInfo = payInfo;
 	}
 	
 	public double getTransactionAmount() {
@@ -48,7 +48,7 @@ public class ValueTransaction {
 	}
 
 	public boolean getTransactionStatus() {
-		return this.getPaymentInfo().isTransactionStatus();
+		return this.getFeeInfo().isTransactionStatus();
 	}
 
 	/**
@@ -80,59 +80,49 @@ public class ValueTransaction {
 	}
 
 	public PaymentInfo createNewPaymentObject(double processingFee) {
-		return new PaymentInfo(this.getPaymentInfo().getCustAccountBalance(), processingFee, this.getPaymentInfo().getTransactionFeeRate(), false); 
+		return new PaymentInfo(processingFee, this.getFeeInfo().getTransactionFeeRate(), false); 
 	}
 
 	public void resetFeeInfo(PaymentInfo paymentInfo) {
-		if(paymentInfo instanceof PaymentInfo) {
-			this.setFeeInfo((PaymentInfo)paymentInfo);
-		}
+		this.setFeeInfo(paymentInfo);
 	}
 
 	public void updateTransactionStatus(boolean status) {
-		PaymentInfo pInfo = new PaymentInfo(this.getFeeInfo().getCustAccountBalance(), this.getFeeInfo().getTransactionAmount(), this.getPaymentInfo().getTransactionFeeRate(), status);
+		PaymentInfo pInfo = new PaymentInfo(this.getFeeInfo().getTransactionAmount(), this.getFeeInfo().getTransactionFeeRate(), status);
 		this.setFeeInfo(pInfo);
 	}
 
 	public ValueTransaction convertToTransactionObject(JSONResult result) {
 		CustomerDetails cDetails = new CustomerDetails(result.getCustomerID(), result.getCustomerDOB(), result.getCustGender(), result.getCustLocation());
+		TransactionInfo ti = createValueTransactionInfo(result);
 		PaymentInfo pi = createValuePaymentInfo(result);
-		return new ValueTransaction(result.getTransactionID(), cDetails, pi);
+		return new ValueTransaction(result.getTransactionID(), cDetails, ti,pi);
 	}
 	
-	public double computeFieldSum(int n_iterations) {
-		return this.getFieldSum(n_iterations);
-	}
 	
-	private PaymentInfo createValuePaymentInfo(JSONResult result) {
+	private TransactionInfo createValueTransactionInfo(JSONResult result) {
 		double cAccBalance = 0;
 		if(result.getCustAccountBalance() != null && !result.getCustAccountBalance().isEmpty()) {
 			cAccBalance =  Double.parseDouble(result.getCustAccountBalance());
 		}
-		return new PaymentInfo(cAccBalance,result.getTransactionAmount(), 0, false);
+		return new TransactionInfo(cAccBalance,result.getTransactionAmount());
 	}
 	
-	private double getFieldSum(int iterVal) {
-		double sum = 0;
-		for(int i =0; i<iterVal;i++) {
-			sum += this.getPaymentInfo().getCustAccountBalance();
-			sum += this.getPaymentInfo().getTransactionAmount();
-			sum += this.getPaymentInfo().getTransactionFeeRate();
-		}
-		return sum;
+	private PaymentInfo createValuePaymentInfo(JSONResult result) {
+		return new PaymentInfo(result.getTransactionAmount(),0,false);
 	}
 	
 	/**
 	 * @return the paymentInfo
 	 */
-	public PaymentInfo getPaymentInfo() {
+	public TransactionInfo getPaymentInfo() {
 		return paymentInfo;
 	}
 
 	/**
 	 * @param paymentInfo the paymentInfo to set
 	 */
-	public void setPaymentInfo(PaymentInfo paymentInfo) {
+	public void setPaymentInfo(TransactionInfo paymentInfo) {
 		this.paymentInfo = paymentInfo;
 	}
 
