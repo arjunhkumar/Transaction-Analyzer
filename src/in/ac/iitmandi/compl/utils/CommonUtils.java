@@ -23,7 +23,7 @@ public class CommonUtils {
 	private static final String PREPENDLOGVAL = "Log : ";
 	public static final CommonUtils INSTANCE = new CommonUtils();
 	
-	public static boolean debugMode = true;
+	public static boolean debugMode = false;
 	
 	public static final Integer NONVALUEBENCH = 1;
 	public static final Integer VALUEBENCH = 2;

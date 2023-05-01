@@ -4,7 +4,8 @@
   <modelVersion>4.0.0</modelVersion>
   <name>Performance-Benchmark-For-ValueTypes</name>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+<!--  <version>1.0-SNAPSHOT</version>-->
+  <version>${env.VERSION}</version>
   <properties>
     <maven.compiler.target>20</maven.compiler.target>
     <maven.compiler.source>20</maven.compiler.source>
@@ -39,8 +40,6 @@
                     <fork>true</fork>
                    <executable>/home/arjun/WD/J9/Containers/openj9_valuetypes_merged_sanity/build/linux-x86_64-server-release/images/jdk/bin/javac</executable>
 <!--                     <executable>/home/arjun/Working_Directory/Softwares/Utilities/OpenJDK/openjdk-14/jdk-14/bin/javac</executable> -->
-                    <maven.compiler.source>20</maven.compiler.source>
-                    <maven.compiler.target>20</maven.compiler.target>
                     <compilerArgs>
                         <arg>-XDenablePrimitiveClasses</arg>
                     </compilerArgs>
