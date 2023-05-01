@@ -3,7 +3,7 @@ rm -r target/
 export VERSION="NON-PRIMITIVE-1.0"
 # export VERSION="PRIMITIVE-1.0"
 mvn clean package
-scp target/transaction-analyzer-small-$VERSION.jar arjun@10.8.46.93:/home/arjun/Extended_WD/Expt/TA-Small
+scp target/transaction-analyzer-ff-$VERSION.jar arjun@10.8.46.93:/home/arjun/Extended_WD/Expt/TA-Final-Fields
 
 
 

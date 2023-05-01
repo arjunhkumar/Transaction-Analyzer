@@ -84,9 +84,7 @@ public class ValueTransaction {
 	}
 
 	public void resetFeeInfo(PaymentInfo paymentInfo) {
-		if(paymentInfo instanceof PaymentInfo) {
 			this.setFeeInfo((PaymentInfo)paymentInfo);
-		}
 	}
 
 	public void updateTransactionStatus(boolean status) {

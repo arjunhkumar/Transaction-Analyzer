@@ -9,21 +9,19 @@ package in.ac.iitmandi.compl.ds.value;
  */
 public class PaymentInfo {
 
-	private final double CustAccountBalance;
-	private final double TransactionAmount;
-	private final float TransactionFeeRate;
-	private final boolean TransactionStatus;
-//	public final double TransactionFee;
+	private final double custAccountBalance;
+	private final double transactionAmount;
+	private final float transactionFeeRate;
+	private final boolean transactionStatus;
 	
 	/**
 	 * 
 	 */
 	public PaymentInfo() {
-		this.CustAccountBalance = 0d;
-		this.TransactionAmount = 0d;
-		this.TransactionFeeRate = 0f;
-		this.TransactionStatus = false;
-//		this.TransactionFee = 0d;
+		this.custAccountBalance = 0d;
+		this.transactionAmount = 0d;
+		this.transactionFeeRate = 0f;
+		this.transactionStatus = false;
 	}
 
 	/**
@@ -36,10 +34,10 @@ public class PaymentInfo {
 	 */
 	public PaymentInfo(double custAccountBalance, double transactionAmount, float transactionFeeRate, 
 			boolean transactionStatus) {
-		CustAccountBalance = custAccountBalance;
-		TransactionAmount = transactionAmount;
-		TransactionFeeRate = transactionFeeRate;
-		TransactionStatus = transactionStatus;
+		this.custAccountBalance = custAccountBalance;
+		this.transactionAmount = transactionAmount;
+		this.transactionFeeRate = transactionFeeRate;
+		this.transactionStatus = transactionStatus;
 	}
 
 	
@@ -48,39 +46,39 @@ public class PaymentInfo {
 	 * @return the custAccountBalance
 	 */
 	public double getCustAccountBalance() {
-		return CustAccountBalance;
+		return custAccountBalance;
 	}
 
 	/**
 	 * @return the transactionAmount
 	 */
 	public double getTransactionAmount() {
-		return TransactionAmount;
+		return transactionAmount;
 	}
 
 	/**
 	 * @return the transactionFeeRate
 	 */
 	public float getTransactionFeeRate() {
-		return TransactionFeeRate;
+		return transactionFeeRate;
 	}
 
 	/**
 	 * @return the transactionStatus
 	 */
 	public boolean isTransactionStatus() {
-		return TransactionStatus;
+		return transactionStatus;
 	}
 	
 	public PaymentInfo genNewPaymentInfo(float feePercent) {
-		return new PaymentInfo(CustAccountBalance, TransactionAmount, feePercent, TransactionStatus); 
+		return new PaymentInfo(custAccountBalance, transactionAmount, feePercent, transactionStatus); 
 	}
 	
 	public PaymentInfo genNewPaymentInfo(boolean status) {
-		return new PaymentInfo(CustAccountBalance, TransactionAmount, TransactionFeeRate, status); 
+		return new PaymentInfo(custAccountBalance, transactionAmount, transactionFeeRate, status); 
 	}
 	
 	public PaymentInfo genNewPaymentInfo(float feePercent, boolean status) {
-		return new PaymentInfo(CustAccountBalance, TransactionAmount, feePercent, status); 
+		return new PaymentInfo(custAccountBalance, transactionAmount, feePercent, status); 
 	}
 }
