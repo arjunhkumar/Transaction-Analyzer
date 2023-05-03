@@ -22,15 +22,11 @@ public class ValueMain implements MainInterface{
 	public static void main(String[] args) {
 		long startTime;
 		long finishTime;
-		startTime = System.currentTimeMillis();
 		ValueMain mainObj = new ValueMain();
 		if(mainObj.validateArgs(args)) {
 			startTime = System.currentTimeMillis();
 			Dataset ds = mainObj.loadDataSet();
 			mainObj.executeAnalysis(ds);
-//			System.out.println(CommonUtils.generateLogMsg(
-//					String.format("Average time for field sum computation:"
-//							+ " %d ns", (CommonUtils.averageTime/CommonUtils.ITER_SIZE))));
 			finishTime = System.currentTimeMillis();
 			System.out.println(CommonUtils.generateLogMsg(String.format("Total execution took %d ms", finishTime - startTime)));
 		}

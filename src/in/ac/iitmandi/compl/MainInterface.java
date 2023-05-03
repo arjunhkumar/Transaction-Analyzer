@@ -131,40 +131,18 @@ public interface MainInterface {
 	default List<AbstractTransaction> updateTransactions(List<AbstractTransaction> workList, int rate) {
 		long startTime;
 		long finishTime;
-//		long i0 = 0;
-//		long i1 = 0;
-//		long i2 = 0;
-//		long i3 = 0;
 		startTime = System.currentTimeMillis();
-//		int count = 0;
 		if(null != workList && !workList.isEmpty()) {
 			for(AbstractTransaction valueTransaction : workList) {
-//				i0 = System.currentTimeMillis();
 				double transactionAmt = valueTransaction.getTransactionAmount();
 				double processingFee = transactionAmt*rate;
-//				i1 = System.currentTimeMillis();
-//				PaymentInfo pInfo = new PaymentInfo(valueTransaction.getPaymentInfo().getCustAccountBalance(),valueTransaction.getPaymentInfo().getTransactionDate(),valueTransaction.getPaymentInfo().getTransactionTime(),processingFee,valueTransaction.getPaymentInfo().getTransactionFeeRate(),false);
-//				valueTransaction.setFeeInfo(pInfo);
 				valueTransaction.resetFeeInfo(valueTransaction.createNewPaymentObject(processingFee));
-////				i2 = System.currentTimeMillis();
 				if(valueTransaction.getCustAcctBalance() >= processingFee) {
-//					count++;
 					valueTransaction.updateTransactionStatus(true);
 				}
-//				i3 = System.currentTimeMillis();
 			}
 		}
-//		System.out.println("Value Transactions count:"+count);
 		finishTime = System.currentTimeMillis();
-//		System.out.println(CommonUtils.generateLogMsg(
-//				String.format("I1 took "
-//						+ "%d ms", i1 - i0)));
-//		System.out.println(CommonUtils.generateLogMsg(
-//				String.format("I2 took "
-//						+ "%d ms", i2 - i1)));
-//		System.out.println(CommonUtils.generateLogMsg(
-//				String.format("I3 took "
-//						+ "%d ms", i3 - i2)));
 		CommonUtils.printLog(
 				String.format("Updating transactions took "
 						+ "%d ms", finishTime - startTime));

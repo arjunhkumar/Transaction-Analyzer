@@ -9,7 +9,7 @@ import in.ac.iitmandi.compl.ds.AbstractPayment;
  * @author arjun
  *
  */
-public primitive class PaymentInfo extends AbstractPayment {
+public class PaymentInfo extends AbstractPayment {
 
 	private final double CustAccountBalance;
 	private final int TransactionDate;
@@ -17,7 +17,6 @@ public primitive class PaymentInfo extends AbstractPayment {
 	private final double TransactionAmount;
 	private final float TransactionFeeRate;
 	private final boolean TransactionStatus;
-//	public final double TransactionFee;
 	
 	/**
 	 * 
@@ -29,7 +28,6 @@ public primitive class PaymentInfo extends AbstractPayment {
 		this.TransactionAmount = 0d;
 		this.TransactionFeeRate = 0f;
 		this.TransactionStatus = false;
-//		this.TransactionFee = 0d;
 	}
 
 	/**
@@ -106,9 +104,5 @@ public primitive class PaymentInfo extends AbstractPayment {
 	public PaymentInfo genNewPaymentInfo(float feePercent, boolean status) {
 		return new PaymentInfo(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, feePercent, status); 
 	}
-	
-//	public PaymentInfo genNewPaymentInfo(double fee, boolean status) {
-//		return new PaymentInfo(CustAccountBalance, TransactionDate, TransactionTime, TransactionAmount, TransactionFeeRate, status,fee); 
-//	}
 	
 }
