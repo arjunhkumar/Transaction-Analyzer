@@ -7,11 +7,14 @@ package in.ac.iitmandi.compl.ds.value;
  * @author arjun
  *
  */
-public class PaymentInfo {
+public primitive class PaymentInfo {
 
 	private double transactionAmount;
 	private float transactionFeeRate;
 	private boolean transactionStatus;
+	private double dummyField1;
+	private double dummyField2;
+	private double dummyField3;
 	
 	/**
 	 * 
@@ -20,6 +23,9 @@ public class PaymentInfo {
 		this.transactionAmount = 0d;
 		this.transactionFeeRate = 0f;
 		this.transactionStatus = false;
+		this.dummyField1 = 0d;
+		this.dummyField2 = 0d;
+		this.dummyField3 = 0d;
 	}
 
 	/**
@@ -31,9 +37,12 @@ public class PaymentInfo {
 	 * @param transactionStatus
 	 */
 	public PaymentInfo(double amount, float feeRate, boolean status) {
-		transactionFeeRate = feeRate;
-		transactionStatus = status;
-		transactionAmount = amount;
+		this.transactionFeeRate = feeRate;
+		this.transactionStatus = status;
+		this.transactionAmount = amount;
+		this.dummyField1 = amount + 6d ;
+		this.dummyField2 = amount * 6d ;
+		this.dummyField3 = amount - 6d ;
 	}
 	
 	/**
@@ -68,4 +77,28 @@ public class PaymentInfo {
 	public PaymentInfo genNewPaymentInfo(float feePercent, boolean status) {
 		return new PaymentInfo(transactionAmount, feePercent, status); 
 	}
+
+	/**
+	 * @return the dummyField1
+	 */
+	public double getDummyField1() {
+		return dummyField1;
+	}
+
+	/**
+	 * @return the dummyField2
+	 */
+	public double getDummyField2() {
+		return dummyField2;
+	}
+
+	/**
+	 * @return the dummyField3
+	 */
+	public double getDummyField3() {
+		return dummyField3;
+	}
+	
+	
+	
 }

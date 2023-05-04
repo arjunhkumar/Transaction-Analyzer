@@ -24,16 +24,18 @@ public class ValueMain{
 		long startTime;
 		long finishTime;
 		if(CommonUtils.validateArgs(args)) {
+			CommonUtils.createOutFile();
 			startTime = System.currentTimeMillis();
 			Dataset ds = CommonUtils.loadDataSet();
 			ValueMain mainObj = new ValueMain();
-			mainObj.executeAnalysis(ds);
+			long analysisTime = mainObj.executeAnalysis(ds);
 			finishTime = System.currentTimeMillis();
-			System.out.println(CommonUtils.generateLogMsg(String.format("Total execution took %d ms", finishTime - startTime)));
+//			System.out.println(CommonUtils.generateLogMsg(String.format("Total execution took %d ms", finishTime - startTime)));
+			CommonUtils.writeToOutFile(analysisTime, finishTime - startTime);
 		}
 	}
 	
-	public void executeAnalysis(Dataset ds) {
+	public long executeAnalysis(Dataset ds) {
 		long startTime;
 		long finishTime;
 		List<ValueTransaction> valueList = convertToTransaction(ds);
@@ -44,7 +46,8 @@ public class ValueMain{
 		}
 		System.out.println("Final value: "+sum);
 		finishTime = System.currentTimeMillis();
-		System.out.println(CommonUtils.generateLogMsg(String.format("Analysis execution took %d ms", finishTime - startTime)));
+//		System.out.println(CommonUtils.generateLogMsg(String.format("Analysis execution took %d ms", finishTime - startTime)));
+		return finishTime - startTime;
 	}
 	
 	public List<ValueTransaction> convertToTransaction(Dataset ds) {

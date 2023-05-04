@@ -4,7 +4,14 @@
 package in.ac.iitmandi.compl.utils;
 
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.File;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import com.google.gson.Gson;
 
@@ -22,6 +29,7 @@ public class CommonUtils {
 	private static final String PREPENDERRORVAL = "Error : ";
 	private static final String PREPENDLOGVAL = "Log : ";
 	public static final CommonUtils INSTANCE = new CommonUtils();
+	public static final String OUT_FILE_PATH = "./out/out.log";
 	
 	public static boolean debugMode = false;
 	
@@ -83,6 +91,33 @@ public class CommonUtils {
 			e.printStackTrace();
 		} 
         return ds;
+	}
+	
+	public static void writeToOutFile(long analysisTime, long execTime) {
+		File file = new File(OUT_FILE_PATH);
+		try(BufferedWriter output = new BufferedWriter(new FileWriter(file,true))){
+			try(PrintWriter writer = new PrintWriter(output, true)){
+				writer.write(analysisTime+"\t"+execTime+"\n");
+			}
+		} catch (IOException e) {
+			System.out.println("File :"+OUT_FILE_PATH+" could not be opened.");
+		}
+	}
+
+	/**
+	 * 
+	 */
+	public static void createOutFile() {
+		Path path = Paths.get(OUT_FILE_PATH);
+		File file = new File(OUT_FILE_PATH);
+        if (!file.exists()) {
+            try {
+            	Files.createDirectories(path.getParent()); 
+				Files.createFile(path);
+			} catch (IOException e) {
+				System.out.println("File :"+OUT_FILE_PATH+" could not be created.");
+			}
+        }
 	}
 	
 }
