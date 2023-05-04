@@ -16,6 +16,9 @@ public class ValueTransaction {
 	private CustomerDetails custDetails;
 	private TransactionInfo paymentInfo;
 	private PaymentInfo feeInfo;
+	private DummyInlineClassInt dummyField;
+	
+	
 	/**
 	 * 
 	 */
@@ -24,6 +27,7 @@ public class ValueTransaction {
 		this.custDetails = new CustomerDetails();
 		this.paymentInfo = new TransactionInfo();
 		this.feeInfo = new PaymentInfo();
+		this.dummyField = new DummyInlineClassInt();
 	}
 
 	/**
@@ -37,6 +41,7 @@ public class ValueTransaction {
 		this.custDetails = custDetails;
 		this.paymentInfo = transInfo;
 		this.feeInfo = payInfo;
+		this.dummyField = new DummyInlineClassInt(4,9,2);
 	}
 	
 	public double getTransactionAmount() {
@@ -139,6 +144,20 @@ public class ValueTransaction {
 	 */
 	public void setFeeInfo(PaymentInfo feeInfo) {
 		this.feeInfo = feeInfo;
+	}
+
+	/**
+	 * @return the dummyField
+	 */
+	public DummyInlineClassInt getDummyField() {
+		return dummyField;
+	}
+
+	/**
+	 * @param dummyField the dummyField to set
+	 */
+	public void setDummyField(DummyInlineClassInt dummyField) {
+		this.dummyField = dummyField;
 	}
 
 }
