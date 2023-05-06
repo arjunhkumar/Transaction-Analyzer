@@ -16,7 +16,8 @@ public class ValueTransaction {
 	private CustomerDetails custDetails;
 	private TransactionInfo paymentInfo;
 	private PaymentInfo feeInfo;
-	private DummyInlineClassInt dummyField;
+	private DummyInlineClassInt dummyField0;
+	private DummyInlineClassDouble dummyField1;
 	
 	
 	/**
@@ -27,7 +28,8 @@ public class ValueTransaction {
 		this.custDetails = new CustomerDetails();
 		this.paymentInfo = new TransactionInfo();
 		this.feeInfo = new PaymentInfo();
-		this.dummyField = new DummyInlineClassInt();
+		this.dummyField0 = new DummyInlineClassInt();
+		this.dummyField1 = new DummyInlineClassDouble();
 	}
 
 	/**
@@ -41,7 +43,8 @@ public class ValueTransaction {
 		this.custDetails = custDetails;
 		this.paymentInfo = transInfo;
 		this.feeInfo = payInfo;
-		this.dummyField = new DummyInlineClassInt(4,9,2);
+		this.dummyField0 = new DummyInlineClassInt(4,9,2);
+		this.dummyField1 = new DummyInlineClassDouble(54d,19d,25d);
 	}
 	
 	public double getTransactionAmount() {
@@ -147,17 +150,44 @@ public class ValueTransaction {
 	}
 
 	/**
-	 * @return the dummyField
+	 * @return the dummyField0
 	 */
-	public DummyInlineClassInt getDummyField() {
-		return dummyField;
+	public DummyInlineClassInt getDummyField0() {
+		return dummyField0;
 	}
 
 	/**
-	 * @param dummyField the dummyField to set
+	 * @param dummyField0 the dummyField0 to set
 	 */
-	public void setDummyField(DummyInlineClassInt dummyField) {
-		this.dummyField = dummyField;
+	public void setDummyField0(DummyInlineClassInt dummyField0) {
+		this.dummyField0 = dummyField0;
 	}
 
+	/**
+	 * @return the dummyField1
+	 */
+	public DummyInlineClassDouble getDummyField1() {
+		return dummyField1;
+	}
+
+	/**
+	 * @param dummyField1 the dummyField1 to set
+	 */
+	public void setDummyField1(DummyInlineClassDouble dummyField1) {
+		this.dummyField1 = dummyField1;
+	}
+
+	public double getSum() {
+		TransactionInfo tInfo = this.paymentInfo;
+		DummyInlineClassDouble dummyField = this.dummyField1;
+		double sum = tInfo.getCustAccountBalance();
+		sum += dummyField.getX1();
+		sum += tInfo.getTransactionAmount();
+		sum += dummyField.getZ2();
+		sum += dummyField0.getX();
+		sum += dummyField1.getX3();
+		return sum;
+	}
+
+	
 }

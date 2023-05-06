@@ -75,7 +75,8 @@ public class ValueMain{
 		double avgTransactionAmt = computeAverageTransactionAmount(valueList)/divident;
 		double avgProcessingFee = computeAverageProcessingFee(valueList,divident/CommonUtils.ITER_SIZE);
 		int numberOfCustomers = computeNumberOfCustomers(updateTransactions(valueList,divident/CommonUtils.ITER_SIZE));
-		blackHole =  avgTransactionAmt + avgProcessingFee + numberOfCustomers;
+		double randomSum = computeFieldSum(valueList);
+		blackHole =  avgTransactionAmt + avgProcessingFee + numberOfCustomers + randomSum;
 		return blackHole;
 	}
 	
@@ -156,6 +157,25 @@ public class ValueMain{
 					String.format("Customer computation took "
 							+ "%d ms", finishTime - startTime));
 			return noOfCustomers;
+		}
+		return 0;
+	}
+	
+	private double computeFieldSum(List<ValueTransaction> valueList) {
+		long startTime;
+		long finishTime;
+		startTime = System.currentTimeMillis();
+		if(null != valueList && !valueList.isEmpty()) {
+			double sum = 0;
+			for(ValueTransaction valueTransaction : valueList) {
+				double transactionAmt = valueTransaction.getSum();
+				sum += transactionAmt;
+			}
+			finishTime = System.currentTimeMillis();
+			CommonUtils.printLog(
+					String.format("Average Transaction Amount computation took "
+							+ "%d ms", finishTime - startTime));
+			return sum/valueList.size();
 		}
 		return 0;
 	}
