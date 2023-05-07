@@ -13,9 +13,9 @@ public primitive class DummyInlineClassInt {
 	 * 
 	 */
 	
-	private int x;
-	private int y;
-	private int z;
+	private final int x;
+	private final int y;
+	private final int z;
 	
 	public DummyInlineClassInt() {
 		this.x = 4;

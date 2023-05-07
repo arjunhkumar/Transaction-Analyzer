@@ -1,10 +1,10 @@
 package in.ac.iitmandi.compl.ds.value;
 
-public primitive class TransactionInfo {
+public primitive  class TransactionInfo {
 
 	
-	private double custAccountBalance;
-	private double transactionAmount;
+	private final double custAccountBalance;
+	private final double transactionAmount;
 //	private double dummyField1;
 //	private double dummyField2;
 //	private double dummyField3;

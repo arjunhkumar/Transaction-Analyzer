@@ -7,11 +7,11 @@ package in.ac.iitmandi.compl.ds.value;
  * @author arjun
  *
  */
-public primitive class PaymentInfo {
+public primitive  class PaymentInfo {
 
-	private double transactionAmount;
-	private float transactionFeeRate;
-	private boolean transactionStatus;
+	private final double transactionAmount;
+	private final float transactionFeeRate;
+	private final boolean transactionStatus;
 //	private double dummyField1;
 //	private double dummyField2;
 //	private double dummyField3;
