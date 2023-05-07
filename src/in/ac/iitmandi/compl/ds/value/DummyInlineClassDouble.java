@@ -25,6 +25,15 @@ public primitive class DummyInlineClassDouble {
 	private double x3;
 	private double y3;
 	private double z3;
+	private double x4;
+	private double y4;
+	private double z4;
+	private double x5;
+	private double y5;
+	private double z5;
+	private double x6;
+	private double y6;
+	private double z6;
 	
 	public DummyInlineClassDouble() {
 		this.x = 4;
@@ -39,6 +48,15 @@ public primitive class DummyInlineClassDouble {
 		this.x3 = 4;
 		this.y3 = 7;
 		this.z3 = 9;
+		this.x4 = 4;
+		this.y4 = 7;
+		this.z4 = 9;
+		this.x5 = 4;
+		this.y5 = 7;
+		this.z5 = 9;
+		this.x6 = 4;
+		this.y6 = 7;
+		this.z6 = 9;
 	}
 
 	/**
@@ -59,6 +77,15 @@ public primitive class DummyInlineClassDouble {
 		this.x3 = 4;
 		this.y3 = 7;
 		this.z3 = 9;
+		this.x4 = 4;
+		this.y4 = 7;
+		this.z4 = 9;
+		this.x5 = 4;
+		this.y5 = 7;
+		this.z5 = 9;
+		this.x6 = 4;
+		this.y6 = 7;
+		this.z6 = 9;
 	}
 
 	/**
@@ -143,6 +170,69 @@ public primitive class DummyInlineClassDouble {
 	 */
 	public double getZ3() {
 		return z3;
+	}
+
+	/**
+	 * @return the x4
+	 */
+	public double getX4() {
+		return x4;
+	}
+
+	/**
+	 * @return the y4
+	 */
+	public double getY4() {
+		return y4;
+	}
+
+	/**
+	 * @return the z4
+	 */
+	public double getZ4() {
+		return z4;
+	}
+
+	/**
+	 * @return the x5
+	 */
+	public double getX5() {
+		return x5;
+	}
+
+	/**
+	 * @return the y5
+	 */
+	public double getY5() {
+		return y5;
+	}
+
+	/**
+	 * @return the z5
+	 */
+	public double getZ5() {
+		return z5;
+	}
+
+	/**
+	 * @return the x6
+	 */
+	public double getX6() {
+		return x6;
+	}
+
+	/**
+	 * @return the y6
+	 */
+	public double getY6() {
+		return y6;
+	}
+
+	/**
+	 * @return the z6
+	 */
+	public double getZ6() {
+		return z6;
 	}
 
 }
