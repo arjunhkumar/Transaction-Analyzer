@@ -44,7 +44,7 @@ public class ValueTransaction {
 		this.paymentInfo = transInfo;
 		this.feeInfo = payInfo;
 		this.dummyField0 = new DummyInlineClassInt(4,9,2);
-		this.dummyField1 = new DummyInlineClassDouble(54d,19d,25d);
+		this.dummyField1 =  new DummyInlineClassDouble();
 	}
 	
 	public double getTransactionAmount() {
@@ -182,13 +182,13 @@ public class ValueTransaction {
 		DummyInlineClassDouble dummyField = this.dummyField1;
 		double sum = tInfo.getCustAccountBalance();
 		sum += tInfo.getTransactionAmount();
-		sum += dummyField.getX1();
-		sum += dummyField.getZ2();
+		sum += dummyField.getArr()[0];
+		sum += dummyField.getArr()[5];
 		sum += dummyField0.getX();
-		sum += dummyField1.getX1();
-		sum += dummyField1.getZ5();
-		sum += dummyField1.getX3();
-		sum += dummyField1.getY6();
+		sum += dummyField1.getArr()[10];
+		sum += dummyField1.getArr()[20];
+		sum += dummyField1.getArr()[30];
+		sum += dummyField1.getArr()[40];
 		return sum;
 	}
 
