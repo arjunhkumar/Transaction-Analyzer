@@ -7,17 +7,18 @@ package in.ac.iitmandi.compl.ds.value;
  * @author arjun
  *
  */
-public class DummyInlineClassDouble {
+public primitive class DummyInlineClassDouble {
 
 	/**
 	 * 
 	 */
 	
 	private final float[] arr;
+	private final int SIZE = 1000;
 	
 	public DummyInlineClassDouble() {
-		arr = new float[100];
-		for(int k=0;k<100;k++) {
+		arr = new float[SIZE];
+		for(int k=0;k<SIZE;k++) {
 			this.arr[k] = k;
 		}
 	}
@@ -29,4 +30,12 @@ public class DummyInlineClassDouble {
 		return arr;
 	}
 
+	public long getFieldSum() {
+		long sum = 0;
+		for(int k=SIZE-1;k>=0;--k) {
+			sum +=this.arr[k];
+		}
+		return sum;
+	}
+	
 }

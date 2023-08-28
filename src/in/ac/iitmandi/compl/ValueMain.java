@@ -96,7 +96,6 @@ public class ValueMain{
 							+ "%d ms", finishTime - startTime));
 			return sum/valueList.size();
 		}
-		
 		return 0;
 	}
 	

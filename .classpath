@@ -6,8 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/arjun/WD/WS/Transaction-Analayzer/Transaction_Perf_Analyzer/lib/gson-2.8.5.jar"/>
-	<classpathentry kind="lib" path="/home/arjun/WD/WS/Transaction-Analayzer/Transaction_Perf_Analyzer/lib/jmh-generator-annprocess-1.36.jar"/>
-	<classpathentry kind="lib" path="/home/arjun/WD/WS/Transaction-Analayzer/Transaction_Perf_Analyzer/lib/jmh-core-1.36.jar"/>
+	<classpathentry kind="lib" path="/home/arjun/WD/WS/Transaction-Analyzer/Transaction_Perf_Analyzer/lib/gson-2.8.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

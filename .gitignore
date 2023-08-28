@@ -21,9 +21,10 @@ target/
 # Eclipse
 *.project
 .settings/
+.classpath
 
 # Package Files #
-*.jar
+# *.jar
 *.war
 *.nar
 *.ear

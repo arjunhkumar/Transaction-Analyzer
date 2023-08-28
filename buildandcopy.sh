@@ -1,9 +1,9 @@
 #!/bin/bash
 rm -r target/
-export VERSION="NON-PRIMITIVE-1.0"
-#export VERSION="PRIMITIVE-1.0"
+#export VERSION="NON-PRIMITIVE-1.0"
+export VERSION="PRIMITIVE-1.0"
 mvn clean package
-scp target/transaction-analyzer-expt1-$VERSION.jar arjun@10.8.46.93:/home/arjun/Extended_WD/Expt/TA-Expt1
+scp target/transaction-analyzer-$VERSION.jar arjun@10.8.46.93:/home/arjun/Extended_WD/Expt/TA
 
 
 

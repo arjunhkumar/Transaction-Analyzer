@@ -179,18 +179,10 @@ public class ValueTransaction {
 
 	public double getSum() {
 		TransactionInfo tInfo = this.paymentInfo;
-		DummyInlineClassDouble dummyField = this.dummyField1;
 		double sum = tInfo.getCustAccountBalance();
 		sum += tInfo.getTransactionAmount();
-		sum += dummyField.getArr()[0];
-		sum += dummyField.getArr()[5];
-		sum += dummyField0.getX();
-		sum += dummyField1.getArr()[10];
-		sum += dummyField1.getArr()[20];
-		sum += dummyField1.getArr()[30];
-		sum += dummyField1.getArr()[40];
+		sum += this.getDummyField1().getFieldSum();
 		return sum;
 	}
-
 	
 }

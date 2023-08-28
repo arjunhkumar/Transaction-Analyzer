@@ -1,6 +1,6 @@
 package in.ac.iitmandi.compl.ds.value;
 
-public primitive  class TransactionInfo {
+public primitive class TransactionInfo {
 
 	
 	private final double custAccountBalance;

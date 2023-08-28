@@ -7,7 +7,7 @@ package in.ac.iitmandi.compl.ds.value;
  * @author arjun
  *
  */
-public primitive  class PaymentInfo {
+public primitive class PaymentInfo {
 
 	private final double transactionAmount;
 	private final float transactionFeeRate;
